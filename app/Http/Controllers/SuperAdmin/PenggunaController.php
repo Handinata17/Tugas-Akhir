@@ -36,7 +36,7 @@ class PenggunaController extends Controller
     public function edit($id)
     {
         $pengguna = Pengguna::find($id);
-        $organisasi = Organisasi::orderBy('nama','ASC')->get();
+        $organisasi = Pengguna::orderBy('nama','ASC')->get();
 
         // dd($pengguna);   
         return view('pages.superadmin.pengguna.edit', compact('pengguna','organisasi'));
@@ -54,5 +54,11 @@ class PenggunaController extends Controller
         return redirect()->route('pengguna');
     }
 
+    public function destroy($id)
+    {
+        $pengguna = Pengguna::find($id);
+        $pengguna->delete();
+        return redirect()->route('pengguna');
+    }
 
 }

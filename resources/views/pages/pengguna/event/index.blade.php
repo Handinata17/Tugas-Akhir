@@ -60,7 +60,7 @@
             <!--  Modal content for the above example -->
         
             <!-- /.modal -->
-            <footer class="footer text-center text-sm-left">&copy; 2019 - 2020 Metrica <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span></footer>
+            <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->
         </div>
         <!-- end page content -->

@@ -47,7 +47,7 @@
                                             <td>{{$data->jabatan}}</td>
                                     
                                             <td><a href="{{route('edit.pengguna', $data->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
-                                            <a href=""><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <a href="{{route('destroy.pengguna', $data->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>

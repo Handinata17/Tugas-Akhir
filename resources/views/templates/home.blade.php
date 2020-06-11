@@ -8,11 +8,11 @@
     <!-- Left Sidenav -->
     <div class="left-sidenav">
         <!-- LOGO -->
-        <div class="topbar-left"><a href="../dashboard/crm-index.html" class="logo"><span><img src="{{asset('template/images/logo-sm.png')}}" alt="logo-small" class="logo-sm"> </span><span><img src="{{asset('template/images/logo.png')}}" alt="logo-large" class="logo-lg logo-light"> <img src="{{asset('template/images/logo-dark.png')}}" alt="logo-large" class="logo-lg logo-dark"></span></a></div>
+        <div class="topbar-left"><a href="../dashboard/crm-index.html" class="logo"><span><img src="{{asset('template/images/phb.png')}}" alt="logo-small" class="logo-sm"> </span><span><img src="{{asset('template/images/ormawa.png')}}" alt="logo-large" class="logo-lg logo-light"> <img src="{{asset('template/images/ormawa.png')}}" alt="logo-large" class="logo-lg logo-dark"></span></a></div>
         <!--end logo-->
         <div class="leftbar-profile p-3 w-100">
             <div class="media position-relative">
-                <div class="leftbar-user online"><img src="{{asset('template/images/users/user-9.jpg')}}" alt="" class="thumb-md rounded-circle"></div>
+                <div class="leftbar-user online"><img src="{{asset('template/images/users/user.png')}}" alt="" class="thumb-md rounded-circle"></div>
                 <div class="media-body align-self-center text-truncate ml-3">
                     <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->nama}}</h5>
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->organisasi}}</p>

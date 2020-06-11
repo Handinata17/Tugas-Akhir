@@ -27,7 +27,7 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Open Recruitment</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan, disertakan dengan uploud file yang sudah di tetapkan</p>
-                                <!-- <form class="form-parsley" method="POST" action="{{route('eventbpm.store')}}" enctype="multipart/form-data"> -->
+                                <!-- <form class="form-parsley" method="POST" action="{{route('event.store')}}" enctype="multipart/form-data"> -->
                                 <!-- @csrf -->
                                 <form class="form-parsley" action="#">
                                     <div class="form-group">

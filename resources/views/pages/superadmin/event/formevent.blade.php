@@ -27,7 +27,7 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
-                                <form class="form-parsley" method="POST" action="{{route('eventbpm.store')}}" enctype="multipart/form-data">
+                                <form class="form-parsley" method="POST" action="{{route('store.event')}}" enctype="multipart/form-data">
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Event</label>

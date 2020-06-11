@@ -42,8 +42,8 @@
                                             <td>{{$data->deskripsi}}</td>
                                             <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$data->proposal}}'">Download</button> </td>
                                             <td>{{$data->perbaikan}}</td>
-                                            <td><a href="{{route('eventbpm.edit', $data->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
-                                            <a href="{{route('eventbpm.destroy', $data->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <td><a href="{{route('edit.event', $data->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
+                                            <a href="{{route('destroy.event', $data->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr> --}}
                                     
                                     </tbody>

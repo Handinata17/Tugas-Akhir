@@ -8,7 +8,7 @@
     <meta content="A premium admin dashboard template by Mannatthemes" name="description">
     <meta content="Mannatthemes" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('template/images/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('template/images/phb.png')}}">
     <!-- App css -->
     <link href="{{asset('template/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('template/css/icons.css')}}" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="px-3">
                                 <div class="auth-logo-box">
-                                    <a href="{{asset('template/css/dashboard/analytics-index.html')}}" class="logo logo-admin"><img src="../assets/images/logo-sm.png" height="55" alt="logo" class="auth-logo"></a>
+                                    <a href="{{asset('template/css/dashboard/analytics-index.html')}}" class="logo logo-admin"><img src="{{asset('public/template/images/phb3.png')}}" height="55" alt="logo" class="auth-logo"></a>
                                 </div>
                                 <!--end auth-logo-box-->
                                 <div class="text-center auth-logo-text">

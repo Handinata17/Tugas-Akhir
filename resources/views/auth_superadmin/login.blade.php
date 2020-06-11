@@ -8,7 +8,7 @@
     <meta content="A premium admin dashboard template by Mannatthemes" name="description">
     <meta content="Mannatthemes" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('public/template/images/logo-sm.png')}}">
+    <link rel="shortcut icon" href="{{asset('public/template/images/phb.png')}}">
     <!-- App css -->
     <link href="{{asset('template/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('template/css/icons.css')}}" rel="stylesheet" type="text/css">

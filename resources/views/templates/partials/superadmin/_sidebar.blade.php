@@ -25,4 +25,4 @@
             <li>
 
 
-            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('organisasi')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Organisasi</i></a></li>
+            <!-- <li class="leftbar-menu-item"><a class="nav-link" href="{{route('organisasi')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Organisasi</i></a></li> -->

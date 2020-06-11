@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Event;
 use App\Pengguna;
+use App\Proker;
 use Auth;
 
 class EventController extends Controller
@@ -24,7 +25,11 @@ class EventController extends Controller
     }
 
     public function create(){
-        return view('pages.pengguna.event.create');
+        $pengguna = Auth::user();
+        $prokers = Proker::where('organisasi',$pengguna->organisasi)->where('keterangan',$pengguna->keterangan)
+        ->where('status', false)->get();
+        
+        return view('pages.pengguna.event.create', compact('prokers'));
     }
 
     public function store(Request $request)

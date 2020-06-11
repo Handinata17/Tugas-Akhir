@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>saastec Html Template</title>
+<title>Ormawa</title>
 
 <link rel="stylesheet" href="{{ asset ('landing_page/css/animate.css') }}">
 <link rel="stylesheet" href="{{ asset ('landing_page/css/bootstrap.min.css') }}">
@@ -27,7 +27,7 @@
 <div class="row">
 <div class="col-lg-3 col-md-3 w-50">
 <a href="index.html" class="header-logo">
-<img src="{{ asset ('landing_page/image/logo.png') }}" alt="">
+<img src="{{ asset ('landing_page/image/phb2.png') }}" alt="">
 </a>
 </div>
 <div class="col-lg-9 col-md-9 w-50 t-right">
@@ -37,8 +37,8 @@
 <div class="mainmenu">
 <nav>
 <ul>
-<li><a href="#home">Home +</a>
-<ul>
+<li><a href="#home">Home</a>
+<!-- <ul>
 <li><a href="index.html" class="active">Home 1</a></li>
 <li><a href="home-2.html">Home 2</a></li>
 <li><a href="home-3.html">Home 3</a></li>
@@ -48,17 +48,18 @@
 <li><a href="home-7.html">Home 7</a></li>
 <li><a href="home-8.html">Home 8</a></li>
 <li><a href="home-9.html">Home 9</a></li>
-</ul>
+</ul> -->
 </li>
-<li><a class="nav-link" href="#">Service</a></li>
-<li><a class="nav-link" href="#features">Features</a></li>
+<li><a class="nav-link" href="#">Recruitment</a></li>
+<li><a class="nav-link" href="#features">Event</a></li>
+<li><a class="nav-link" href="#testimonial">Dana RAB</a></li>
 <li><a href="#">Login</a>
 <ul>
 <li><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></li>
 <li><a href="{{route('superadmin.login')}}">Admin</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#testimonial">Testimonial</a></li>
+
 </ul>
 </nav>
 </div>
@@ -73,16 +74,16 @@
 <div class="container">
 <div class="row aic">
 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
-<span class="h-icon mdi mdi-equalizer"></span>
+<!-- <span class="h-icon mdi mdi-equalizer"></span> -->
 <h2>Organisasi Mahasiswa</h2> <h2>Politeknik Harapan Bersama</span></h2>
 </div>
 <div class="col-lg-5 text-right col-md-12 wow fadeInUp" data-wow-delay="0.4s">
 <!-- <div class="hero-img"> -->
-<div class="waves-block">
+<!-- <div class="waves-block">
 <div class="waves wave-1"></div>
 <div class="waves wave-2"></div>
 <div class="waves wave-3"></div>
-</div>
+</div> -->
 <img src="{{ asset ('landing_page/image/phb.png') }}" alt="">
 <!-- <img src="{{ asset ('landing_page/image/Path-2.png') }}" alt="" class="path-1-img">
 <img src="{{ asset ('landing_page/image/Path-1.png') }}" alt="" class="path-1-img path-2-img">
@@ -604,7 +605,7 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-6 col-md-6 col-sm-12 tc">
-<p>All Right Reserved by Cre8ive Copyright ©2019</p>
+<p>ORMAWA KMPHB</p>
 </div>
 <div class="col-lg-6 col-md-6 col-sm-12 tc">
 <div class="copyright-section">

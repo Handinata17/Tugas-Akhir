@@ -27,50 +27,51 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
-                                <form class="form-parsley" method="POST" action="{{route('store.event')}}" enctype="multipart/form-data">
+                                <form class="form-parsley" method="POST" action="{{route('update.eventlain', $eventlain->id)}}" enctype="multipart/form-data">
+                                    @method('PUT')
                                 @csrf
-                                <div class="form-group">
-                                    <label for="">Proker</label>
-                                    <select name="" id="">
-                                        @foreach($prokers as $proker)
-                                            <option value="">{{$proker->nama_event}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
                                     <div class="form-group">
                                         <label>Nama Event</label>
-                                        <input type="text" class="form-control" name="nama_event" placeholder="Type something">
+                                        <input type="text" class="form-control" value="{{$event->nama_event}}" name="nama_event" placeholder="Type something">
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$event->tanggal_mulai}}" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$event->tanggal_selesai}}" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tempat</label>
                                             <div class="col-sm-15">
-                                                <select class="form-control" name="tempat">
-                                                    <option>Kampus</option>
-                                                    <option>Luar Kampus</option>
+                                                <select class="form-control"  name="tempat">
+                                                    <option value="{{$event->tempat}}" 
+                                                     @if($event->tempat === 'Kmpus')
+                                                     selected
+                                                     @endif
+                                                        >Kampus</option>
+                                                    <option value="{{$event->tempat}}"
+                                                    @if($event->tempat === 'Kmpus')
+                                                     selected
+                                                     @endif
+                                                        >Luar Kampus</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                         <label>Deskripsi</label>
-                                        <input type="text" class="form-control" name="deskripsi" placeholder="Type something">
+                                        <input type="text" class="form-control" value="{{$event->deskripsi}}" name="deskripsi" placeholder="Type something">
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal"   accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" value="{{$event->proposal}}" name="proposal" accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Uploud Lpj</label>

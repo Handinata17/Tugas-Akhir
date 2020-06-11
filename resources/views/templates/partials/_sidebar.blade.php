@@ -10,6 +10,23 @@
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{route('create.event')}}"><i class="ti-control-record"></i>Membuat Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('event')}}"><i class="ti-control-record"></i>Data Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('eventlain')}}"><i class="ti-control-record"></i>Event Lain</a></li>
+                    </ul>
+            </li>
+
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Status Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Proses Perijinan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sedang dilaksanakan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sudah dilaksanakan</a></li>
+
+                    </ul>
+            </li>
+
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>RAB</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Form RAB</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Data RAB</a></li>
 
                     </ul>
             </li>
@@ -29,10 +46,37 @@
                     </ul>
             </li>
 
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Proker</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('create.proker')}}"><i class="ti-control-record"></i>Input Proker</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('proker')}}"><i class="ti-control-record"></i>Data Proker</a></li>
+
+                    </ul>
+            </li>
+            
+
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{route('create.event')}}"><i class="ti-control-record"></i>Membuat Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('event')}}"><i class="ti-control-record"></i>Data Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('eventlain')}}"><i class="ti-control-record"></i>Event Lain</a></li>
+
+                    </ul>
+            </li>
+
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Status Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Proses Perijinan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sedang dilaksanakan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sudah dilaksanakan</a></li>
+
+                    </ul>
+            </li>
+
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>RAB</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Form RAB</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Data RAB</a></li>
 
                     </ul>
             </li>

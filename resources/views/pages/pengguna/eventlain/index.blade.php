@@ -1,29 +1,27 @@
 @extends('templates.home')
 
 @section('sidebar')
-    @include('templates.partials.adminbpm._sidebar')
+    @include('templates.partials._sidebar')
 @endsection
 
 @section('content')
 
 
-                <!-- <li class="hide-phone app-search"> -->
-                    <!-- <form role="search" class=""> -->
-                        <!-- <input type="text" id="AllCompo" placeholder="Search..." class="form-control"> <a href=""><i class="fas fa-search"></i></a></form> -->
-                        <!-- </li> -->
+                
                 <div class="page-wrapper">
-                <h4 class="page-title">Data Event</h4></div>
+                <h4 class="page-title">Data Event Lain</h4></div>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Data List</h4>
-                                <p class="text-muted mb-4 font-13">Data Event</p>
+                                <p class="text-muted mb-4 font-13">Data Event Lain</p>
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
                                             <th>No</th>
                                             <th>Nama Event</th>
+                                            <th>Pembuat</th>
                                             <th>Tanggal Mulai</th>
                                             <th>Tanggal Selesai</th>
                                             <th>Deskripsi</th>
@@ -33,19 +31,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($datas as $data)
+                                    @foreach($events as $event)
+                                        @if($event->pengguna->organisasi === Auth::user()->organisasi)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$data->nama_event}}</td>
-                                            <td>{{$data->tanggal_mulai}}</td>
-                                            <td>{{$data->tanggal_Selesai}}</td>
-                                            <td></td>
-                                            <td>{{$data->deskripsi}}</td>
-                                            <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$data->proposal}}'">Download</button> </td>
-                                            <td>{{$data->perbaikan}}</td>
-                                            <td><a href="{{route('edit.events', $data->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
-                                            <a href="{{route('destroy.events', $data->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <td>{{$event->nama_event}}</td>
+                                            <td>{{$event->pengguna->nama}}</td>
+                                            <td>{{$event->tanggal_mulai}}</td>
+                                            <td>{{$event->tanggal_selesai}}</td>
+                                            <td>{{$event->deskripsi}}</td>
+                                            <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$eventlain->proposal}}'">Download</button> </td>
+                                            <td>{{$event->perbaikan}}</td>
+                                            <td><a href="{{route('edit.eventlain', $eventlain->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
+                                            <a href="{{route('destroy.eventlain', $eventlain->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>
+                                        @endif
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -60,7 +60,7 @@
             <!--  Modal content for the above example -->
         
             <!-- /.modal -->
-            <footer class="footer text-center text-sm-left">ORMAWA KMPHB</i> Politeknik Harapan Bersama</footer>
+            <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->
         </div>
         <!-- end page content -->

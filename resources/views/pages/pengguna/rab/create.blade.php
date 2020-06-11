@@ -27,16 +27,8 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
-                                <form class="form-parsley" method="POST" action="{{route('store.event')}}" enctype="multipart/form-data">
+                                <form class="form-parsley" method="POST" action="{{route('store.eventlain')}}" enctype="multipart/form-data">
                                 @csrf
-                                <div class="form-group">
-                                    <label for="">Proker</label>
-                                    <select name="" id="">
-                                        @foreach($prokers as $proker)
-                                            <option value="">{{$proker->nama_event}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
                                     <div class="form-group">
                                         <label>Nama Event</label>
                                         <input type="text" class="form-control" name="nama_event" placeholder="Type something">
