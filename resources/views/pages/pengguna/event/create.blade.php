@@ -31,12 +31,36 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Proker</label>
-                                    <select name="" id="">
+                                    <select name="" class="form-control proker" id="proker">
                                         @foreach($prokers as $proker)
-                                            <option value="">{{$proker->nama_event}}</option>
+                                            <option value="{{ $proker->id }}">{{$proker->nama_event}}</option>
                                         @endforeach
                                     </select>
+                                    
+                                    <div class="card" style="display :none" id="data_proker">
+                                        <div class="card-body">
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm">
+                                                        <p id="organisasi">Organisasi : </p>
+                                                        <p id="keterangan">Keterangan : </p>
+                                                        <p id="tanggal_mulai">Tanggal Mulai : </p>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <p id="tanggal_selesai">Tanggal Selesai : </p>
+                                                        <p id="tempat">Tempat : </p>
+                                                        <p id="alokasi_dana">Alokasi Dana : </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
+
+                                
+
+
                                     <div class="form-group">
                                         <label>Nama Event</label>
                                         <input type="text" class="form-control" name="nama_event" placeholder="Type something">
@@ -99,4 +123,36 @@
                     <!-- end col -->
             
 
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function(){
+        $(".proker").on('change',function(e){
+            if($(this).val() != ''){
+                var id = e.target.value;
+                var url = '{{ route("show.proker", ":id") }}'
+                url =url.replace(':id', id)
+                $.get(url, function(data){
+                    $('#data_proker').css("display", "");
+
+                    $('#organisasi').empty()
+                    $('#keterangan').empty()
+                    $('#tanggal_mulai').empty()
+                    $('#tanggal_selesai').empty()
+                    $('#tempat').empty()
+                    $('#alokasi_dana').empty()
+
+                    $('#organisasi').append("Organisasi : "+data.organisasi)
+                    $('#keterangan').append("Keterangan : "+data.keterangan)
+                    $('#tanggal_mulai').append("Tanggal Mulai : "+data.tanggal_mulai)
+                    $('#tanggal_selesai').append("Tanggal Selesai : "+data.tanggal_selesai)
+                    $('#tempat').append("Tempat : "+data.tempat)
+                    $('#alokasi_dana').append("Alokasi Dana : "+data.alokasi_dana)
+
+                })
+            }
+        });
+    });
+</script>
 @endsection

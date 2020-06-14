@@ -63,6 +63,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/proker/{id}/edit','Pengguna\ProkerController@edit')->name('edit.proker');
     Route::put('/proker/{id}/update','Pengguna\ProkerController@update')->name('update.proker');
     Route::get('/proker/{id}', 'Pengguna\ProkerController@destroy')->name('destroy.proker');
+    Route::get('/proker/{id}/show', 'Pengguna\ProkerController@show')->name('show.proker');
 });
 
 Route::get('/formoprecbpm', function () {

@@ -67,7 +67,8 @@ class ProkerController extends Controller
      */
     public function show($id)
     {
-        //
+        $proker = Proker::findOrFail($id);
+        return $proker;
     }
 
     /**
