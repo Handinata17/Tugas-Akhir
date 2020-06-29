@@ -104,9 +104,14 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
-                
+                    <!-- /.modal -->
+                    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+                    <!--end footer-->
+                </div>
+                    <!-- end page content -->
+            </div>
                     <!-- end col -->
-            
+
 
 <script>
     const keterangan = document.querySelector('#keterangan');

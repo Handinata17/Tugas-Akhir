@@ -46,6 +46,7 @@
                                                     <option value="BPM">BPM</option>
                                                     <option value="HIMA">HIMA</option>
                                                     <option value="UKM">UKM</option>
+                                                    <option value="Wakil Direktur 3">Wakil Direktur 3</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -60,7 +61,9 @@
                                             <div class="col-sm-12">
                                                 <select class="form-control" name="jabatan">
                                                     <option value="Ketua">Ketua</option>
+                                                    <option value="Wakil">Wakil</option>
                                                     <option value="Sekretaris">Sekretaris</option>
+                                                    <option value="Bendahara">Bendahara</option>
                                                     <option value="Anggota">Anggota</option>
                                                 </select>
                                             </div>
@@ -78,6 +81,8 @@
                             <!--end card-body-->
                         </div>
                         <!--end card-->
+                        <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+                        <!--end footer-->
                     </div>
                     <!-- end col -->
                 </div>

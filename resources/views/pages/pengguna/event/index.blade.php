@@ -7,7 +7,7 @@
 @section('content')
 
 
-                
+
                 <div class="page-wrapper">
                 <h4 class="page-title">Data Event</h4></div>
                 <div class="row">
@@ -21,9 +21,12 @@
                                     <tr>
                                             <th>No</th>
                                             <th>Nama Event</th>
+                                            <th>Organisasi</th>
                                             <th>Pembuat</th>
-                                            <th>Tanggal Mulai</th>
-                                            <th>Tanggal Selesai</th>
+                                            {{-- <th>Tanggal Mulai</th>
+                                            <th>Tanggal Selesai</th> --}}
+                                            <th>Tempat</th>
+                                            <th>Alokasi Dana</th>
                                             <th>Deskripsi</th>
                                             <th>Proposal</th>
                                             <th>Perbaikan</th>
@@ -35,14 +38,17 @@
                                         @if($event->pengguna->organisasi === Auth::user()->organisasi)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$event->nama_event}}</td>
+                                            <td>{{$event->proker->nama_event}}</td>
+                                            <td>{{$event->pengguna->organisasi}}</td>
                                             <td>{{$event->pengguna->nama}}</td>
-                                            <td>{{$event->tanggal_mulai}}</td>
-                                            <td>{{$event->tanggal_selesai}}</td>
+                                            {{-- <td>{{$event->proker->tanggal_mulai}}</td>
+                                            <td>{{$event->proker->tanggal_selesai}}</td> --}}
+                                            <td>{{ $event->proker->tempat}}</td>
+                                            <td>{{ $event->proker->alokasi_dana}}</td>
                                             <td>{{$event->deskripsi}}</td>
                                             <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
                                             <td>{{$event->perbaikan}}</td>
-                                            <td><a href="{{route('edit.event', $event->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
+                                            <td><a href="{{route('edit.event', $event->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
                                             <a href="{{route('destroy.event', $event->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>
                                         @endif
@@ -58,7 +64,7 @@
             </div>
             <!-- container -->
             <!--  Modal content for the above example -->
-        
+
             <!-- /.modal -->
             <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->

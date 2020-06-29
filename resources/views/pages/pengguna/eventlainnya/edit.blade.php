@@ -27,51 +27,56 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
-                                <form class="form-parsley" method="POST" action="{{route('update.eventlain', $eventlain->id)}}" enctype="multipart/form-data">
+                                <form class="form-parsley" method="POST" action="{{route('update.eventlainnya', $eventlainnya->id)}}" enctype="multipart/form-data">
                                     @method('PUT')
                                 @csrf
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label>Nama Event</label>
-                                        <input type="text" class="form-control" value="{{$event->nama_event}}" name="nama_event" placeholder="Type something">
-                                    </div>
+                                        <input type="text" class="form-control" value="{{$eventlainnya->nama_event}}" name="nama_event" placeholder="Type something">
+                                    </div> --}}
                                     <!--end form-group-->
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$event->tanggal_mulai}}" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$eventlainnya->tanggal_mulai}}" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$event->tanggal_selesai}}" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$eventlainnya->tanggal_selesai}}" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tempat</label>
                                             <div class="col-sm-15">
                                                 <select class="form-control"  name="tempat">
-                                                    <option value="{{$event->tempat}}" 
-                                                     @if($event->tempat === 'Kmpus')
+                                                    <option value="{{$eventlainnya->tempat}}"
+                                                     @if($eventlainnya->tempat === 'Kmpus')
                                                      selected
                                                      @endif
                                                         >Kampus</option>
-                                                    <option value="{{$event->tempat}}"
-                                                    @if($event->tempat === 'Kmpus')
+                                                    <option value="{{$eventlainnya->tempat}}"
+                                                    @if($eventlainnya->tempat === 'Kmpus')
                                                      selected
                                                      @endif
                                                         >Luar Kampus</option>
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label>Alokasi Dana</label>
+                                    <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
+                                </div>
                                         <div class="form-group">
                                         <label>Deskripsi</label>
-                                        <input type="text" class="form-control" value="{{$event->deskripsi}}" name="deskripsi" placeholder="Type something">
+                                        <input type="text" class="form-control" value="{{$eventlainnya->deskripsi}}" name="deskripsi" placeholder="Type something">
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" value="{{$event->proposal}}" name="proposal" accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" value="{{$eventlainnya->proposal}}" name="proposal" accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Uploud Lpj</label>
@@ -96,8 +101,13 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
-                
+                    <!-- /.modal -->
+                    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+                    <!--end footer-->
+                </div>
+                <!-- end page content -->
+            </div>
                     <!-- end col -->
-            
+
 
 @endsection

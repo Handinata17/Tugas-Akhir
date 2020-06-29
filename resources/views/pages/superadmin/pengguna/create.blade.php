@@ -45,6 +45,7 @@
                                                     <option value="BPM">BPM</option>
                                                     <option value="HIMA">HIMA</option>
                                                     <option value="UKM">UKM</option>
+                                                    <option value="">Lainnya</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -59,12 +60,14 @@
                                             <div class="col-sm-12">
                                                 <select class="form-control" name="jabatan">
                                                     <option value="Ketua">Ketua</option>
+                                                    <option value="Wakil">Wakil</option>
                                                     <option value="Sekretaris">Sekretaris</option>
+                                                    <option value="Bendahara">Bendahara</option>
                                                     <option value="Anggota">Anggota</option>
                                                 </select>
                                             </div>
                                     </div>
-                                 
+
                                     <!--end form-group-->
                                     <div class="form-group mb-2 ml-3">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
@@ -79,9 +82,12 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
+                    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+                    <!--end footer-->
                 </div>
                     <!-- end col -->
-            
+            </div>
+
 <script>
     const keterangan = document.querySelector('#keterangan');
     const organisasi = document.querySelector('#organisasi');
@@ -107,6 +113,11 @@
             keterangan.required = true;
             option = `<option>PIlih UKM</option>`;
             ukm.map(u => option += `<option value="${u}">${u}</option>` );
+            keterangan.innerHTML = option
+        }else if(this.value === ''){
+            displayKet.style.display = '';
+            keterangan.required = true;
+            option = `<option>Direktur 3</option>`;
             keterangan.innerHTML = option
         }
         else{

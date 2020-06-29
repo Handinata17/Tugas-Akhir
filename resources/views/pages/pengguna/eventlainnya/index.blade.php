@@ -7,7 +7,7 @@
 @section('content')
 
 
-                
+
                 <div class="page-wrapper">
                 <h4 class="page-title">Data Event Lain</h4></div>
                 <div class="row">
@@ -21,9 +21,12 @@
                                     <tr>
                                             <th>No</th>
                                             <th>Nama Event</th>
-                                            <th>Pembuat</th>
-                                            <th>Tanggal Mulai</th>
-                                            <th>Tanggal Selesai</th>
+                                            <th>Organisasi</th>
+                                            {{-- <th>Pembuat</th> --}}
+                                            {{-- <th>Tanggal Mulai</th>
+                                            <th>Tanggal Selesai</th> --}}
+                                            <th>Tempat</th>
+                                            <th>Alokasi Dana</th>
                                             <th>Deskripsi</th>
                                             <th>Proposal</th>
                                             <th>Perbaikan</th>
@@ -31,19 +34,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($events as $event)
-                                        @if($event->pengguna->organisasi === Auth::user()->organisasi)
+                                    @foreach($event_lainnyas as $eventlainnya)
+                                        @if($eventlainnya->pengguna->organisasi === Auth::user()->organisasi)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$event->nama_event}}</td>
-                                            <td>{{$event->pengguna->nama}}</td>
-                                            <td>{{$event->tanggal_mulai}}</td>
-                                            <td>{{$event->tanggal_selesai}}</td>
-                                            <td>{{$event->deskripsi}}</td>
-                                            <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$eventlain->proposal}}'">Download</button> </td>
-                                            <td>{{$event->perbaikan}}</td>
-                                            <td><a href="{{route('edit.eventlain', $eventlain->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
-                                            <a href="{{route('destroy.eventlain', $eventlain->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <td>{{$eventlainnya->proker->nama_event}}</td>
+                                            <td>{{$eventlainnya->pengguna->organisasi}}</td>
+                                            {{-- <td>{{$eventlainnya->pengguna->nama}}</td> --}}
+                                            {{-- <td>{{$eventlainnya->proker->tanggal_mulai}}</td>
+                                            <td>{{$eventlainnya->proker->tanggal_selesai}}</td> --}}
+                                            <td>{{ $eventlainnya->proker->tempat}}</td>
+                                            <td>{{ $eventlainnya->proker->alokasi_dana}}</td>
+                                            <td>{{$eventlainnya->deskripsi}}</td>
+                                            <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$eventlainnya->proposal}}'">Download</button> </td>
+                                            <td>{{$eventlainnya->perbaikan}}</td>
+                                            <td><a href="{{route('edit.eventlainnya', $eventlainnya->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
+                                            <a href="{{route('destroy.eventlainnya', $eventlainnya->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>
                                         @endif
                                     @endforeach
@@ -58,7 +64,7 @@
             </div>
             <!-- container -->
             <!--  Modal content for the above example -->
-        
+
             <!-- /.modal -->
             <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->

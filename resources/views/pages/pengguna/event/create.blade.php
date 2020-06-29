@@ -26,17 +26,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
-                                <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
+                                <p class="text-muted mb-3">Isi form yang telah di sediakan</p>
                                 <form class="form-parsley" method="POST" action="{{route('store.event')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <label for="">Proker</label>
-                                    <select name="" class="form-control proker" id="proker">
+                                    <select name="id_proker" class="form-control proker" id="proker">
                                         @foreach($prokers as $proker)
                                             <option value="{{ $proker->id }}">{{$proker->nama_event}}</option>
                                         @endforeach
                                     </select>
-                                    
+
                                     <div class="card" style="display :none" id="data_proker">
                                         <div class="card-body">
                                             <div class="container">
@@ -58,15 +58,15 @@
 
                                 </div>
 
-                                
 
 
-                                    <div class="form-group">
+
+                                    {{-- <div class="form-group">
                                         <label>Nama Event</label>
                                         <input type="text" class="form-control" name="nama_event" placeholder="Type something">
-                                    </div>
+                                    </div> --}}
                                     <!--end form-group-->
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
                                                 <input class="form-control" type="date" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
@@ -85,8 +85,12 @@
                                                     <option>Kampus</option>
                                                     <option>Luar Kampus</option>
                                                 </select>
-                                            </div>
+                                    </div>
                                         </div>
+                                        <div class="form-group">
+                                        <label>Alokasi Dana</label>
+                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
+                                    </div> --}}
                                         <div class="form-group">
                                         <label>Deskripsi</label>
                                         <input type="text" class="form-control" name="deskripsi" placeholder="Type something">
@@ -119,9 +123,14 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
-                
+                    <!-- /.modal -->
+                    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+                    <!--end footer-->
+                </div>
+                    <!-- end page content -->
+            </div>
                     <!-- end col -->
-            
+
 
 @endsection
 

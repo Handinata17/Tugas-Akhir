@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class EventLainnya extends Model
 {
     protected $guarded = [];
 
@@ -15,5 +15,4 @@ class Event extends Model
     public function proker (){
         return $this->belongsTo(Proker::class, 'id_proker','id');
     }
-
 }

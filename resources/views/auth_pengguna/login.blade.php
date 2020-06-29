@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Metrica - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Politeknik Harapan Bersama</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta content="A premium admin dashboard template by Mannatthemes" name="description">
     <meta content="Mannatthemes" name="author">
@@ -32,7 +32,7 @@
                                 <!--end auth-logo-box-->
                                 <div class="text-center auth-logo-text">
                                     <h4 class="mt-0 mb-3 mt-5">Tampilan Pengguna</h4>
-                                    <p class="text-muted mb-0">Sign in to continue to Metrica.</p>
+                                    <p class="text-muted mb-0">Sign in to Organisasi Mahasiswa Politeknik Harapan Bersama</p>
                                 </div>
                                 <!--end auth-logo-text-->
                                 <form class="form-horizontal auth-form my-4" action={{route('pengguna.login.submit')}} method="post">
@@ -40,7 +40,7 @@
                                     <div class="form-group">
                                         <label for="username">Email</label>
                                         <div class="input-group mb-3"><span class="auth-form-icon"><i class="dripicons-user"></i> </span>
-                                            <input class="form-control @error('email') is-invalid @enderror" 
+                                            <input class="form-control @error('email') is-invalid @enderror"
                                             type="text" placeholder="Enter username" name="email">
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                         <label for="userpassword">Password</label>
                                         <div class="input-group mb-3"><span class="auth-form-icon"><i class="dripicons-lock"></i> </span>
-                                            <input class="form-control @error('password') is-invalid @enderror" 
+                                            <input class="form-control @error('password') is-invalid @enderror"
                                             type="password" placeholder="Enter password" name="password">
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">

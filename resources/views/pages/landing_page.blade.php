@@ -51,7 +51,7 @@
 </ul> -->
 </li>
 <li><a class="nav-link" href="#">Recruitment</a></li>
-<li><a class="nav-link" href="#features">Event</a></li>
+<li><a class="nav-link" href="{{route('event')}}">Event</a></li>
 <li><a class="nav-link" href="#testimonial">Dana RAB</a></li>
 <li><a href="#">Login</a>
 <ul>

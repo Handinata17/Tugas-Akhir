@@ -26,7 +26,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
-                                <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
+                                <p class="text-muted mb-3">Isi form yang telah di sediakan</p>
                                 <form class="form-parsley" method="POST" action="{{route('store.events')}}" enctype="multipart/form-data">
                                 @csrf
                                     <div class="form-group">
@@ -87,8 +87,8 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
-                
+
                     <!-- end col -->
-            
+
 
 @endsection

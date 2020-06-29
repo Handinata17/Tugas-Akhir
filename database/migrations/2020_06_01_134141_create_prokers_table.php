@@ -14,7 +14,7 @@ class CreateProkersTable extends Migration
     public function up()
     {
         Schema::create('prokers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('id_pengguna')->unsigned();
             $table->string('nama_event');
             $table->string('organisasi');

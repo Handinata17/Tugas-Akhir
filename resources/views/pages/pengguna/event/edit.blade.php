@@ -30,10 +30,10 @@
                                 <form class="form-parsley" method="POST" action="{{route('update.event', $event->id)}}" enctype="multipart/form-data">
                                     @method('PUT')
                                 @csrf
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label>Nama Event</label>
                                         <input type="text" class="form-control" value="{{$event->nama_event}}" name="nama_event" placeholder="Type something">
-                                    </div>
+                                    </div> --}}
                                     <!--end form-group-->
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
@@ -51,7 +51,7 @@
                                             <label>Tempat</label>
                                             <div class="col-sm-15">
                                                 <select class="form-control"  name="tempat">
-                                                    <option value="{{$event->tempat}}" 
+                                                    <option value="{{$event->tempat}}"
                                                      @if($event->tempat === 'Kmpus')
                                                      selected
                                                      @endif
@@ -64,6 +64,11 @@
                                                 </select>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label>Alokasi Dana</label>
+                                    <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
+                                </div>
                                         <div class="form-group">
                                         <label>Deskripsi</label>
                                         <input type="text" class="form-control" value="{{$event->deskripsi}}" name="deskripsi" placeholder="Type something">
@@ -96,8 +101,13 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
-                
+                    <!-- /.modal -->
+                    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+                    <!--end footer-->
+                </div>
+                <!-- end page content -->
+            </div>
                     <!-- end col -->
-            
+
 
 @endsection

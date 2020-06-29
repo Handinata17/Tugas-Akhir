@@ -31,7 +31,7 @@ Auth::routes();
     Route::get('/create', function () {
         return view('pages.adminbem.dana.create');
     })->name('create');;
-    
+
 
 
 
@@ -47,12 +47,12 @@ Route::group(['prefix' => 'pengguna'], function(){
 
 Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/','Pengguna\BerandaController@index')->name('pengguna.beranda');
-    Route::get('/eventlain','Pengguna\EventController@index')->name('eventlain');
-    Route::get('/eventlain/create','Pengguna\EventController@create')->name('create.eventlain');
-    Route::post('/eventlain/create' ,'Pengguna\EventController@store')->name('store.eventlain');
-    Route::get('/eventlain/{id}/edit','Pengguna\EventController@edit')->name('edit.eventlain');
-    Route::put('/eventlain/{id}/update','Pengguna\EventController@update')->name('update.eventlain');
-    Route::get('/eventlain/{id}', 'Pengguna\EventController@destroy')->name('destroy.eventlain');
+    Route::get('/eventlainnya','Pengguna\EventLainnyaController@index')->name('eventlainnya');
+    Route::get('/eventlainnya/create','Pengguna\EventLainnyaController@create')->name('create.eventlainnya');
+    Route::post('/eventlainnya/create' ,'Pengguna\EventLainnyaController@store')->name('store.eventlainnya');
+    Route::get('/eventlainnya/{id}/edit','Pengguna\EventLainnyaController@edit')->name('edit.eventlainnya');
+    Route::put('/eventlainnya/{id}/update','Pengguna\EventLainnyaController@update')->name('update.eventlainnya');
+    Route::get('/eventlainnya/{id}', 'Pengguna\EventLainnyaController@destroy')->name('destroy.eventlainnya');
 });
 
 Route::group(['prefix' => 'pengguna'], function(){
@@ -183,7 +183,7 @@ Route::group(['prefix' => 'superadmin'], function(){
     Route::post('/pengguna/create' ,'SuperAdmin\PenggunaController@store')->name('store.pengguna');
     Route::get('/pengguna/{id}/edit','SuperAdmin\PenggunaController@edit')->name('edit.pengguna');
     Route::put('/pengguna/{id}/update','SuperAdmin\PenggunaController@update')->name('update.pengguna');
-    Route::put('/pengguna/{id}','SuperAdmin\PenggunaController@destroy')->name('destroy.pengguna');
+    Route::get('/pengguna/{id}','SuperAdmin\PenggunaController@destroy')->name('destroy.pengguna');
 
     Route::get('/organisasi', 'SuperAdmin\OrganisasiController@index')->name('organisasi');
     Route::post('/organisasi', 'SuperAdmin\OrganisasiController@store')->name('simpan.organisasi');

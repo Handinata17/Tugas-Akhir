@@ -18,12 +18,12 @@
                     </div>
                     <!--end col-->
                 </div>
-                
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                
+
                                 <p class="text-muted mb-4 font-13">Data Pengguna</p>
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
@@ -34,7 +34,7 @@
                                             <th>Keterangan</th>
                                             <th>Jabatan</th>
                                             <th>Action</th>
-                                            
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -45,8 +45,8 @@
                                             <td>{{$data->organisasi}}</td>
                                             <td>{{$data->keterangan}}</td>
                                             <td>{{$data->jabatan}}</td>
-                                    
-                                            <td><a href="{{route('edit.pengguna', $data->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
+
+                                            <td><a href="{{route('edit.pengguna', $data->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
                                             <a href="{{route('destroy.pengguna', $data->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>
                                     @endforeach
@@ -61,9 +61,9 @@
             </div>
             <!-- container -->
             <!--  Modal content for the above example -->
-        
+
             <!-- /.modal -->
-            <footer class="footer text-center text-sm-left">&copy; 2019 - 2020 Metrica <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Mannatthemes</span></footer>
+            <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->
         </div>
         <!-- end page content -->
