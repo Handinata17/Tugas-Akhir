@@ -92,8 +92,12 @@
                                         <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
                                     </div> --}}
                                         <div class="form-group">
-                                        <label>Deskripsi</label>
-                                        <input type="text" class="form-control" name="deskripsi" placeholder="Type something">
+                                        <label>Tipe</label>
+                                        <select name="tipe" class="form-control">
+                                            <option value="mahasiswa">Mahasiswa</option>
+                                            <option value="anggota ormawa">Anggota Ormawa</option>
+                                            <option value="umum">Umum</option>
+                                        </select>
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">

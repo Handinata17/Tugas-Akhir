@@ -40,8 +40,8 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/event','Pengguna\EventController@index')->name('event');
     Route::get('/event/create','Pengguna\EventController@create')->name('create.event');
     Route::post('/event/create' ,'Pengguna\EventController@store')->name('store.event');
-    Route::get('/event/{id}/edit','Pengguna\EventController@edit')->name('edit.event');
-    Route::put('/event/{id}/update','Pengguna\EventController@update')->name('update.event');
+    Route::get('/event/{id}/revii','Pengguna\EventController@acc')->name('revisi.event');
+    Route::get('/event/{id}/acc','Pengguna\EventController@acc')->name('acc.event');
     Route::get('/event/{id}', 'Pengguna\EventController@destroy')->name('destroy.event');
 });
 
@@ -51,7 +51,8 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/eventlainnya/create','Pengguna\EventLainnyaController@create')->name('create.eventlainnya');
     Route::post('/eventlainnya/create' ,'Pengguna\EventLainnyaController@store')->name('store.eventlainnya');
     Route::get('/eventlainnya/{id}/edit','Pengguna\EventLainnyaController@edit')->name('edit.eventlainnya');
-    Route::put('/eventlainnya/{id}/update','Pengguna\EventLainnyaController@update')->name('update.eventlainnya');
+    Route::get('/eventlainnya/{id}/revisi','Pengguna\EventLainnyaController@revisi')->name('revisi.eventlainnya');
+    Route::get('/eventlainnya/{id}/acc_bem','Pengguna\EventLainnyaController@acc_bem')->name('acc_bem.eventlainnya');
     Route::get('/eventlainnya/{id}', 'Pengguna\EventLainnyaController@destroy')->name('destroy.eventlainnya');
 });
 

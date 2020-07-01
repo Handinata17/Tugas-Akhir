@@ -17,17 +17,13 @@ class CreateEventLainnyasTable extends Migration
             $table->increments('id');
             $table->integer('id_pengguna')->unsigned();
             $table->integer('id_proker')->unsigned();
-            // $table->string('nama_event');
-            // $table->date('tanggal_mulai');
-            // $table->date('tanggal_selesai');
-            // $table->text('tempat');
-            // $table->text('alokasi_dana');
-            $table->text('deskripsi');
+            $table->string('tipe');
             $table->text('proposal');
-            $table->text('lpj')->nullable();
             $table->text('perbaikan')->nullable();
-            $table->char('status')->default(0);
-            $table->boolean('konfirmasi')->nullable();
+            $table->text('lpj')->nullable();
+            $table->enum('acc_bem', ['0', '1', '2'])->default('1');
+            $table->enum('acc_bpm', ['0', '1', '2'])->default('1');
+            $table->enum('acc_wadir_3', ['0', '1', '2'])->default('1');
             $table->timestamps();
 
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');

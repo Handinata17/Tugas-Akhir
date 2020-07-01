@@ -22,12 +22,11 @@ class CreateEventsTable extends Migration
             // $table->date('tanggal_selesai');
             // $table->text('tempat');
             // $table->text('alokasi_dana');
-            $table->text('deskripsi');
+            $table->text('tipe');
             $table->text('proposal');
             $table->text('lpj')->nullable();
             $table->text('perbaikan')->nullable();
-            $table->char('status')->default(0);
-            $table->boolean('konfirmasi')->nullable();
+            $table->enum('acc', ['0', '1', '2'])->default('1');
             $table->timestamps();
 
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');

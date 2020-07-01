@@ -52,7 +52,7 @@ class EventLainnyaController extends Controller
          $eventlainnya->id_pengguna = Auth::user()->id;
          $eventlainnya->id_proker = $request->id_proker;
          // $eventlainnya->nama_event = $request->nama_event;
-         $eventlainnya->deskripsi = $request->deskripsi;
+         $eventlainnya->tipe = $request->tipe;
          $eventlainnya->proposal = $proposal;
          // $eventlainnya->tempat = $request->tempat;
          // $eventlainnya->tanggal_mulai = $request->tanggal_mulai;
@@ -128,6 +128,15 @@ class EventLainnyaController extends Controller
     {
         $eventlainnya = EventLainnya::find($id);
         $eventlainnya->delete();
+        return redirect()->route('eventlainnya');
+    }
+
+    public function acc_bem($id)
+    {
+        $data = EventLainnya::findOrFail($id);
+        $data->acc_bem = "2";
+        $data->update();
+
         return redirect()->route('eventlainnya');
     }
 }
