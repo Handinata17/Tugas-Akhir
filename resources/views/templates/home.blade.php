@@ -19,10 +19,10 @@
                     <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->nama}}</h5>
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->organisasi}}</p>
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->keterangan}}</p>
-                </div>
                 @else
                 <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->name}}</h5>
                 @endif
+              </div>
                 <!--end media-body-->
             </div>
         </div>
@@ -30,6 +30,7 @@
           @yield('sidebar')
         </ul>
     </div>
+
     <!-- end left-sidenav-->
     <!-- Top Bar Start -->
    @include('templates.partials._topbar')
