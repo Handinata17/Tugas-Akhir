@@ -23,6 +23,7 @@ class CreateEventLainnyasTable extends Migration
             $table->text('lpj')->nullable();
             $table->enum('acc_bem', ['0', '1', '2'])->default('1');
             $table->enum('acc_bpm', ['0', '1', '2'])->default('1');
+            $table->enum('acc_kaprodi', ['0', '1', '2'])->default('1');
             $table->enum('acc_wadir_3', ['0', '1', '2'])->default('1');
             $table->timestamps();
 

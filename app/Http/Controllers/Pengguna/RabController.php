@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Pengguna;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Rab;
+use App\Pengguna;
+use App\Proker;
+use Auth;
 
 class RabController extends Controller
 {
@@ -14,7 +18,12 @@ class RabController extends Controller
      */
     public function index()
     {
-        //
+        $rabs = Rab::orderBy('id','DESC')->get();
+        //   $events = Pengguna::where('organisasi', Auth::user()->organisasi)
+        //   ->with('events')->get();
+
+        //$events = Event::where('id_pengguna', Auth::user()->id)->get();
+        return view('pages.pengguna.rab.index', compact('rabs'));
     }
 
     /**

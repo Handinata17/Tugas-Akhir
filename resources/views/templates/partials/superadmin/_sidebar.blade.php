@@ -1,28 +1,18 @@
-<li class="menu-label">Main</li>
-            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dashboard</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                </ul> 
-            </li>
-
-            <li class="leftbar-menu-item"><a href="{{route('pengguna')}}" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Pengguna</a></li>
-
-            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Recruitment<span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formoprec')}}"><i class="ti-control-record"></i>Form Oprec</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprec')}}"><i class="ti-control-record"></i>Data Oprec</a></li>
-                    
-                </ul> 
-            </li>
-
-                   
-                   <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Event<span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formevent')}}"><i class="ti-control-record"></i>Form Event</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataevent')}}"><i class="ti-control-record"></i>Data Event</a></li>
-
-                </ul>
-            <li>
+<div class="leftbar-profile p-3 w-100">
+        <div class="media position-relative">
+          <div class="leftbar-user online"><img src="{{asset('template/images/users/user.png')}}" alt="" class="thumb-md rounded-circle"></div>
+          <div class="media-body align-self-center text-truncate ml-3">
 
 
-            <!-- <li class="leftbar-menu-item"><a class="nav-link" href="{{route('organisasi')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Organisasi</i></a></li> -->
+          <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->name}}</h5>
+         
+          <!--end media-body-->
+      </div>
+  </div>
+  <ul class="metismenu left-sidenav-menu slimscroll">
+        <li class="menu-label">Main</li>
+        <li class="leftbar-menu-item"><a href="{{route('pengguna')}}" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Pengguna</a></li>
+  </ul>
+
+
+

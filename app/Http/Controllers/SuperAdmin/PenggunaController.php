@@ -18,6 +18,7 @@ class PenggunaController extends Controller
     public function index(){
         $pengguna = Pengguna::all();
         return view('pages.superadmin.pengguna.data', compact('pengguna'));
+        // return 'pengguna';
     }
 
     public function store(Request $request){
@@ -38,7 +39,7 @@ class PenggunaController extends Controller
         $pengguna = Pengguna::find($id);
         $organisasi = Pengguna::orderBy('nama','ASC')->get();
 
-        // dd($pengguna);   
+        // dd($pengguna);
         return view('pages.superadmin.pengguna.edit', compact('pengguna','organisasi'));
     }
 

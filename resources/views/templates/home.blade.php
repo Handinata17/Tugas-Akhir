@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from mannatthemes.com/metrica/light/projects/projects-index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 27 Feb 2020 14:16:17 GMT -->
 
 @include('templates.partials._head')
 
@@ -8,21 +7,27 @@
     <!-- Left Sidenav -->
     <div class="left-sidenav">
         <!-- LOGO -->
-        <div class="topbar-left"><a href="../dashboard/crm-index.html" class="logo"><span><img src="{{asset('template/images/phb.png')}}" alt="logo-small" class="logo-sm"> </span><span><img src="{{asset('template/images/ormawa.png')}}" alt="logo-large" class="logo-lg logo-light"> <img src="{{asset('template/images/ormawa.png')}}" alt="logo-large" class="logo-lg logo-dark"></span></a></div>
+        <div class="topbar-left">
+            <a href="../dashboard/crm-index.html" class="logo"><span><img src="{{asset('template/images/phb.png')}}" alt="logo-small" class="logo-sm"> </span><span><img src="{{asset('template/images/ormawa.png')}}" alt="logo-large" class="logo-lg logo-light"> <img src="{{asset('template/images/ormawa.png')}}" alt="logo-large" class="logo-lg logo-dark"></span></a>
+        </div>
         <!--end logo-->
-        <div class="leftbar-profile p-3 w-100">
-            <div class="media position-relative">
+       <div class="leftbar-profile p-3 w-100">
+              <div class="media position-relative">
                 <div class="leftbar-user online"><img src="{{asset('template/images/users/user.png')}}" alt="" class="thumb-md rounded-circle"></div>
                 <div class="media-body align-self-center text-truncate ml-3">
+                @if(Auth::user()->organisasi || Auth::user()->keterangan)
                     <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->nama}}</h5>
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->organisasi}}</p>
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->keterangan}}</p>
                 </div>
+                @else
+                <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->name}}</h5>
+                @endif
                 <!--end media-body-->
             </div>
         </div>
         <ul class="metismenu left-sidenav-menu slimscroll">
-           @yield('sidebar')
+          @yield('sidebar')
         </ul>
     </div>
     <!-- end left-sidenav-->
@@ -35,6 +40,7 @@
             <div class="container-fluid">
               <!-- Page-Title -->
            @yield('content')
+
            </div>
         </div>
         <!-- end page content -->

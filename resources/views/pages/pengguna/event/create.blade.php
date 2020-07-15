@@ -5,6 +5,12 @@
 @endsection
 
 @section('content')
+
+        @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                Data Sudah Terkirim
+                    </div>
+        @endif
                     <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
@@ -102,7 +108,7 @@
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal"   accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Uploud Lpj</label>

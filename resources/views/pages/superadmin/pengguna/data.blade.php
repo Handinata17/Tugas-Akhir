@@ -1,12 +1,12 @@
 @extends('templates.home')
 
 @section('sidebar')
-    @include('templates.partials.superadmin._sidebar')
+    @include('templates.partials._sidebar')
 @endsection
 
 @section('content')
-
-
+<div class="page-wrapper">
+        <h4 class="page-title">Data Proker</h4></div>
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="page-title-box">
@@ -58,15 +58,13 @@
                     <!-- end col -->
                 </div>
                 <!-- end row -->
-            </div>
+
             <!-- container -->
             <!--  Modal content for the above example -->
 
             <!-- /.modal -->
             <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->
-        </div>
-        <!-- end page content -->
-    </div>
+
 
 @endsection

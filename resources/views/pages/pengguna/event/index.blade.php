@@ -27,58 +27,97 @@
                                             <th>Tanggal Selesai</th> --}}
                                             <th>Tempat</th>
                                             <th>Alokasi Dana</th>
-                                            <th>Deskripsi</th>
+                                            <th>Tipe</th>
                                             <th>Proposal</th>
                                             <th>Perbaikan</th>
                                             <th>Status</th>
-                                            <th>Action</th>
+                                            {{-- <th>Action</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($events as $event)
-                                        @if(Auth::user()->organisasi == 'BEM')
+
+                                     @foreach($events as $event)
+                                        @if($event->pengguna->organisasi === Auth::user()->organisasi)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$event->proker->nama_event}}</td>
                                             <td>{{$event->pengguna->organisasi}}</td>
-                                            <td>{{$event->pengguna->nama}}</td>
+                                            {{-- <td>{{$event->pengguna->nama}}</td> --}}
                                             {{-- <td>{{$event->proker->tanggal_mulai}}</td>
                                             <td>{{$event->proker->tanggal_selesai}}</td> --}}
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{ $event->proker->alokasi_dana}}</td>
-                                            <td>{{$event->deskripsi}}</td>
-                                            <td> <button class="btn btn-sm btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
-                                            @if($event->acc == '2')
-                                            <td><span class="badge badge-success">data sudah masuk bpm</span></td>
-                                            @endif
+                                            <td>{{$event->tipe}}</td>
+                                            <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
                                             <td>{{$event->perbaikan}}</td>
+                                            {{-- <td><a href="{{route('edit.event', $event->id)}}"><i class="far fa-edit text-info mr-1"></i></a> --}}
+                                            {{-- <a href="{{route('destroy.event', $event->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td> --}}
+                                            </tr>
+                                        @elseif(Auth::user()->organisasi == 'BEM')
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$event->proker->nama_event}}</td>
+                                            <td>{{$event->pengguna->organisasi}}</td>
+                                            {{-- <td>{{$event->pengguna->nama}}</td> --}}
+                                            {{-- <td>{{$event->proker->tanggal_mulai}}</td>
+                                            <td>{{$event->proker->tanggal_selesai}}</td> --}}
+                                            <td>{{ $event->proker->tempat}}</td>
+                                            <td>{{ $event->proker->alokasi_dana}}</td>
+                                            <td>{{$event->tipe}}</td>
+                                            <td> <button class="btn btn-primary" data-toggle="modal" data-target="proposal" {{config("app.url").$event->proposal}}'">Download</button> </td>
+                                            <td>{{$event->perbaikan}}</td>
+                                            @if($event->acc == '2')
+                                            <td><span class="badge badge-success">data masuk Wadir 3</span></td>
+                                            @endif
                                             @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '1')
                                                     <td><a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
                                                         <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a></td>
-                                                @endif
+                                        @endif
                                         </tr>
                                         @elseif(Auth::user()->organisasi == 'BPM')
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$event->proker->nama_event}}</td>
                                             <td>{{$event->pengguna->organisasi}}</td>
-                                            <td>{{$event->pengguna->nama}}</td>
+                                            {{-- <td>{{$event->pengguna->nama}}</td> --}}
                                             {{-- <td>{{$event->proker->tanggal_mulai}}</td>
                                             <td>{{$event->proker->tanggal_selesai}}</td> --}}
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{ $event->proker->alokasi_dana}}</td>
-                                            <td>{{$event->deskripsi}}</td>
-                                            <td> <button class="btn btn-sm btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
-                                            @if($event->acc == '2')
-                                            <td><span class="badge badge-success">data sudah masuk</span></td>
-                                            @endif
+                                            <td>{{$event->tipe}}</td>
+                                            <td> <button class="btn btn-sm btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button></td>
                                             <td>{{$event->perbaikan}}</td>
+                                            @if($event->acc == '2')
+                                            <td><span class="badge badge-success">data masuk Wadir 3</span></td>
+                                            @endif
                                             @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '1')
                                                     <td><a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
                                                         <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a></td>
-                                                @endif
+                                            @endif
+                                        </tr>
+                                        @elseif(Auth::user()->keterangan == 'Direktur 3')
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$event->proker->nama_event}}</td>
+                                            <td>{{$event->pengguna->organisasi}}</td>
+                                            {{-- <td>{{$event->pengguna->nama}}</td> --}}
+                                            {{-- <td>{{$event->proker->tanggal_mulai}}</td>
+                                            <td>{{$event->proker->tanggal_selesai}}</td> --}}
+                                            <td>{{ $event->proker->tempat}}</td>
+                                            <td>{{ $event->proker->alokasi_dana}}</td>
+                                            <td>{{$event->tipe}}</td>
+                                            <td> <button class="btn btn-sm btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
+                                            <td>{{$event->perbaikan}}</td>
+                                            @if($event->acc == '2')
+                                            <td><span class="badge badge-success">data diterima Wadir 3</span></td>
+                                            @endif
+                                            @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '1')
+                                                    <td><a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
+                                                        <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a></td>
+                                            @endif
                                         </tr>
                                         @endif
+
                                     @endforeach
                                     </tbody>
                                 </table>

@@ -38,13 +38,13 @@
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$event->tanggal_mulai}}" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$event->tanggal_mulai}}" name="tanggal_mulai" value="" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$event->tanggal_selesai}}" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$event->tanggal_selesai}}" name="tanggal_selesai" value="" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -67,16 +67,16 @@
                                     </div>
                                     <div class="form-group">
                                     <label>Alokasi Dana</label>
-                                    <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
+                                    <input type="text" class="form-control" name="alokasi_dana" placeholder="">
                                 </div>
                                         <div class="form-group">
                                         <label>Deskripsi</label>
-                                        <input type="text" class="form-control" value="{{$event->deskripsi}}" name="deskripsi" placeholder="Type something">
+                                        <input type="text" class="form-control" value="{{$event->deskripsi}}" name="deskripsi" placeholder="">
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" value="{{$event->proposal}}" name="proposal" accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" value="{{$event->proposal}}" name="proposal" accept=".pdf" placeholder="">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Uploud Lpj</label>

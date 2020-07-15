@@ -1,4 +1,42 @@
+
 <li class="menu-label">Main</li>
+            {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dashboard</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                </ul>
+            </li> --}}
+            @if(Request::is('superadmin') || Request::is('superadmin/*'))
+
+            <li class="leftbar-menu-item">
+                <a href="{{route('pengguna')}}" class="menu-link">
+                    <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
+                Pengguna
+            </a>
+        </li>
+        @endif
+            {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Recruitment<span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('formoprec')}}"><i class="ti-control-record"></i>Form Oprec</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprec')}}"><i class="ti-control-record"></i>Data Oprec</a></li>
+
+                </ul>
+            </li> --}}
+
+
+                   {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Event<span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+                <ul class="nav-second-level" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{url('formevent')}}"><i class="ti-control-record"></i>Form Event</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url('dataevent')}}"><i class="ti-control-record"></i>Data Event</a></li>
+
+                </ul>
+            <li> --}}
+
+
+            {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{route('organisasi')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Organisasi</i></a></li> --}}
+
+                {{-- </ul> --}}
+            {{-- </li> --}}
+
             @if(Auth::user()->organisasi == 'BEM')
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dashboard</i></a>
                 <ul class="nav-second-level" aria-expanded="false">
@@ -36,12 +74,13 @@
 
                     </ul>
             </li> --}}
+
             @elseif(Auth::user()->organisasi == 'BPM')
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Recruitment</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Membuat Oprec</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Data Oprec</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataopreclolosbpm')}}"><i class="ti-control-record"></i>Data Oprec Lolos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('store.recruitment')}}"><i class="ti-control-record"></i>Membuat Recruitment </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('recruitment')}}"><i class="ti-control-record"></i>Data Recruitment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('pendaftaran')}}"><i class="ti-control-record"></i>Data Pendaftar</a></li>
 
                     </ul>
             </li>
@@ -129,15 +168,110 @@
                     </ul>
             </li> --}}
 
-            @elseif(Auth::user()->organisasi == 'WADIR')
-            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('event')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Data Event</i></a>
+            @elseif(Auth::user()->keterangan == 'Direktur 3')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('event')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event</i></a>
                 <ul class="nav-second-level" aria-expanded="false">
 
                     </ul>
             </li>
-            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Data Event</i></a>
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
                 <ul class="nav-second-level" aria-expanded="false">
 
                     </ul>
             </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D4 Teknik Informatika')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D4 Akuntansi Sektor Publik')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Perhotelan')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 DKV ( Desain Komunikasi Visual )')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Teknik Elektro')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Teknik Mesin')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Teknik Komputer')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Akuntansi')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Kebidanan')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
+            @elseif(Auth::user()->keterangan == 'Kaprodi D3 Farmasi')
+            <li class="leftbar-menu-item"><a class="nav-link" href="{{route('eventlainnya')}}">
+                <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical">
+                    </i>Data Event Lain</i></a>
+                <ul class="nav-second-level" aria-expanded="false">
+
+                    </ul>
+            </li>
+
             @endif

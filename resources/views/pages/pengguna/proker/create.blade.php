@@ -31,7 +31,7 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Event</label>
-                                        <input type="text" class="form-control" name="nama_event" placeholder="Type something">
+                                        <input type="text" class="form-control" name="nama_event" placeholder="Masukan Nama Event">
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
@@ -54,13 +54,13 @@
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" name="tanggal_mulai" value="2020-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" name="tanggal_selesai" value="2020-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="form-group">
                                         <label>Alokasi Dana</label>
-                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
+                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Masukan Dana RAB">
                                     </div>
                                     <!--end form-group-->
                                     <!-- <div class="form-group">

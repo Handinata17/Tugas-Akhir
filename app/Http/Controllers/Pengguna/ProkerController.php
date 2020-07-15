@@ -9,17 +9,16 @@ use Auth;
 
 class ProkerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('auth:pengguna');
+    }
     public function index()
     {
         $prokers = Proker::orderBy('id','DESC')->get();
+        // dd($prokers);
         //   $events = Pengguna::where('organisasi', Auth::user()->organisasi)
         //   ->with('events')->get();
-    
+
         //$events = Event::where('id_pengguna', Auth::user()->id)->get();
         return view('pages.pengguna.proker.index', compact('prokers'));
     }
@@ -79,7 +78,7 @@ class ProkerController extends Controller
      */
     public function edit($id)
     {
-        $event = Event::find($id);
+        $proker = Proker::find($id);
         return view('pages.pengguna.proker.edit', compact('proker'));
     }
 
@@ -96,6 +95,8 @@ class ProkerController extends Controller
         $proker = new Proker();
         $proker->id_pengguna = Auth::user()->id;
         $proker->nama_event = $request->nama_event;
+        $proker->organisasi = $request->organisasi;
+        $proker->keterangan = $request->keterangan;
         $proker->tanggal_mulai = $request->tanggal_mulai;
         $proker->tanggal_selesai = $request->tanggal_selesai;
         $proker->tempat = $request->tempat;

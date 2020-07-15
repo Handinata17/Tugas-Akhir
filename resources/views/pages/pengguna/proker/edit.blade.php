@@ -55,13 +55,13 @@
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$proker->tanggal_mulai}}" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$proker->tanggal_mulai}}" name="tanggal_mulai" value="2020-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$proker->tanggal_selesai}}" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" value="{{$proker->tanggal_selesai}}" name="tanggal_selesai" value="2020-08-19" id="example-date-input">
                                             </div>
                                         </div>
                                         <div class="form-group">

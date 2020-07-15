@@ -102,7 +102,7 @@
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal"   accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
                                     </div>
                                     <!-- <div class="form-group">
                                         <label>Uploud Lpj</label>

@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="px-3">
                                 <div class="auth-logo-box">
-                                    <a href="{{asset('template/css/dashboard/analytics-index.html')}}" class="logo logo-admin"><img src="{{asset('public/template/images/phb3.png')}}" height="55" alt="logo" class="auth-logo"></a>
+                                    <a href="{{asset('template/css/dashboard/analytics-index.html')}}" class="logo logo-admin"><img src="{{asset('template/images/phb.png')}}" height="55" alt="logo" class="auth-logo"></a>
                                 </div>
                                 <!--end auth-logo-box-->
                                 <div class="text-center auth-logo-text">

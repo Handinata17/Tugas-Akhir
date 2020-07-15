@@ -1,7 +1,7 @@
 @extends('templates.home')
 
 @section('sidebar')
-    @include('templates.partials.superadmin._sidebar')
+    @include('templates.partials._sidebar')
 @endsection
 
 @section('content')
@@ -31,11 +31,11 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input type="text" class="form-control" name="nama" placeholder="Type something">
+                                        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama">
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" name="email" placeholder="Type something">
+                                        <input type="text" class="form-control" name="email" placeholder="Masukan Email">
                                     </div>
                                     <div class="form-group">
                                             <label>Organisasi</label>
@@ -117,7 +117,17 @@
         }else if(this.value === ''){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>Direktur 3</option>`;
+            option = `<option>Direktur 3</option>
+             <option>Kaprodi D4 Teknik Informatika</option>
+             <option>Kaprodi D4 Akuntansi Sektor Publik</option>
+             <option>Kaprodi D3 Perhotelan</option>
+             <option>Kaprodi D3 DKV ( Desain Komunikasi Visual )</option>
+             <option>Kaprodi D3 Teknik Elektro</option>
+             <option>Kaprodi D3 Teknik Mesin</option>
+             <option>Kaprodi D3 Teknik Komputer</option>
+             <option>Kaprodi D3 Akuntansi</option>
+             <option>Kaprodi D3 Kebidanan</option>
+             <option>Kaprodi D3 Farmasi</option>`;
             keterangan.innerHTML = option
         }
         else{

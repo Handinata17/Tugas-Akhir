@@ -68,7 +68,7 @@ class EventController extends Controller
         $event->id_pengguna = Auth::user()->id;
         $event->id_proker = $request->id_proker;
         // $event->nama_event = $request->nama_event;
-        $event->deskripsi = $request->deskripsi;
+        $event->tipe = $request->tipe;
         $event->proposal = $proposal;
         // $event->tempat = $request->tempat;
         // $event->tanggal_mulai = $request->tanggal_mulai;
@@ -89,10 +89,48 @@ class EventController extends Controller
         return redirect()->route('event');
     }
 
+    public function revisi($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('pages.pengguna.event.revisi', compact('event'));
+    }
+
+    public function revisiSubmit(Request $request, $id)
+    {
+        $proposal = $request->file('proposal');
+        $filename = $proposal->getClientOriginalName();
+        $path = public_path('/uplouds/proposal');
+        $proposal->move($path, $filename);
+
+        $event = Event::findOrFail($id);
+        $event->perbaikan = $filename;
+        // $event->perbaikan = $request->perbaikan;
+        $event->update();
+        return redirect()->route('event');
+    }
+
     public function acc($id)
     {
         $event = Event::find($id);
         $event->update(['acc' => '2']);
+        return redirect()->route('event');
+    }
+
+    // public function acc_kaprodi($id)
+    // {
+    //     $data = Event::findOrFail($id);
+    //     $data->acc_kaprodi = "2";
+    //     $data->update();
+
+    //     return redirect()->route('event');
+    // }
+
+    public function acc_wadir_3($id)
+    {
+        $data = Event::findOrFail($id);
+        $data->acc_wadir_3 = "2";
+        $data->update();
+
         return redirect()->route('event');
     }
 }

@@ -14,5 +14,5 @@
     <script src="{{ asset('template/pages/jquery.validation.init.js')}}"></script>
     <!-- App js -->
     <script src="{{ asset('template/js/jquery.core.js')}}"></script>
-
+    
     @yield('script')
