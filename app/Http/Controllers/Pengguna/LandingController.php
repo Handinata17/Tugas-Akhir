@@ -19,9 +19,9 @@ class LandingController extends Controller
     public function index()
     {
       $recruitments = Recruitment::all();
-      return view('pages.home.landing_page', compact('recruitments'));
-      $prokers = Proker::all();
-      return view('pages.home.landing_page', compact('prokers'));
+    //   return view('pages.home.landing_page', compact('recruitments'));
+    //   $prokers = Proker::all();
+      return view('pages.home.landing_page', compact(['recruitments']));
     }
 
     /**

@@ -50,7 +50,7 @@
 
 
                                             <td>
-                                            <img src="{{ asset($pendaftaran->gambar) }}" height="100px" width="100px;">
+                                            <img src="{{ $pendaftaran->gambar }}" height="100px" width="100px;">
                                             </td>
 
                                             {{-- <td>{{$event->proker->tanggal_mulai}}</td>

@@ -45,6 +45,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/event/{id}/edit','Pengguna\EventController@edit')->name('edit.event');
     Route::get('/event/{id}/revisi','Pengguna\EventController@revisi')->name('revisi.event');
     Route::put('/event/{id}/revisi','Pengguna\EventController@revisiSubmit')->name('revisi.submit.event');
+
     Route::get('/event/{id}/acc','Pengguna\EventController@acc')->name('acc.event');
     Route::get('/event/{id}/acc_wadir_3','Pengguna\EventController@acc_wadir_3')->name('acc_wadir_3.event');
     Route::get('/event/{id}', 'Pengguna\EventController@destroy')->name('destroy.event');
@@ -59,6 +60,11 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/eventlainnya/{id}/acc_kaprodi','Pengguna\EventLainnyaController@acc_kaprodi')->name('acc_kaprodi.eventlainnya');
     Route::get('/eventlainnya/{id}/acc_wadir_3','Pengguna\EventLainnyaController@acc_wadir_3')->name('acc_wadir_3.eventlainnya');
     Route::get('/eventlainnya/{id}', 'Pengguna\EventLainnyaController@destroy')->name('destroy.eventlainnya');
+
+    Route::get('/revisi','Pengguna\RevisiController@index')->name('pengguna.revisi.event');
+    // Route::get('/revisi/lainnya','Pengguna\RevisiController@index')->name('pengguna.revisi.eventlainnya');
+    Route::get('/revisi{id}', 'Pengguna\RevisiController@destroy')->name('destroy.revisi');
+    Route::put('/proker/{id}/update','Pengguna\ProkerController@update')->name('update.proker');
 
     Route::get('/proker','Pengguna\ProkerController@index')->name('proker');
     Route::get('/proker/create','Pengguna\ProkerController@create')->name('create.proker');
@@ -204,7 +210,7 @@ Route::group(['prefix' => 'superadmin'], function(){
     Route::put('/pengguna/{id}/update','SuperAdmin\PenggunaController@update')->name('update.pengguna');
     Route::get('/pengguna/{id}','SuperAdmin\PenggunaController@destroy')->name('destroy.pengguna');
 
-    Route::get('/organisasi', 'SuperAdmin\OrganisasiController@index')->name('organisasi');
+    // Route::get('/organisasi', 'SuperAdmin\OrganisasiController@index')->name('organisasi');
     // Route::post('/organisasi', 'SuperAdmin\OrganisasiController@store')->name('simpan.organisasi');
     // Route::put('/organisasi/{organisasi}', 'SuperAdmin\OrganisasiController@update')->name('update.organisasi');
 });

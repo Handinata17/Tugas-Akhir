@@ -37,7 +37,8 @@
                                     <tbody>
 
                                      @foreach($events as $event)
-                                        @if($event->pengguna->organisasi === Auth::user()->organisasi)
+
+                                        @if(Auth::user()->organisasi == 'BEM')
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$event->proker->nama_event}}</td>
@@ -48,33 +49,26 @@
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{ $event->proker->alokasi_dana}}</td>
                                             <td>{{$event->tipe}}</td>
-                                            <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
-                                            <td>{{$event->perbaikan}}</td>
-                                            {{-- <td><a href="{{route('edit.event', $event->id)}}"><i class="far fa-edit text-info mr-1"></i></a> --}}
-                                            {{-- <a href="{{route('destroy.event', $event->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td> --}}
-                                            </tr>
-                                        @elseif(Auth::user()->organisasi == 'BEM')
-                                        <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$event->proker->nama_event}}</td>
-                                            <td>{{$event->pengguna->organisasi}}</td>
-                                            {{-- <td>{{$event->pengguna->nama}}</td> --}}
-                                            {{-- <td>{{$event->proker->tanggal_mulai}}</td>
-                                            <td>{{$event->proker->tanggal_selesai}}</td> --}}
-                                            <td>{{ $event->proker->tempat}}</td>
-                                            <td>{{ $event->proker->alokasi_dana}}</td>
-                                            <td>{{$event->tipe}}</td>
-                                            <td> <button class="btn btn-primary" data-toggle="modal" data-target="proposal" {{config("app.url").$event->proposal}}'">Download</button> </td>
+                                            <td>@if($event->acc === 3)
+                                            <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
+                                            @else
+                                            <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
+                                            @endif
+                                            </td>
                                             <td>{{$event->perbaikan}}</td>
                                             @if($event->acc == '2')
                                             <td><span class="badge badge-success">data masuk Wadir 3</span></td>
                                             @endif
+                                            <td>
                                             @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '1')
-                                                    <td><a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
-                                                        <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a></td>
-                                        @endif
+                                                    <a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
+                                                        <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
+                                                        @elseif( $event->acc == '3')
+                                                        Selesai
+                                                        @endif
+                                    </td>
                                         </tr>
-                                        @elseif(Auth::user()->organisasi == 'BPM')
+                                        @elseif(Auth::user()->organisasi === 'BPM')
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$event->proker->nama_event}}</td>
@@ -85,17 +79,28 @@
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{ $event->proker->alokasi_dana}}</td>
                                             <td>{{$event->tipe}}</td>
-                                            <td> <button class="btn btn-sm btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button></td>
+
+                                            <td>
+                                            @if($event->acc == '3')
+                                            <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
+                                            @else
+                                            <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
+                                            @endif
+                                            </td>
                                             <td>{{$event->perbaikan}}</td>
                                             @if($event->acc == '2')
                                             <td><span class="badge badge-success">data masuk Wadir 3</span></td>
                                             @endif
+                                            <td>
                                             @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '1')
-                                                    <td><a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
-                                                        <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a></td>
-                                            @endif
+                                                    <a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
+                                                        <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
+                                                        @elseif( $event->acc == '3')
+                                                        Selesai
+                                                        @endif
+                                        </td>
                                         </tr>
-                                        @elseif(Auth::user()->keterangan == 'Direktur 3')
+                                        @elseif(Auth::user()->keterangan == 'Direktur 3' && $event->proker->status == 2)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$event->proker->nama_event}}</td>
@@ -106,17 +111,42 @@
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{ $event->proker->alokasi_dana}}</td>
                                             <td>{{$event->tipe}}</td>
-                                            <td> <button class="btn btn-sm btn-primary" onclick="window.location='{{config("app.url").$event->proposal}}'">Download</button> </td>
+                                            <td>@if($event->acc == '3')
+                                            <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
+                                            @else
+                                            <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
+                                            @endif
+                                            </td>
                                             <td>{{$event->perbaikan}}</td>
-                                            @if($event->acc == '2')
-                                            <td><span class="badge badge-success">data diterima Wadir 3</span></td>
+                                            <td>
+                                            @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '2')
+                                                    <a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
+                                                        <a href="{{route('acc_wadir_3.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
+                                                @elseif( $event->acc == '3')
+                                               Selesai
                                             @endif
-                                            @if($event->pengguna->organisasi != Auth::user()->organisasi && $event->acc == '1')
-                                                    <td><a href="{{route('revisi.event', $event->id)}}" class="btn btn-sm btn-warning">Revisi</a>
-                                                        <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a></td>
-                                            @endif
+                                        </td>
                                         </tr>
                                         @endif
+
+                                    <div class="modal fade" id="lihat{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="contohModalScrollableTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="contohModalScrollableTitle">Proposal Event {{$event->proker->nama_event}}</h5>
+                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                      </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                     <embed src="{{config("app.url").$event->proposal}}" framborder="0" width="100%" height="450px">
+                                                    </div>
+
+                                                  </div>
+                                                </div>
+                                              </div>
+
+
 
                                     @endforeach
                                     </tbody>

@@ -112,7 +112,7 @@ class EventController extends Controller
     public function acc($id)
     {
         $event = Event::find($id);
-        $event->update(['acc' => '2']);
+        $event->update(['acc' => '3']);
         return redirect()->route('event');
     }
 
@@ -127,10 +127,9 @@ class EventController extends Controller
 
     public function acc_wadir_3($id)
     {
-        $data = Event::findOrFail($id);
-        $data->acc_wadir_3 = "2";
-        $data->update();
-
+        // dd($id);
+        $event = Event::find($id);
+        $event->update(['acc' => '3']);
         return redirect()->route('event');
     }
 }

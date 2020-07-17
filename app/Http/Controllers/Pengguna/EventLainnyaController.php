@@ -170,7 +170,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d4_teknik_informatika($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d4_teknik_informatika = "2";
+        $data->acc_kaprodi_d4_teknik_informatika = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -179,7 +179,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d4_akuntansi_sektor_publik($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d4_akuntansi_sektor_publik = "2";
+        $data->acc_kaprodi_d4_akuntansi_sektor_publik = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -188,7 +188,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_perhotelan($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_perhotelan = "2";
+        $data->acc_kaprodi_d3_perhotelan = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -197,7 +197,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_dkv($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_dkv = "2";
+        $data->acc_kaprodi_d3_dkv = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -206,7 +206,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_teknik_elektro($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_teknik_elektro = "2";
+        $data->acc_kaprodi_d3_teknik_elektro = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -215,7 +215,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_teknik_mesin($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_teknik_mesin = "2";
+        $data->acc_kaprodi_d3_teknik_mesin = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -224,7 +224,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_teknik_komputer($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_teknik_komputer = "2";
+        $data->acc_kaprodi_d3_teknik_komputer = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -233,7 +233,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_akuntansi($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_akuntansi = "2";
+        $data->acc_kaprodi_d3_akuntansi = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -242,7 +242,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_kebidanan($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_kebidanan = "2";
+        $data->acc_kaprodi_d3_kebidanan = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -251,7 +251,7 @@ class EventLainnyaController extends Controller
     public function acc_kaprodi_d3_farmasi($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_kaprodi_d3_farmasi = "2";
+        $data->acc_kaprodi_d3_farmasi = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
@@ -260,7 +260,7 @@ class EventLainnyaController extends Controller
     public function acc_wadir_3($id)
     {
         $data = EventLainnya::findOrFail($id);
-        $data->acc_wadir_3 = "2";
+        $data->acc_wadir_3 = "3";
         $data->update();
 
         return redirect()->route('eventlainnya');
