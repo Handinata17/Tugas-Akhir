@@ -28,6 +28,7 @@ class CreateEventLainnyasTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');
+            $table->foreign('id_proker')->references('id')->on('prokers')->onDelete('CASCADE');
         });
     }
 

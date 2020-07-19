@@ -41,7 +41,7 @@
                                         <label for="username">Email</label>
                                         <div class="input-group mb-3"><span class="auth-form-icon"><i class="dripicons-user"></i> </span>
                                             <input class="form-control @error('email') is-invalid @enderror"
-                                            type="text" placeholder="Enter username" name="email">
+                                            type="text" placeholder="Enter username" name="email" required>
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
                                         <label for="userpassword">Password</label>
                                         <div class="input-group mb-3"><span class="auth-form-icon"><i class="dripicons-lock"></i> </span>
                                             <input class="form-control @error('password') is-invalid @enderror"
-                                            type="password" placeholder="Enter password" name="password">
+                                            type="password" placeholder="Enter password" name="password" required>
                                             @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

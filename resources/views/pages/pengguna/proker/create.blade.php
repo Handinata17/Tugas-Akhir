@@ -31,7 +31,7 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Event</label>
-                                        <input type="text" class="form-control" name="nama_event" placeholder="Masukan Nama Event">
+                                        <input type="text" class="form-control" name="nama_event" required>
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">

@@ -85,9 +85,9 @@
 <div class="waves wave-3"></div>
 </div> -->
 <img src="{{ asset ('landing_page/image/phb.png') }}" alt="">
-<!-- <img src="{{ asset ('landing_page/image/Path-2.png') }}" alt="" class="path-1-img">
+{{-- <img src="{{ asset ('landing_page/image/Path-2.png') }}" alt="" class="path-1-img">
 <img src="{{ asset ('landing_page/image/Path-1.png') }}" alt="" class="path-1-img path-2-img">
-<img src="{{ asset ('landing_page/image/Path-3.png') }}" alt="" class="path-1-img path-3-img"> -->
+<img src="{{ asset ('landing_page/image/Path-3.png') }}" alt="" class="path-1-img path-3-img"> --}}
 </div>
 </div>
 </div>
@@ -124,7 +124,7 @@
                                         @endif
                                         @if($errors->all())
                                         <div class="alert alert-danger" role="alert">
-                                            {{ dd($errors) }}
+                                            {{-- {{ dd($errors) }} --}}
                                                 Pendaftaran Recruitment gagal! cek kembali
 
                                               </div>
@@ -140,6 +140,19 @@
                                                 <p class="text-muted mb-3">Isi form yang telah di sediakan</p>
                                                 <form class="form-parsley" method="POST" action="{{route('store.pendaftaran')}}" enctype="multipart/form-data">
                                                 @csrf
+
+                                                <div class="form-group">
+                                                        <label>NIM</label>
+                                                    <input type="text" class="form-control" name="nim" type="text" class="form-control" value="{{old('nim')}}" placeholder="Masukan Nim">
+                                                    </div>
+                                                <div class="form-group">
+                                                        <label>Nama Mahasiswa</label>
+                                                        <input type="text" class="form-control" name="nama_mahasiswa" type="text" class="form-control" placeholder="Masukan Nama">
+                                                    </div>
+                                                <div class="form-group">
+                                                        <label>Email</label>
+                                                        <input type="email" class="form-control" name="email" type="text" class="form-control" placeholder="Masukan Email">
+                                                    </div>
                                                 <div class="form-group">
                                                     <label for="">Recruitment</label>
                                                     <select name="id_recruitment" class="form-control recruitment" id="recruitment" required>
@@ -157,19 +170,6 @@
                                                             <label for="">Tanggal Selesai</label>
                                                             <input type="text" class="form-control" id="selesai" type="text" class="form-control" readonly>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label>NIM</label>
-                                                    <input type="text" class="form-control" name="nim" type="text" class="form-control" value="{{old('nim')}}" placeholder="Masukan Nim">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Nama Mahasiswa</label>
-                                                        <input type="text" class="form-control" name="nama_mahasiswa" type="text" class="form-control" placeholder="Masukan Nama">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Email</label>
-                                                        <input type="text" class="form-control" name="email" type="text" class="form-control" placeholder="Masukan Email">
                                                     </div>
                                                     <div class="card" style="display :none" id="data_recruitment">
                                                         <div class="card-body">
@@ -189,8 +189,8 @@
                                                     </div>
                                                     <!--end form-group-->
                                                     <div class="form-group">
-                                                        <label>Uploud Gambar</label>
-                                                        <input type="file" class="form-control" name="gambar" accept=".jpg,.jpeg,.png" placeholder="Enter alphanumeric value">
+                                                        <label>Uploud File</label>
+                                                        <input type="file" class="form-control" name="file" accept=".rar,.zip" placeholder="Enter alphanumeric value">
                                                     </div>
                                                     <!--end form-group-->
                                                     <div class="form-group mb-0">
