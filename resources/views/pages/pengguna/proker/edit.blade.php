@@ -86,10 +86,10 @@
                                         <input type="text" class="form-control" value="{{$proker->alokasi_dana}}" name="alokasi_dana" placeholder="Type something">
                                     </div>
                                     <!--end form-group-->
-                                    <!-- <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label>Uploud Proposal</label>
                                         <input type="file" class="form-control" value="{{$event->proposal}}" name="proposal" accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
-                                    </div> -->
+                                    </div> --}}
                                     <!-- <div class="form-group">
                                         <label>Uploud Lpj</label>
                                         <input data-parsley-type="alphanum" type="file" class="form-control" required placeholder="Enter alphanumeric value">
