@@ -32,6 +32,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/event/create','Pengguna\EventController@create')->name('create.event');
     Route::post('/event/create' ,'Pengguna\EventController@store')->name('store.event');
     Route::get('/event/{id}/edit','Pengguna\EventController@edit')->name('edit.event');
+    Route::patch('/event/{id}/edit','Pengguna\EventController@update')->name('update.event');
     Route::get('/event/{id}/revisi','Pengguna\EventController@revisi')->name('revisi.event');
     Route::put('/event/{id}/revisi','Pengguna\EventController@revisiSubmit')->name('revisi.submit.event');
 

@@ -53,19 +53,17 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
+
         return view('pages.pengguna.event.edit', compact('event'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
         $proposal = $request->file('proposal')->store('proposal');
-        $event = new Event();
-        $event->id_pengguna = Auth::user()->id;
-        $event->id_proker = $request->id_proker;
-        $event->tipe = $request->tipe;
+
+        $event = Event::find($id);
         $event->proposal = $proposal;
-        $event->perbaikan = $request->perbaikan;
-        $event->save();
+        $event->update();
 
         // dd($request->all());
 
