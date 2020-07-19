@@ -70,8 +70,9 @@ class RevisiController extends Controller
       // dd($id);
 
       $revisi = Revisi::where('id_event', $id)->get();
+      $event = Event::find($id);
       // dd($revisi);
-      return view('pages.pengguna.event.show-revisi', compact('revisi'));
+      return view('pages.pengguna.event.show-revisi', compact('revisi','event'));
     }
 
     /**

@@ -31,9 +31,11 @@
         									</div>
                           @endforeach
         								</div>
+                        @if($event->acc_wadir_3 == 3)
                         <div class="d-flex justify-content-center mt-5">
                           <button type="button" class="btn btn-success" onclick="window.location='{{route("event")}}'" name="button">Selesai</button>
                         </div>
+                        @endif
         							</div>
                 </div>
                 <!-- end page content -->

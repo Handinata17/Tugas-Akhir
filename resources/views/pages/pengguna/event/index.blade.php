@@ -67,8 +67,8 @@
                                               @endif
                                             </td>
                                             <td>
-                                              @if($event->acc_wadir_3 != 3)
-                                              <button type="button" onclick="" name="button">Edit</button>
+                                              @if($event->acc_wadir_3 !== '3')
+                                              <button type="button" class="btn btn-warning" onclick="window.location='{{route("edit.event", $event->id)}}'">Edit</button>
                                               @endif
                                             </td>
                                         </tr>
