@@ -16,14 +16,13 @@ class CreatePendaftaransTable extends Migration
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_recruitment')->unsigned();
-            $table->string('nim')->unique();
+            $table->string('nim');
             $table->string('nama_mahasiswa');
-            $table->string('email')->unique();
-            $table->text('gambar');
+            $table->string('email');
+            $table->text('file');;
             $table->timestamps();
 
             $table->foreign('id_recruitment')->references('id')->on('recruitments')->onDelete('CASCADE');
-
         });
     }
 

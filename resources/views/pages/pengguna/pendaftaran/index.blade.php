@@ -21,18 +21,19 @@
                                     <tr>
                                             <th>No</th>
                                             <th>Nim</th>
-                                            <th>Nama Recruitment</th>
                                             <th>Nama</th>
                                             <th>Email</th>
+                                            <th>Nama Recruitment</th>
                                             {{-- <th>Pembuat</th> --}}
                                             {{-- <th>Tanggal Mulai</th>
                                             <th>Tanggal Selesai</th> --}}
                                             {{-- <th>organisasi</th> --}}
                                             {{-- <th>Keterangan</th> --}}
                                             {{-- <th>Tipe</th> --}}
-                                            <th>Gambar</th>
+                                            <th>File</th>
                                             {{-- <th>Perbaikan</th> --}}
                                             {{-- <th>Status</th> --}}
+                                            <th>status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -42,17 +43,18 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$pendaftaran->nim }}
-                                            <td>{{$pendaftaran->recruitment->nama_recruitment}}</td>
                                             <td>{{$pendaftaran->nama_mahasiswa}}</td>
                                             <td>{{$pendaftaran->email}}</td>
+                                            <td>{{$pendaftaran->recruitment->nama_recruitment}}</td>
                                             {{-- <td>{{$pendaftaran->pengguna->organisasi}}</td> --}}
                                             {{-- <td>{{$pendaftaran->pengguna->keterangan}}</td> --}}
 
 
                                             <td>
-                                            <img src="{{ $pendaftaran->gambar }}" height="100px" width="100px;">
+                                            <a class="btn btn-success btn-sm" href="{{$pendaftaran->file}}">Download</a>
                                             </td>
-
+                                            {{-- src="{{ $pendaftaran->file }}" size = "2048;"> --}}
+                                            {{-- height="100px" width="100px;" --}}
                                             {{-- <td>{{$event->proker->tanggal_mulai}}</td>
                                             <td>{{$event->proker->tanggal_selesai}}</td> --}}
                                             {{-- <td>{{ $event->proker->tempat}}</td>

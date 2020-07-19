@@ -17,6 +17,7 @@ class CreateEventLainnyasTable extends Migration
             $table->increments('id');
             $table->integer('id_pengguna')->unsigned();
             $table->integer('id_proker')->unsigned();
+            // $table->integer('id_revisi')->unsigned();
             $table->string('tipe');
             $table->text('proposal');
             $table->text('perbaikan')->nullable();
@@ -28,6 +29,8 @@ class CreateEventLainnyasTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');
+            $table->foreign('id_proker')->references('id')->on('prokers')->onDelete('CASCADE');
+            // $table->foreign('id_revisi')->references('id')->on('revisis')->onDelete('CASCADE');
         });
     }
 

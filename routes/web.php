@@ -83,7 +83,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/recruitment/{id}/show', 'Pengguna\RecruitmentController@show')->name('show.recruitment');
 
     Route::get('/pendaftaran','Pengguna\PendaftaranController@index')->name('pendaftaran');
-    Route::get('/pendaftaran/create','Pengguna\PendaftaranController@create')->name('create.pendaftaran');
+    Route::post('/pendaftaran/create','Pengguna\PendaftaranController@create')->name('create.pendaftaran');
     Route::get('/pendaftaran/{id}/edit','Pengguna\PendaftaranController@edit')->name('edit.pendaftaran');
     Route::put('/pendafratan/{id}/update','Pengguna\PendaftaranController@update')->name('update.pendaftaran');
     Route::get('/pendaftaran/{id}', 'Pengguna\PendaftaranController@destroy')->name('destroy.pendaftaran');

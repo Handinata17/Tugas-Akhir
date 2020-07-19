@@ -61,10 +61,10 @@
                     </ul>
             </li>
 
-            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Proker</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Program Kerja</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{route('create.proker')}}"><i class="ti-control-record"></i>Input Proker</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('proker')}}"><i class="ti-control-record"></i>Data Proker</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('create.proker')}}"><i class="ti-control-record"></i>Input Program Kerja</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('proker')}}"><i class="ti-control-record"></i>Data Program Kerja</a></li>
 
                     </ul>
             </li>

@@ -55,7 +55,7 @@ class PendaftaranController extends Controller
             'nama_mahasiswa' => 'required|regex:/^[\pL\s\-]+$/u',
             'email' => 'required|email|unique:pendaftarans',
             'nim' => 'required|unique:pendaftarans',
-            'gambar' => 'required|image|max: 2048',
+            'file' => 'required|file|max:2048',
           ];
           $message = [
             'required' => 'tidak boleh kosong.',
@@ -74,23 +74,23 @@ class PendaftaranController extends Controller
         ->first();
 
         if(!$recruitment){
-            return redirect()->back()->with('failed','');
+            return redirect()->back()->with('failed','aaaaaa');
         }else{
 
-            $file = $request->file('gambar');
+            $file = $request->file('file');
             $file_name = date('ymdHis') . "-" . $file->getClientOriginalName();
-            $file_path = 'gambar/' . $file_name;
+            $file_path = 'file/' . $file_name;
             Storage::disk('s3')->put($file_path, file_get_contents($file));
             $gambar = Storage::disk('s3')->url($file_path, $file_name);
 
             // $gambar = $request->file('gambar')->store('gambar');
 
             $pendaftaran = new Pendaftaran();
-            $pendaftaran->id_recruitment = $request->id_recruitment;
             $pendaftaran->nim = $request->nim;
             $pendaftaran->nama_mahasiswa = $request->nama_mahasiswa;
             $pendaftaran->email = $request->email;
-            $pendaftaran->gambar = $gambar;
+            $pendaftaran->id_recruitment = $request->id_recruitment;
+            $pendaftaran->file = $file;
             $pendaftaran->save();
 
             return redirect()->back()->with('success','');
@@ -136,7 +136,7 @@ class PendaftaranController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        $gambar = $request->file('gambar')->store('gambar');
+        $file = $request->file('file')->store('file');
         $pendaftaran = new Pendaftaran();
         $pendaftaran->id_pengguna = Auth::user()->id;
         $pendaftaran->id_recruitment = $request->id_recruitment;
@@ -145,8 +145,7 @@ class PendaftaranController extends Controller
         $event->email = $request->email;
         // $pendaftaran->organisasi = $request->organisasi;
         // $pendaftaran->keterangan = $request->keterangan;
-        $pendaftaran->tanggal_pendaftaran = $request->tanggal_pendaftaran;
-        $pendaftaran->gambar = $gambar;
+        $pendaftaran->file = $file;
         // $event->tempat = $request->tempat;
         // $event->tanggal_mulai = $request->tanggal_mulai;
         // $event->tanggal_selesai = $request->tanggal_selesai;

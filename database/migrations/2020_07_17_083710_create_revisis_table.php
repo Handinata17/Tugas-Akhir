@@ -28,7 +28,7 @@ class CreateRevisisTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_event')->references('id')->on('events')->onDelete('CASCADE');
-            $table->foreign('id_eventlainnya')->references('id')->on('eventlainnyas')->onDelete('CASCADE');
+            $table->foreign('id_eventlainnya')->references('id')->on('event_lainnyas')->onDelete('CASCADE');
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');
         });
     }
