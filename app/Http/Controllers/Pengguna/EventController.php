@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Event;
 use App\Pengguna;
 use App\Proker;
+use App\Revisi;
 use Auth;
 
 class EventController extends Controller
@@ -39,13 +40,8 @@ class EventController extends Controller
         $event = new Event();
         $event->id_pengguna = Auth::user()->id;
         $event->id_proker = $request->id_proker;
-        // $event->nama_event = $request->nama_event;
         $event->tipe = $request->tipe;
         $event->proposal = $proposal;
-        // $event->tempat = $request->tempat;
-        // $event->tanggal_mulai = $request->tanggal_mulai;
-        // $event->tanggal_selesai = $request->tanggal_selesai;
-        // $event->alokasi_dana = $request->alokasi_dana;
         $event->perbaikan = $request->perbaikan;
         $event->save();
 
@@ -62,18 +58,12 @@ class EventController extends Controller
 
     public function update(Request $request)
     {
-        // dd($request->all());
         $proposal = $request->file('proposal')->store('proposal');
         $event = new Event();
         $event->id_pengguna = Auth::user()->id;
         $event->id_proker = $request->id_proker;
-        // $event->nama_event = $request->nama_event;
         $event->tipe = $request->tipe;
         $event->proposal = $proposal;
-        // $event->tempat = $request->tempat;
-        // $event->tanggal_mulai = $request->tanggal_mulai;
-        // $event->tanggal_selesai = $request->tanggal_selesai;
-        // $event->alokasi_dana = $request->alokasi_dana;
         $event->perbaikan = $request->perbaikan;
         $event->save();
 
@@ -97,22 +87,26 @@ class EventController extends Controller
 
     public function revisiSubmit(Request $request, $id)
     {
-        $proposal = $request->file('proposal');
-        $filename = $proposal->getClientOriginalName();
-        $path = public_path('/uplouds/proposal');
-        $proposal->move($path, $filename);
 
         $event = Event::findOrFail($id);
-        $event->perbaikan = $filename;
-        // $event->perbaikan = $request->perbaikan;
-        $event->update();
+        $event->update(['acc' => 1]);
+
+        $revisi = new Revisi();
+        $revisi->id_event = $id;
+        $revisi->id_pengguna = Auth::user()->id;
+        $revisi->revisi = $request->revisi;
+        $revisi->save();
         return redirect()->route('event');
     }
 
     public function acc($id)
     {
         $event = Event::find($id);
-        $event->update(['acc' => '3']);
+        if(Auth::user()->keterangan == 'Direktur 3'){
+          $event->update(['acc_wadir_3' => '3']);
+        }else {
+          $event->update(['acc' => 2]);
+        }
         return redirect()->route('event');
     }
 

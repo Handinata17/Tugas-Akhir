@@ -14,9 +14,4 @@
     <link href="{{ asset('template/css/icons.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/metisMenu.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/css/app.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/plugins/fullcalendar/packages/core/main.css')}}" rel="stylesheet" />
-    <link href="{{ asset('template/plugins/fullcalendar/packages/daygrid/main.css')}}" rel="stylesheet" />
-    <link href="{{ asset('template/plugins/fullcalendar/packages/bootstrap/main.css')}}" rel="stylesheet" />
-    <link href="{{ asset('template/plugins/fullcalendar/packages/timegrid/main.css')}}" rel="stylesheet" />
-    <link href="{{ asset('template/plugins/fullcalendar/packages/list/main.css')}}" rel="stylesheet" />
 </head>

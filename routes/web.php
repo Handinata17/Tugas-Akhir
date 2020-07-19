@@ -18,21 +18,10 @@ Route::get('/proker/{id}','Pengguna\LandingController@show');
 
 Auth::routes();
 
-// Route::group(['prefix' => 'adminbem'], function(){
-//     // Route::get('/adminbem', function () {
-//     // return view('pages.adminbem.dashboard');
-//     Route::get('/eventbem','AdminBem\EventBemController@index')->name('events');
-//     Route::get('/eventbem/create','AdminBem\EventBemController@create')->name('create.events');
-//     Route::post('/eventbem/create' ,'AdminBem\EventBemController@store')->name('store.events');
-//     Route::get('/eventbem/{id}/edit','AdminBem\EventBemController@edit')->name('edit.events');
-//     Route::put('/eventbem/{id}/update','AdminBem\EventBemController@update')->name('update.events');
-//     Route::get('/eventbem/{id}', 'AdminBem\EventBemController@destroy')->name('destroy.events');
-
-//     });
 
     Route::get('/create', function () {
         return view('pages.adminbem.dana.create');
-    })->name('create');;
+    })->name('create');
 
 
 
@@ -62,8 +51,9 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/eventlainnya/{id}', 'Pengguna\EventLainnyaController@destroy')->name('destroy.eventlainnya');
 
     Route::get('/revisi','Pengguna\RevisiController@index')->name('pengguna.revisi.event');
+    Route::get('/revisi/{id}','Pengguna\RevisiController@show')->name('pengguna.revisi.event.show');
     // Route::get('/revisi/lainnya','Pengguna\RevisiController@index')->name('pengguna.revisi.eventlainnya');
-    Route::get('/revisi{id}', 'Pengguna\RevisiController@destroy')->name('destroy.revisi');
+    // Route::get('/revisi{id}', 'Pengguna\RevisiController@destroy')->name('destroy.revisi');
     Route::put('/proker/{id}/update','Pengguna\ProkerController@update')->name('update.proker');
 
     Route::get('/proker','Pengguna\ProkerController@index')->name('proker');

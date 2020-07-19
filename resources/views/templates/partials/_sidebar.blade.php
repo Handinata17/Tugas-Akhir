@@ -6,8 +6,8 @@
                 <a href="{{route('pengguna')}}" class="menu-link">
                     <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
                 Pengguna
-            </a>
-        </li>
+              </a>
+          </li>
         @endif
 
 
@@ -19,7 +19,11 @@
               </a>
             </li>
 
-            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+            <li class="leftbar-menu-item">
+              <a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
+               <span>Event</span> <span class="menu-arrow">
+                 <i class="mdi mdi-chevron-right"></i></span>
+               </a>
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{route('create.event')}}"><i class="ti-control-record"></i>Membuat Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('event')}}"><i class="ti-control-record"></i>Data Event</a></li>
@@ -28,37 +32,14 @@
                     </ul>
             </li>
 
-            {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Status Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Proses Perijinan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sedang dilaksanakan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sudah dilaksanakan</a></li>
-
-                    </ul>
-            </li> --}}
-
-            {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>RAB</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Form RAB</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Data RAB</a></li>
-
-                    </ul>
-            </li> --}}
-
-             {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{url('create')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dana RAB</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                    </ul>
-            </li> --}}
-
             @elseif(Auth::user()->organisasi == 'BPM')
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Recruitment</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{route('store.recruitment')}}"><i class="ti-control-record"></i>Membuat Recruitment </a></li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('store.recruitment')}}"><i class="ti-control-record"></i>Membuat Recruitment </a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('recruitment')}}"><i class="ti-control-record"></i>Data Recruitment</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('pendaftaran')}}"><i class="ti-control-record"></i>Data Pendaftar</a></li>
-
-                    </ul>
+                </ul>
             </li>
 
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Proker</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
@@ -81,28 +62,6 @@
             </li>
 
 
-            {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Status Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Proses Perijinan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sedang dilaksanakan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Sudah dilaksanakan</a></li>
-
-                    </ul>
-            </li> --}}
-
-            {{-- <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>RAB</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
-                <ul class="nav-second-level" aria-expanded="false">
-                    <li class="nav-item"><a class="nav-link" href="{{url('formoprecbpm')}}"><i class="ti-control-record"></i>Form RAB</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{url('dataoprecbpm')}}"><i class="ti-control-record"></i>Data RAB</a></li>
-
-                    </ul>
-            </li> --}}
-
-             {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{url('create')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dana RAB</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                    </ul>
-            </li> --}}
             @elseif(Auth::user()->organisasi == 'HIMA')
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
@@ -112,18 +71,6 @@
 
                     </ul>
             </li>
-
-            {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{url('index')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Data Event</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                    </ul>
-            </li> --}}
-
-             {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{url('create')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dana RAB</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                    </ul>
-            </li> --}}
             @elseif(Auth::user()->organisasi == 'UKM')
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
@@ -133,18 +80,6 @@
 
                     </ul>
             </li>
-
-            {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{url('index')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Data Event</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                    </ul>
-            </li> --}}
-
-             {{-- <li class="leftbar-menu-item"><a class="nav-link" href="{{url('create')}}"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>Dana RAB</i></a>
-                <ul class="nav-second-level" aria-expanded="false">
-
-                    </ul>
-            </li> --}}
 
             @elseif(Auth::user()->keterangan == 'Direktur 3')
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>

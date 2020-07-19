@@ -26,8 +26,8 @@ class CreateEventsTable extends Migration
             $table->text('proposal');
             $table->text('lpj')->nullable();
             $table->text('perbaikan')->nullable();
-            $table->enum('acc', ['0', '1', '2'])->default('1');
-            $table->enum('acc_wadir_3', ['0', '1', '2'])->default('1');
+            $table->enum('acc', [1,2])->nullable();
+            $table->enum('acc_wadir_3', [2,3])->nullable();
             $table->timestamps();
 
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');

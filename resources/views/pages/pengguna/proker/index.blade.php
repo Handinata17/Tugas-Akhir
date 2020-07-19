@@ -7,7 +7,7 @@
 @section('content')
 
 
-                
+
                 <div class="page-wrapper">
                 <h4 class="page-title">Data Proker</h4></div>
                 <div class="row">
@@ -41,8 +41,8 @@
                                             <td>{{$proker->tanggal_mulai}}</td>
                                             <td>{{$proker->tanggal_selesai}}</td>
                                             <td>{{$proker->tempat}}</td>
-                                            <td>{{$proker->alokasi_dana}}</td>
-                                            <td><a href="{{route('edit.proker', $proker->id)}}"><i class="far fa-edit text-info mr-1"></i></a> 
+                                            <td>Rp. {{number_format($proker->alokasi_dana, 0,',','.')}}</td>
+                                            <td><a href="{{route('edit.proker', $proker->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
                                             <a href="{{route('destroy.proker', $proker->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>
                                         @endif
@@ -58,7 +58,7 @@
             </div>
             <!-- container -->
             <!--  Modal content for the above example -->
-        
+
             <!-- /.modal -->
             <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
             <!--end footer-->

@@ -16,4 +16,8 @@ class Event extends Model
         return $this->belongsTo(Proker::class, 'id_proker','id');
     }
 
+    public function revisi(){
+        return $this->hasMany(Revisi::class, 'id_event','id');
+    }
+
 }

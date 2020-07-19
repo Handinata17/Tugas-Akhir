@@ -61,12 +61,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
-
-
-
                                     {{-- <div class="form-group">
                                         <label>Nama Event</label>
                                         <input type="text" class="form-control" name="nama_event" placeholder="Type something">
@@ -110,16 +105,7 @@
                                         <label>Uploud Proposal</label>
                                         <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
                                     </div>
-                                    <!-- <div class="form-group">
-                                        <label>Uploud Lpj</label>
-                                        <input data-parsley-type="alphanum" type="file" class="form-control" required placeholder="Enter alphanumeric value">
-                                    </div> -->
-                                    <!--end form-group-->
-                                    <!-- <div class="form-group"> -->
-                                        <!-- <label>Perbaikan</label> -->
-                                        <!-- <textarea required class="form-control" name="perbaikan" rows="5"></textarea> -->
-                                    <!-- </div> -->
-                                    <!--end form-group-->
+                                  
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
                                         <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>

@@ -41,22 +41,22 @@ class RevisiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $proker = new Revisi();
-        $proker->id_event = Auth::user()->id;
-        $proker->id_eventlainnya = Auth::user()->id;
-        $proker->id_pengguna = Auth::user()->id;
-        $proker->organisasi = $request->organisasi;
-        $proker->keterangan = $request->keterangan;
-        $proker->revisi = $request->revisi;
-        $proker->tanggal_revisi = $request->tanggal_revisi;
-        $proker->ke = $request->ke;
-        $proker->save();
+        $revisi = new Revisi();
+        $revisi->id_event = $id;
+        $revisi->id_pengguna = Auth::user()->id;
+        $revisi->revisi = $request->revisi;
+        $revisi->save();
 
-        // dd($request->all());
+        $event = Event::find($id);
+        if(Auth::user()->keterangan == 'Direktur 3'){
+          $event->update(['acc' => 2]);
+        }else {
+          $event->update(['acc' => 1]);
+        }
 
-        return redirect()->route('revisi');
+        return redirect()->route('event');
     }
 
     /**
@@ -67,8 +67,11 @@ class RevisiController extends Controller
      */
     public function show($id)
     {
-        $revisi = Revisi::findOrFail($id);
-        return $revisi;
+      // dd($id);
+
+      $revisi = Revisi::where('id_event', $id)->get();
+      // dd($revisi);
+      return view('pages.pengguna.event.show-revisi', compact('revisi'));
     }
 
     /**
@@ -79,8 +82,7 @@ class RevisiController extends Controller
      */
     public function edit($id)
     {
-        $revvisi = Revisi::find($id);
-        return view('pages.pengguna.revisi.edit', compact('revisi'));
+
     }
 
     /**
@@ -92,16 +94,16 @@ class RevisiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $proker = new Revisi();
-        $proker->id_event = Auth::user()->id;
-        $proker->id_eventlainnya = Auth::user()->id;
-        $proker->id_pengguna = Auth::user()->id;
-        $proker->organisasi = $request->organisasi;
-        $proker->keterangan = $request->keterangan;
-        $proker->revisi = $request->revisi;
-        $proker->tanggal_revisi = $request->tanggal_revisi;
-        $proker->ke = $request->ke;
-        $proker->save();
+        $revisi = new Revisi();
+        $revisi->id_event = Auth::user()->id;
+        $revisi->id_eventlainnya = Auth::user()->id;
+        $revisi->id_pengguna = Auth::user()->id;
+        $revisi->organisasi = $request->organisasi;
+        $revisi->keterangan = $request->keterangan;
+        $revisi->revisi = $request->revisi;
+        $revisi->tanggal_revisi = $request->tanggal_revisi;
+        $revisi->ke = $request->ke;
+        $revisi->save();
         return redirect()->route('revisi');
     }
 

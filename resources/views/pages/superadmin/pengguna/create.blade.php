@@ -105,13 +105,13 @@
         if(this.value === 'HIMA'){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>PIlih HIMA</option>`;
+            option = `<option value="">PIlih HIMA</option>`;
             hima.map(h => option += `<option value="${h}">${h}</option>` );
             keterangan.innerHTML = option
         }else if(this.value === 'UKM'){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>PIlih UKM</option>`;
+            option = `<option value="">PIlih UKM</option>`;
             ukm.map(u => option += `<option value="${u}">${u}</option>` );
             keterangan.innerHTML = option
         }else if(this.value === ''){

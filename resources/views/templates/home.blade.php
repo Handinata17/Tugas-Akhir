@@ -23,12 +23,12 @@
                 <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->name}}</h5>
                 @endif
               </div>
+            </div>
                 <!--end media-body-->
             </div>
-        </div>
-        <ul class="metismenu left-sidenav-menu slimscroll">
-          @yield('sidebar')
-        </ul>
+            <ul class="metismenu left-sidenav-menu slimscroll">
+              @yield('sidebar')
+            </ul>
     </div>
 
     <!-- end left-sidenav-->

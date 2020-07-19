@@ -14,21 +14,15 @@ class CreateRevisisTable extends Migration
     public function up()
     {
         Schema::create('revisis', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_event')->unsigned();
-            $table->integer('id_eventlainnya')->unsigned();
+            $table->bigIncrements('id');
+            $table->integer('id_event')->unsigned()->nullable();
+            $table->integer('id_eventlain')->unsigned()->nullable();
             $table->integer('id_pengguna')->unsigned();
-            $table->string('nama_event');
-            $table->string('organisasi');
-            $table->string('keterangan')->nullable();
-            $table->string('revisi');
-            $table->date('tanggal_revisi');
-            $table->string('ke');
-            $table->boolean('status')->default(false);
+            $table->text('revisi');
             $table->timestamps();
 
             $table->foreign('id_event')->references('id')->on('events')->onDelete('CASCADE');
-            $table->foreign('id_eventlainnya')->references('id')->on('eventlainnyas')->onDelete('CASCADE');
+            $table->foreign('id_eventlain')->references('id')->on('event_lainnyas')->onDelete('CASCADE');
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');
         });
     }

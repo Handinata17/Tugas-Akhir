@@ -21,10 +21,10 @@ class CreateEventLainnyasTable extends Migration
             $table->text('proposal');
             $table->text('perbaikan')->nullable();
             $table->text('lpj')->nullable();
-            $table->enum('acc_bem', ['0', '1', '2'])->default('1');
-            $table->enum('acc_bpm', ['0', '1', '2'])->default('1');
-            $table->enum('acc_kaprodi', ['0', '1', '2'])->default('1');
-            $table->enum('acc_wadir_3', ['0', '1', '2'])->default('1');
+            $table->enum('acc_bem', [1,2])->nullable();
+            $table->enum('acc_bpm', [2,3])->nullable();
+            $table->enum('acc_kaprodi',[3,4])->nullable();
+            $table->enum('acc_wadir_3', [4,5])->nullable();
             $table->timestamps();
 
             $table->foreign('id_pengguna')->references('id')->on('penggunas')->onDelete('CASCADE');
