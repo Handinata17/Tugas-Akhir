@@ -12,11 +12,9 @@ use Auth;
 
 class RevisiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('auth:pengguna');
+    }
     public function index()
     {
         $revisis = Revisi::orderBy('id','DESC')->get();

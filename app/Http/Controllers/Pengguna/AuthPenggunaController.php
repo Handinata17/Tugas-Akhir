@@ -19,6 +19,7 @@ class AuthPenggunaController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
+            // 'email' => 'required|string|unique:penggunas',
             'email' => 'required|string',
             'password' => 'required|string|min:6'
         ]);

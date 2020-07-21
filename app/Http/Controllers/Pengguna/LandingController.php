@@ -24,14 +24,55 @@ class LandingController extends Controller
       return view('pages.home.landing_page', compact(['recruitments']));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function prodi ($prodi)
     {
-        //
+        $prodis = [
+            'D3 Teknik Elektro',
+            'D3 Teknik Mesin',
+            'D3 Teknik Akuntansi',
+            'D3 Teknik Komputer',
+            'D3 Kebidanan',
+            'D3 Farmasi',
+            'D4 Teknik Informatika',
+            'D3 Perhotelan',
+            'D3 Akuntansi Sektor Publik',
+            'D3 DKV'
+        ];
+
+        $result = [];
+        for($i = 0; $i < count($prodis); $i++){
+            if($prodi == '01'){
+                $result = $prodis[0];
+            }else if($prodi == '02'){
+                $result = $prodis[1];
+            }else if($prodi == '03'){
+                $result = $prodis[2];
+            }else if($prodi == '04'){
+                $result = $prodis[3];
+            }else if($prodi == '07'){
+                $result = $prodis[4];
+            }else if($prodi == '08'){
+                $result = $prodis[5];
+            }else if($prodi == '09'){
+                $result = $prodis[6];
+            }else if($prodi == '10'){
+                $result = $prodis[7];
+            }else if($prodi == '11'){
+                $result = $prodis[8];
+            }else{
+                $result = $prodis;
+            }
+        }
+
+        return $result;
+    }
+
+    function convertKodeToProdi($prodi){
+        $result = [];
+        if($prodi == '01'){
+            $result = $prodis;
+        }
+        return $result;
     }
 
     /**

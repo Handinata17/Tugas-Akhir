@@ -12,12 +12,12 @@
 
 
             @if(Auth::user()->organisasi == 'BEM')
-            <li class="leftbar-menu-item">
+            {{-- <li class="leftbar-menu-item">
               <a href="javascript: void(0);" class="menu-link">
                 <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
                 Dashboard</i>
               </a>
-            </li>
+            </li> --}}
 
             <li class="leftbar-menu-item">
               <a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>

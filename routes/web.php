@@ -11,6 +11,7 @@
 |
 */
 Route::get('/','Pengguna\LandingController@index');
+Route::get('/{prodi}','Pengguna\LandingController@prodi');
 Route::get('/recruitment/{id}','Pengguna\LandingController@show');
 Route::post('/pendaftaran/create' ,'Pengguna\PendaftaranController@store')->name('store.pendaftaran');
 Route::get('/proker/{id}','Pengguna\LandingController@show');
@@ -207,6 +208,11 @@ Route::group(['prefix' => 'superadmin'], function(){
 });
 
 Route::group(['prefix' => 'pengguna'], function(){
-Route::get('/profil', 'Pengguna\ProfilController@index')->name('profil.index');
-    Route::post('/profil/create', 'Pengguna\ProfilController@store')->name('profil.store');
+Route::get('/profil', 'Pengguna\ProfilController@index')->name('index.profil');
+Route::put('/profil/{id}/update','Pengguna\ProfilController@update')->name('update.profil');
 });
+
+Route::group(['prefix' => 'superadmin'], function(){
+    Route::get('/profil', 'SuperAdmin\ProfilController@index')->name('superadmin.index.profil');
+    Route::put('/profil/{id}/update','SuperAdmin\ProfilController@update')->name('superadmin.update.profil');
+    });

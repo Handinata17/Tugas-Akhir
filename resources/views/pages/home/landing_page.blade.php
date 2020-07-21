@@ -143,7 +143,7 @@
 
                                                 <div class="form-group">
                                                         <label>NIM</label>
-                                                    <input type="text" class="form-control" name="nim" type="text" class="form-control" value="{{old('nim')}}" placeholder="Masukan Nim">
+                                                    <input type="text" id="nim" class="form-control" name="nim" type="text" class="form-control" value="{{old('nim')}}" placeholder="Masukan Nim">
                                                     </div>
                                                 <div class="form-group">
                                                         <label>Nama Mahasiswa</label>
@@ -153,6 +153,7 @@
                                                         <label>Email</label>
                                                         <input type="email" class="form-control" name="email" type="text" class="form-control" placeholder="Masukan Email">
                                                     </div>
+
                                                 <div class="form-group">
                                                     <label for="">Recruitment</label>
                                                     <select name="id_recruitment" class="form-control recruitment" id="recruitment" required>
@@ -212,7 +213,52 @@
                             </div>
                                     <!-- end col -->
 
-                <script>
+
+<script>
+
+    const nim = document.querySelector('#nim');
+    const appUrl = '{{ config('app.url') }}';
+
+    nim.addEventListener('change', async function(){
+        var str = nim.value.substring(2, 4);
+        console.log(url+str);
+
+        const data = await getData(str);
+        console.log(data);
+
+        //await fetch(appUrl+str).then(res => res.json()).then(out => console.log('Output: ', out));
+
+    });
+
+    function getData(prodi) {
+      return  fetch(url+prodi).then(res => res.json()).then(res => res)
+    }
+
+</script>
+    <script>
+    // const keterangan = document.querySelector('#keterangan');
+    // const prodi = document.querySelector('#prodi');
+    // const displayKet = document.querySelector('#display-keterangan');
+
+    // const prodi = [ 'D4 Teknik Informatika','D4 Akuntansi Sektor Publik' ,'D3 Perhotelan'
+    //                 ,'D3 DKV ( Desain Komunikasi Visual )','D3 Teknik Elektro','D3 Teknik Mesin'
+    //                 ,'D3 Teknik Komputer','D3 Akuntansi','D3 Kebidanan','D3 Farmasi'];
+
+    // prodi.addEventListener('change', function(){
+    //     let option;
+    //    wq if(this.value === 'Prodi'){
+    //         displayKet.style.display = '';
+    //         keterangan.required = true;
+    //         option = `<option>PIlih PRODI</option>`;
+    //         prodi.map(h => option += `<option value="${h}">${h}</option>` );
+    //         keterangan.innerHTML = option
+    //     }
+    //     else{
+    //         displayKet.style.display = 'none';
+    //         keterangan.required = false;
+    //     }
+    // })
+
                     const tanggal = document.querySelector('#tanggal');
                     const mulai = document.querySelector('#mulai');
                     const selesai = document.querySelector('#selesai');
