@@ -33,7 +33,7 @@
                                             <th>File</th>
                                             {{-- <th>Perbaikan</th> --}}
                                             {{-- <th>Status</th> --}}
-                                            <th>status</th>
+                                            {{-- <th>status</th> --}}
                                             <th>Action</th>
                                         </tr>
                                     </thead>

@@ -18,12 +18,13 @@ class RabController extends Controller
      */
     public function index()
     {
-        $rabs = Rab::orderBy('id','DESC')->get();
+        $prokers = Proker::orderBy('id','DESC')->get();
+        // $rabs = Rab::orderBy('id','DESC')->get();
         //   $events = Pengguna::where('organisasi', Auth::user()->organisasi)
         //   ->with('events')->get();
 
         //$events = Event::where('id_pengguna', Auth::user()->id)->get();
-        return view('pages.pengguna.rab.index', compact('rabs'));
+        return view('pages.pengguna.proker.index', compact('prokers'));
     }
 
     /**

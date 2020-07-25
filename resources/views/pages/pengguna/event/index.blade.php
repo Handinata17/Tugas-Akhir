@@ -13,15 +13,29 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Data List</h4>
                                 <p class="text-muted mb-4 font-13">Data Event</p>
+                                {{-- <div class="form-group">
+                                        <label>Dari Tanggal</label>
+                                        <div class="col-sm-3">
+                                            <input class="form-control" type="date" name="dari_tanggal" value="2011-08-19" id="example-date-input">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label>Sampai</label>
+                                            <div class="col-sm-3">
+                                                <input class="form-control" type="date" name="sampai" value="2011-08-19" id="example-date-input">
+                                            </div>
+                                        </div> --}}
+                                    <a href="{{route('print.event')}}" class="btn btn-success">Prints</a>
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>
                                     <tr>
                                             <th>No</th>
                                             <th>Nama Event</th>
                                             <th>Organisasi</th>
+                                            {{-- <th>Tanggal_Mulai</th> --}}
                                             <th>Tempat</th>
                                             <th>Alokasi Dana</th>
-                                            <th>Tipe</th>
+                                            {{-- <th>Tipe</th> --}}
                                             <th>Proposal</th>
                                             <th>Perbaikan</th>
                                             <th>Status</th>
@@ -35,10 +49,11 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$event->proker->nama_event}}</td>
                                             <td>{{$event->pengguna->organisasi}}</td>
+                                            {{-- <td>{{$event->proker->tanggal_mulai}}</td> --}}
                                             <td>{{$event->proker->tempat}}</td>
                                             <td>{{$event->proker->alokasi_dana}}</td>
                                             {{-- <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td> --}}
-                                            <td>{{$event->tipe}}</td>
+                                            {{-- <td>{{$event->tipe}}</td> --}}
                                             <td>@if($event->acc_wadir_3 == 3)
                                             <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
                                             @else
@@ -64,13 +79,16 @@
                                               @elseif($event->acc_wadir_3 == 3)
                                               <span class="badge badge-success">Selesai</span>
                                               @else
-                                              <span class="badge badge-danger">Belum ada Revisi</span>
+                                              <span class="badge badge-danger">Belum ada Revisi BEM</span>
                                               @endif
                                             </td>
                                             <td>
-                                              @if($event->acc_wadir_3 !== '3')
+                                                    @if($event->acc == null || $event->acc == 1)
+                                                    <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
+                                                    @endif
+                                              {{-- @if($event->acc_wadir_3 !== '3')
                                               <button type="button" class="btn btn-warning" onclick="window.location='{{route("edit.event", $event->id)}}'">Edit</button>
-                                              @endif
+                                              @endif --}}
                                             </td>
                                         </tr>
                                         @elseif(Auth::user()->organisasi === 'BPM')
@@ -81,7 +99,7 @@
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{$event->proker->alokasi_dana}}</td>
                                             {{-- <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td> --}}
-                                            <td>{{$event->tipe}}</td>
+                                            {{-- <td>{{$event->tipe}}</td> --}}
                                             <td>
                                             @if($event->acc_wadir_3 == 3)
                                             <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
@@ -90,7 +108,7 @@
                                             @endif
                                             </td>
                                             <td>
-                                              @if($event->acc == 1 || $event->acc == null)
+                                              @if($event->acc == 1 || $event->acc_wadir_3 == 2 && count($event->revisi) > 0)
                                               <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
                                               @elseif($event->acc == 2 && count($event->revisi) > 0)
                                               <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
@@ -110,7 +128,7 @@
                                               @elseif($event->acc_wadir_3 == 3)
                                               <span class="badge badge-success">Selesai</span>
                                               @else
-                                              <span class="badge badge-danger">Belum ada Revisi</span>
+                                              <span class="badge badge-danger">Belum ada Revisi BEM</span>
                                               @endif
                                             </td>
                                             <td>
@@ -127,7 +145,7 @@
                                             <td>{{ $event->proker->tempat}}</td>
                                             <td>{{$event->proker->alokasi_dana}}</td>
                                             {{-- <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td> --}}
-                                            <td>{{$event->tipe}}</td>
+                                            {{-- <td>{{$event->tipe}}</td> --}}
                                             <td>@if($event->acc_wadir_3 == 3)
                                             <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
                                             @else
@@ -135,7 +153,7 @@
                                             @endif
                                             </td>
                                             <td>
-                                              @if($event->acc_wadir_3 == null || $event->acc_wadir_3 == 2)
+                                              @if($event->acc_wadir_3 == null || $event->acc_wadir_3 == 2 && count($event->revisi) > 0)
                                               <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
                                               @elseif($event->acc_wadir_3 == 3 && count($event->revisi) > 0)
                                               <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>

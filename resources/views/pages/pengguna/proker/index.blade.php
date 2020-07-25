@@ -32,7 +32,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($prokers as $proker)
-                                        @if($proker->pengguna->organisasi === Auth::user()->organisasi)
+                                        @if($proker->pengguna->organisasi === Auth::user()->organisasi )
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$proker->nama_event}}</td>

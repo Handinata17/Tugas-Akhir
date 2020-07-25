@@ -8,7 +8,7 @@ class Rab extends Model
 {
     protected $guarded = [];
 
-    public function rab(){
-        return $this->belongsTo(Rab::class, 'id_proker', 'id');
+    public function proker(){
+        return $this->belongsTo(Proker::class, 'id_proker', 'id');
     }
 }

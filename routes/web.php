@@ -30,6 +30,7 @@ Auth::routes();
 Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/beranda','Pengguna\BerandaController@index')->name('pengguna.beranda');
     Route::get('/event','Pengguna\EventController@index')->name('event');
+    Route::get('/event/report','Pengguna\EventController@print')->name('print.event');
     Route::get('/event/create','Pengguna\EventController@create')->name('create.event');
     Route::post('/event/create' ,'Pengguna\EventController@store')->name('store.event');
     Route::get('/event/{id}/edit','Pengguna\EventController@edit')->name('edit.event');

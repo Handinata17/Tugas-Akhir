@@ -9,11 +9,20 @@ use App\Pengguna;
 use App\Proker;
 use App\Revisi;
 use Auth;
+use Barryvdh\DomPDF\Facade as PDF;
+
 
 class EventController extends Controller
 {
     public function __construct(){
         $this->middleware('auth:pengguna');
+    }
+
+    public function print(){
+        $events = Event::orderBy('id','DESC')->get();
+        $pdf =PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('pages.pengguna.event.printevent', compact(['events']));
+        return $pdf->stream();
+
     }
 
     public function index(){
@@ -40,7 +49,8 @@ class EventController extends Controller
         $event = new Event();
         $event->id_pengguna = Auth::user()->id;
         $event->id_proker = $request->id_proker;
-        $event->tipe = $request->tipe;
+        // $event->tanggal_mulai = $request->$tanggal_mulai;
+        // $event->tipe = $request->tipe;
         $event->proposal = $proposal;
         $event->perbaikan = $request->perbaikan;
         $event->save();

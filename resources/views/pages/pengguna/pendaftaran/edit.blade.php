@@ -27,20 +27,20 @@
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
-                                <form class="form-parsley" method="POST" action="{{route('update.pendaftaran', $event->id)}}" enctype="multipart/form-data">
+                                <form class="form-parsley" method="POST" action="{{route('update.pendaftaran', $pendaftaran->id)}}" enctype="multipart/form-data">
                                     @method('PUT')
                                 @csrf
                                 <div class="form-group">
                                     <label>NIM</label>
-                                    <input type="text" class="form-control" type="text" class="form-control" placeholder="Masukan Nim">
+                                    <input type="text" class="form-control" value="{{$pendaftaran->nim}}" name="deskripsi" placeholder="Masukan Nim">
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Mahasiswa</label>
-                                    <input type="text" class="form-control" type="text" class="form-control" placeholder="Masukan Nama">
+                                    <input type="text" class="form-control" value="{{$pendaftaran->nama_mahasiswa}}" name="deskripsi" placeholder="Masukan Nama">
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" type="text" class="form-control" placeholder="Masukan Email">
+                                    <input type="text" class="form-control" value="{{$pendaftaran->email}}" name="deskripsi" placeholder="Masukan Email">
                                 </div>
                                 {{-- <div class="form-group">
                                     <label>Organisasi</label>

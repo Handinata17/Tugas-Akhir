@@ -20,6 +20,34 @@
             </li> --}}
 
             <li class="leftbar-menu-item">
+                    <a href="{{route('create.event')}}" class="menu-link">
+                        <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
+                    Membuat Event
+                  </a>
+              </li>
+
+              <li class="leftbar-menu-item">
+                    <a href="{{route('event')}}" class="menu-link">
+                        <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
+                    Data Event
+                  </a>
+              </li>
+
+              <li class="leftbar-menu-item">
+                    <a href="{{route('create.eventlainnya')}}" class="menu-link">
+                        <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
+                    Data Event Lain
+                  </a>
+              </li>
+
+              <li class="leftbar-menu-item">
+                    <a href="{{route('pengguna.revisi.event')}}" class="menu-link">
+                        <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
+                    Riwayat Revisi
+                  </a>
+              </li>
+
+            {{-- <li class="leftbar-menu-item">
               <a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
                <span>Event</span> <span class="menu-arrow">
                  <i class="mdi mdi-chevron-right"></i></span>
@@ -30,10 +58,10 @@
                     <li class="nav-item"><a class="nav-link" href="{{route('eventlainnya')}}"><i class="ti-control-record"></i>Event Lain</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('pengguna.revisi.event')}}"><i class="ti-control-record"></i>Riwayat Revisi</a></li>
                     </ul>
-            </li>
+            </li> --}}
 
             @elseif(Auth::user()->organisasi == 'BPM')
-            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Recruitment</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
+            <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical" href="{{ asset('template/images/users//user.png')}}">></i> <span>Recruitment</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item">
                       <a class="nav-link" href="{{route('store.recruitment')}}"><i class="ti-control-record"></i>Membuat Recruitment </a></li>

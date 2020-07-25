@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Recruitment;
 use App\Proker;
+use App\Rab;
 use App\Pengguna;
 use Auth;
 
@@ -19,9 +20,10 @@ class LandingController extends Controller
     public function index()
     {
       $recruitments = Recruitment::all();
+      $rabs = Proker::orderBy('id','DESC')->get();
     //   return view('pages.home.landing_page', compact('recruitments'));
     //   $prokers = Proker::all();
-      return view('pages.home.landing_page', compact(['recruitments']));
+      return view('pages.home.landing_page', compact(['recruitments']), compact(['rabs']));
     }
 
     public function prodi ($prodi)

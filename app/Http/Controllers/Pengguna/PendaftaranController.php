@@ -74,14 +74,14 @@ class PendaftaranController extends Controller
         ->first();
 
         if(!$recruitment){
-            return redirect()->back()->with('failed','aaaaaa');
+            return redirect()->back()->with('failed');
         }else{
 
             $file = $request->file('file');
             $file_name = date('ymdHis') . "-" . $file->getClientOriginalName();
             $file_path = 'file/' . $file_name;
             Storage::disk('s3')->put($file_path, file_get_contents($file));
-            $gambar = Storage::disk('s3')->url($file_path, $file_name);
+            $file = Storage::disk('s3')->url($file_path, $file_name);
 
             // $gambar = $request->file('gambar')->store('gambar');
 

@@ -51,8 +51,8 @@
 </ul> -->
 </li>
 <li><a class="nav-link" href="#recruitmen">Recruitment</a></li>
-<li><a class="nav-link" href="#event">Event</a></li>
-<li><a class="nav-link" href="#testimonial">Dana RAB</a></li>
+{{-- <li><a class="nav-link" href="#event">Event</a></li> --}}
+<li><a class="nav-link" href="#proker">Dana RAB</a></li>
 <li><a href="#">Login</a>
 <ul>
 <li><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></li>
@@ -74,7 +74,6 @@
 <div class="container">
 <div class="row aic">
 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
-<!-- <span class="h-icon mdi mdi-equalizer"></span> -->
 <h2>Organisasi Mahasiswa</h2> <h2>Politeknik Harapan Bersama</span></h2>
 </div>
 <div class="col-lg-5 text-right col-md-12 wow fadeInUp" data-wow-delay="0.4s">
@@ -99,7 +98,7 @@
 <div class="container">
 <div class="row">
 
-<div class="col-lg-8 wow fadeInUp" data-wow-delay="0.2s">
+<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.2s">
         <div class="row">
                 <div class="col-sm-12">
                     <div class="page-title-box">
@@ -292,7 +291,7 @@
 </div>
 
 {{-- EVENT --}}
-<div class="row">
+{{-- <div class="row">
         <div class="col-sm-12">
             <div class="page-title-box">
                 <div class="float-right">
@@ -307,9 +306,9 @@
             <!--end page-title-box-->
         </div>
         <!--end col-->
-    </div>
+    </div> --}}
     <!-- end page title end breadcrumb -->
-    <div class="row">
+    {{-- <div class="row">
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
@@ -374,14 +373,14 @@
             <!--end col-->
 
             <!--end col-->
-        </div>
+        </div> --}}
 
 
 
 
 
 
-        <div class="screen-slider">
+        {{-- <div class="screen-slider">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.2s">
@@ -415,26 +414,26 @@
 </div>
 </div>
 </div>
-</div>
+</div> --}}
 
-
-<div class="pricing-area price2 pd-100" id="proker">
+<div>
+<div class="pricing-area price2 pd-80" id="proker">
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-lg-7 text-center wow fadeInUp" data-wow-delay="0.2s">
+<div class="col-lg-12 text-center wow fadeInUp" data-wow-delay="0.2s">
 <div class="title white">
-<h2>No Hidden Price Best Price Around Market</h2>
-<p>Compellingly communicate high-payoff vortals vis-a-vis real-time functionalities. </p>
+<h2>DATA RANCANG ANGGARAN BELANJA</h2>
+<p>Berdasarkan dari lembaga </p>
 </div>
 </div>
-{{-- <div class="page-wrapper">
-        <h4 class="page-title">Data Proker</h4></div>
+<div class="page-wrapper">
+        {{-- <h4 class="page-title">Data Proker</h4></div> --}}
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="mt-0 header-title">Data List</h4>
-                        <p class="text-muted mb-4 font-13">Data Proker</p>
+                        {{-- <h4 class="mt-0 header-title">Data List</h4>
+                        <p class="text-muted mb-4 font-13">Data Proker</p> --}}
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                             <tr>
@@ -446,25 +445,25 @@
                                     <th>Tanggal Selesai</th>
                                     <th>Tempat</th>
                                     <th>Alokasi Dana</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($prokers as $proker)
-                                @if($proker->pengguna->organisasi === Auth::user()->organisasi)
+                            @foreach($rabs as $rab)
+                                {{-- @if($rab->pengguna->organisasi === Auth::user()->organisasi) --}}
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$proker->nama_event}}</td>
-                                    <td>{{$proker->organisasi}}</td>
-                                    <td>{{$proker->keterangan}}</td>
-                                    <td>{{$proker->tanggal_mulai}}</td>
-                                    <td>{{$proker->tanggal_selesai}}</td>
-                                    <td>{{$proker->tempat}}</td>
-                                    <td>{{$proker->alokasi_dana}}</td>
-                                    <td><a href="{{route('edit.proker', $proker->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
-                                    <a href="{{route('destroy.proker', $proker->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                    <td>{{$rab->nama_event}}</td>
+                                    <td>{{$rab->organisasi}}</td>
+                                    <td>{{$rab->keterangan}}</td>
+                                    <td>{{$rab->tanggal_mulai}}</td>
+                                    <td>{{$rab->tanggal_selesai}}</td>
+                                    <td>{{$rab->tempat}}</td>
+                                    <td>{{$rab->alokasi_dana}}</td>
+                                    {{-- <td><a href="{{route('edit.proker', $proker->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
+                                    <a href="{{route('destroy.proker', $proker->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td> --}}
                                 </tr>
-                                @endif
+                                {{-- @endif --}}
                             @endforeach
                             </tbody>
                         </table>
@@ -476,12 +475,7 @@
         <!-- end row -->
     </div>
     <!-- container -->
-    <!--  Modal content for the above example -->
-
-    <!-- /.modal -->
-    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
-    <!--end footer-->
-</div> --}}
+</div>
 <!-- end page content -->
 </div>
 
@@ -494,7 +488,7 @@
 </div>
 
 
-<div class="animation-4">
+{{-- <div class="animation-4">
 <span></span>
 <span></span>
 <span></span>
@@ -548,10 +542,10 @@
 </div>
 </div>
 </div>
-</div>
+</div> --}}
 
 
-<div class="subscribe pt-100">
+{{-- <div class="subscribe pt-100">
 <div class="container">
 <div class="row justify-content-center">
 <div class="col-lg-8 text-center wow fadeInUp" data-wow-delay="0.2s">
@@ -614,7 +608,7 @@
 </div>
 </div>
 </div>
-</div>
+</div> --}}
 <div class="copyright">
 <div class="container">
 <div class="row">
@@ -655,4 +649,5 @@
 <script src="{{ asset ('landing_page/js/jquery.lineProgressbar.js') }}" type="d8c396bb02207cc85c9c2094-text/javascript"></script>
 <script src="{{ asset ('landing_page/js/main.js') }}" type="d8c396bb02207cc85c9c2094-text/javascript"></script>
 <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="d8c396bb02207cc85c9c2094-|49" defer=""></script></body>
+
 </html>
