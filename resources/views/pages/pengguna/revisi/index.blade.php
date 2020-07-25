@@ -24,32 +24,30 @@
                                             <th>Organisasi</th>
                                             <th>Keterangan</th>
                                             <th>Revisi</th>
-                                            <th>Tanggal Revisi</th>
-                                            <th>Ke</th>
                                             <th>Status</th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($revisis as $revisi)
-                                        @if($revisi->pengguna->organisasi === Auth::user()->organisasi)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$revisi->nama_event}}</td>
-                                            <td>{{$revisi->organisasi}}</td>
-                                            <td>{{$revisi->keterangan}}</td>
-                                            <td>{{$revisi->revisian}}</td>
-                                            <td>{{$revisi->tanggal_revisi}}</td>
-                                            <td>{{$revisi->ke}}</td>
-                                            <td>{{$revisi->status}}</td>
-                                            @if($revisi>acc == '2')
-                                            <td><span class="badge badge-success">Close</span></td>
-                                            @endif
+                                            <td>{{$revisi->event->proker->nama_event}}</td>
+                                            <td>{{$revisi->event->proker->organisasi}}</td>
+                                            <td>{{$revisi->event->proker->keterangan}}</td>
+                                            <td>Telah di revisi sebanyak {{$revisi->total}} kali</td>
                                             <td>
-                                                    <td><span class="badge badge-success">Open</span></td>
-                                    </td>
+                                              @if($revisi->event->acc_wadir_3 == '3')
+                                              <span class="badge badge-success">Close</span>
+                                              @else
+                                              <span class="badge badge-success">Open</span>
+                                              @endif
+                                            </td>
+                                            <td>
+                                              <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $revisi->id_event)}}'">Lihat Revisi</button>
+                                            </td>
                                         </tr>
                                         </tr>
-                                        @endif
                                     @endforeach
                                     </tbody>
                                 </table>

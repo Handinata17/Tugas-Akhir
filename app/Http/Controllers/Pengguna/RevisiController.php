@@ -9,6 +9,7 @@ use App\Event;
 use App\EventLainnya;
 use App\Pengguna;
 use Auth;
+use DB;
 
 class RevisiController extends Controller
 {
@@ -17,7 +18,8 @@ class RevisiController extends Controller
     }
     public function index()
     {
-        $revisis = Revisi::orderBy('id','DESC')->get();
+        $revisis = Revisi::orderBy('id','DESC')->select('id_event', DB::raw('count(*) as total'))->groupBy('id_event')->get();
+        // dd($revisis);
         return view('pages.pengguna.revisi.index', compact('revisis'));
     }
 

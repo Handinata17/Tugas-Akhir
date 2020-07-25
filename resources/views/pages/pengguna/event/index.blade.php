@@ -65,6 +65,8 @@
                                                 <button class="btn btn-danger btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
                                                 @elseif($event->acc == 2 && count($event->revisi) > 0)
                                                 <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
+                                                @elseif($event->pengguna->organisasi === 'BPM' && $event->acc < 2)
+                                                <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
                                                 @endif
                                             </td>
                                             <td>
@@ -83,10 +85,9 @@
                                               @endif
                                             </td>
                                             <td>
-                                                    @if($event->acc == null || $event->acc == 1)
-                                                    <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
-                                                    @endif
-                                              {{-- @if($event->acc_wadir_3 !== '3')
+                                              @if($event->pengguna->organisasi === 'BPM' && $event->acc < 2)
+                                              <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
+                                              @elseif($event->acc_wadir_3 !== '3' && $event->pengguna->organisasi === 'BEM')
                                               <button type="button" class="btn btn-warning" onclick="window.location='{{route("edit.event", $event->id)}}'">Edit</button>
                                               @endif --}}
                                             </td>
@@ -108,7 +109,8 @@
                                             @endif
                                             </td>
                                             <td>
-                                              @if($event->acc == 1 || $event->acc_wadir_3 == 2 && count($event->revisi) > 0)
+
+                                              @if($event->acc == 1 || $event->acc == null && $event->pengguna->organisasi !== 'BPM' )
                                               <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
                                               @elseif($event->acc == 2 && count($event->revisi) > 0)
                                               <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
@@ -132,7 +134,7 @@
                                               @endif
                                             </td>
                                             <td>
-                                            @if($event->acc == null || $event->acc == 1)
+                                              @if($event->acc == 1 || $event->acc == null && $event->pengguna->organisasi !== 'BPM' )
                                               <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
                                               @endif
                                             </td>
