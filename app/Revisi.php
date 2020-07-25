@@ -12,7 +12,7 @@ class Revisi extends Model
         return $this->belongsTo(Pengguna::class, 'id_pengguna','id');
     }
 
-    // public function revisi (){
-    //     return $this->belongsTo(Revisi::class, 'id_revisi','id');
-    // }
+    public function event(){
+        return $this->belongsTo(Event::class, 'id_event','id');
+    }
 }
