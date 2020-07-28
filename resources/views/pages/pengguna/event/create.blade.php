@@ -120,7 +120,7 @@
                                         <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
                                         @if ($errors->has('proposal'))
                                         <span class="valid-feedback" role="alert">
-                                            <p><b>{{ $erros->first('proposal') }}</b></p>
+                                            <p><b>{{ $errors->first('proposal') }}</b></p>
                                         </span>
                                         @endif
                                     </div>

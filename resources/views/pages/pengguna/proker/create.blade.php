@@ -74,7 +74,7 @@
                                         </div>
                                         <div class="form-group">
                                         <label>Alokasi Dana</label>
-                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Masukan Dana RAB">
+                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Masukan Dana RAB" required>
                                     </div>
                                     <!--end form-group-->
                                     <!-- <div class="form-group">

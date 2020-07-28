@@ -10,7 +10,7 @@ use App\Proker;
 use App\Revisi;
 use Auth;
 use Barryvdh\DomPDF\Facade as PDF;
-
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
@@ -44,10 +44,14 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        $rules = [
-            proposal => 'requered|file|mimes:pdf|max:5048'
-        ];
-        $this->validate($request, $rules);
+
+        $validator = Validator::make($request->all(),[
+            'proposal' => 'required|file|mimes:pdf|max:5048'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator);
+        }
 
 
         // dd($request->all());
