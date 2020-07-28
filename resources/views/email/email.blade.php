@@ -369,7 +369,7 @@ table{
                     @endif
                     @if($data->status === 0)
                     <p>Maaf anda tidak diterima dalam organisasi {{$data->recruitment->organisasi}}</p>
-                    @else
+                    @elseif($data->status === 1)
                     <p>Selamat anda telah di terima di organisasi {{$data->recruitment->organisasi}}</p>
                     @endif
             			</div>
