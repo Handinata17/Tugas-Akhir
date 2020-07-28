@@ -130,7 +130,7 @@
                                         @endif
                                         @if($errors->all())
                                         <div class="alert alert-danger" role="alert">
-                                            {{-- {{ dd($errors) }} --}}
+                                          {{ dd($errors) }}
                                                 Pendaftaran Recruitment gagal! cek kembali
 
                                               </div>
@@ -139,7 +139,7 @@
                                         <div class="alert alert-success" role="alert">
                                                Pendaftaran Recruitment berhasil
                                               </div>
-                                    @endif
+                                              @endif
                                         <div class="card">
                                             <div class="card-body">
                                                 <h4 class="mt-0 header-title">Join Recruitment</h4>
@@ -206,6 +206,7 @@
                                                     </div>
                                                     <!--end form-group-->
                                                 </form>
+
                                                 <!--end form-->
                                             </div>
                                             <!--end card-body-->
@@ -219,209 +220,10 @@
                             </div>
                                     <!-- end col -->
 
+              </div>
+           </div>
+         </div>
 
-<script>
-
-    const nim = document.querySelector('#nim');
-    const appUrl = '{{ config('app.url') }}';
-
-    nim.addEventListener('change', async function(){
-        var str = nim.value.substring(2, 4);
-        console.log(url+str);
-
-        const data = await getData(str);
-        console.log(data);
-
-        //await fetch(appUrl+str).then(res => res.json()).then(out => console.log('Output: ', out));
-
-    });
-
-    // function getData(prodi) {
-    //   return  fetch(url+prodi).then(res => res.json()).then(res => res)
-    // }
-
-</script>
-    <script>
-    // const keterangan = document.querySelector('#keterangan');
-    // const prodi = document.querySelector('#prodi');
-    // const displayKet = document.querySelector('#display-keterangan');
-
-    // const prodi = [ 'D4 Teknik Informatika','D4 Akuntansi Sektor Publik' ,'D3 Perhotelan'
-    //                 ,'D3 DKV ( Desain Komunikasi Visual )','D3 Teknik Elektro','D3 Teknik Mesin'
-    //                 ,'D3 Teknik Komputer','D3 Akuntansi','D3 Kebidanan','D3 Farmasi'];
-
-    // prodi.addEventListener('change', function(){
-    //     let option;
-    //    wq if(this.value === 'Prodi'){
-    //         displayKet.style.display = '';
-    //         keterangan.required = true;
-    //         option = `<option>PIlih PRODI</option>`;
-    //         prodi.map(h => option += `<option value="${h}">${h}</option>` );
-    //         keterangan.innerHTML = option
-    //     }
-    //     else{
-    //         displayKet.style.display = 'none';
-    //         keterangan.required = false;
-    //     }
-    // })
-
-                    const tanggal = document.querySelector('#tanggal');
-                    const mulai = document.querySelector('#mulai');
-                    const selesai = document.querySelector('#selesai');
-                    const recruitmen = document.querySelector('#recruitment');
-                    const url = '{{config('app.url')}}'
-                    recruitmen.addEventListener('change', async function(){
-                        const id = this.value
-                        if(this.value !== ''){
-                            const data = await fetch(url+'recruitment/'+id).then(res => res.json()).then(res => res)
-                           tanggal.style.display = '';
-                           mulai.value = data.tanggal_mulai;
-                           selesai.value = data.tanggal_selesai
-                        }else{
-                           tanggal.style.display = 'none';
-                           mulai.value = '';
-                           selesai.value = '';
-                        }
-                    })
-
-                </script>
-
-
-        </div>
-        {{-- <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="contact-img">
-                <img src="{{ asset('landing_page/image/contac-img.png')}}" alt="">
-                 </div>
-             </div> --}}
-</div>
-
-</div>
-
-{{-- EVENT --}}
-{{-- <div class="row">
-        <div class="col-sm-12">
-            <div class="page-title-box">
-                <div class="float-right">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Metrica</a></li>
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Apps</a></li>
-                        <li class="breadcrumb-item active">Calendar</li>
-                    </ol>
-                </div>
-                <h4 class="page-title">Calendar</h4>
-            </div>
-            <!--end page-title-box-->
-        </div>
-        <!--end col-->
-    </div> --}}
-    <!-- end page title end breadcrumb -->
-    {{-- <div class="row">
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="../assets/images/widgets/calendar.svg" alt="" class="img-fluid" />
-                        <ul class="list-group">
-                            <li class="list-group-item align-items-center d-flex">
-                                <div class="media">
-                                    <img src="../assets/images/widgets/project1.jpg" class="mr-3 thumb-sm align-self-center rounded-circle" alt="..." />
-                                    <div class="media-body align-self-center">
-                                        <h5 class="mt-0 mb-1">Meeting with UI/UX Designers</h5>
-                                        <p class="text-muted mb-0">Today 07:30 AM</p>
-                                    </div>
-                                    <!--end media body-->
-                                </div>
-                            </li>
-                            <li class="list-group-item align-items-center">
-                                <div class="media">
-                                    <img src="../assets/images/users/user-5.jpg" class="mr-3 thumb-sm align-self-center rounded-circle" alt="..." />
-                                    <div class="media-body align-self-center">
-                                        <h5 class="mt-0 mb-1">Lunch with my friend</h5>
-                                        <p class="text-muted mb-0">Today 12:30 PM</p>
-                                    </div>
-                                    <!--end media body-->
-                                </div>
-                            </li>
-                            <li class="list-group-item align-items-center">
-                                <div class="media">
-                                    <img src="../assets/images/widgets/project3.jpg" class="mr-3 thumb-sm align-self-center rounded-circle" alt="..." />
-                                    <div class="media-body align-self-center">
-                                        <h5 class="mt-0 mb-1">Call for payment Project ID : #254136</h5>
-                                        <p class="text-muted mb-0">Tomorrow 10:30 AM</p>
-                                    </div>
-                                    <!--end media body-->
-                                </div>
-                            </li>
-                            <li class="list-group-item align-items-center">
-                                <div class="media">
-                                    <img src="../assets/images/users/user-4.jpg" class="mr-3 thumb-sm align-self-center rounded-circle" alt="..." />
-                                    <div class="media-body align-self-center">
-                                        <h5 class="mt-0 mb-1">Picnic with my Family</h5>
-                                        <p class="text-muted mb-0">01 June 2019 - 09:30 AM</p>
-                                    </div>
-                                    <!--end media body-->
-                                </div>
-                            </li>
-                            <li class="list-group-item align-items-center">
-                                <div class="media">
-                                    <img src="../assets/images/widgets/project4.jpg" class="mr-3 thumb-sm align-self-center rounded-circle" alt="..." />
-                                    <div class="media-body align-self-center">
-                                        <h5 class="mt-0 mb-1">Meeting with Developers</h5>
-                                        <p class="text-muted mb-0">04 June 2019 - 07:30 AM</p>
-                                    </div>
-                                    <!--end media body-->
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--end card-body-->
-                </div>
-                <!--end card-->
-            </div>
-            <!--end col-->
-
-            <!--end col-->
-        </div> --}}
-
-
-
-
-
-
-        {{-- <div class="screen-slider">
-<div class="container">
-<div class="row justify-content-center">
-<div class="col-lg-7 text-center wow fadeIn" data-wow-delay="0.2s">
-<div class="title">
-<h6>SCREENSHOT</h6>
-<h2>All App Screen <span>& App Flow</span></h2>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-12 wow fadeInUp" data-wow-delay="0.4s">
-<div class="swiper-container gallery-slider">
-<div class="swiper-wrapper">
-<div class="swiper-slide">
-<div class="slide-item">
-<img src="{{ asset ('landing_page/image/screen2.png') }}" alt="" class="img-responsive">
-</div>
-</div>
-<div class="swiper-slide">
-<div class="slide-item">
-<img src="{{ asset ('landing_page/image/screen3.png') }}" alt="" class="img-responsive">
-</div>
-</div>
-<div class="swiper-slide">
-<div class="slide-item">
-<img src="{{ asset ('landing_page/image/screen2.png') }}" alt="" class="img-responsive">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div> --}}
 
 <div>
 <div class="pricing-area price2 pd-80" id="proker">
@@ -655,6 +457,48 @@
 <script src="{{ asset ('landing_page/js/jquery.barfiller.js') }}" type="d8c396bb02207cc85c9c2094-text/javascript"></script>
 <script src="{{ asset ('landing_page/js/jquery.lineProgressbar.js') }}" type="d8c396bb02207cc85c9c2094-text/javascript"></script>
 <script src="{{ asset ('landing_page/js/main.js') }}" type="d8c396bb02207cc85c9c2094-text/javascript"></script>
-<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="d8c396bb02207cc85c9c2094-|49" defer=""></script></body>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js') }}" data-cf-settings="d8c396bb02207cc85c9c2094-|49" defer=""></script>
+<script>
+    const tanggal = document.querySelector('#tanggal');
+    const mulai = document.querySelector('#mulai');
+    const selesai = document.querySelector('#selesai');
+    const recruitmen = document.querySelector('#recruitment');
+    const url = '{{config('app.url')}}'
+    recruitmen.addEventListener('change', async function(){
+        const id = this.value
+        if(this.value !== ''){
+            const data = await fetch(url+'recruitment/'+id).then(res => res.json()).then(res => res)
+           tanggal.style.display = '';
+           mulai.value = data.tanggal_mulai;
+           selesai.value = data.tanggal_selesai
+        }else{
+           tanggal.style.display = 'none';
+           mulai.value = '';
+           selesai.value = '';
+        }
+    })
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script type="text/javascript">
+
+@if(Session::has('emailSuccess'))
+Swal.fire(
+  'konfirmasi Email',
+  'Email anda berhasil di konfirmasi',
+  'success'
+)
+@endif
+
+@if(Session::has('emailFailed'))
+Swal.fire(
+  'konfirmasi Email',
+  'Email anda sudah di konfirmasi',
+  'error'
+)
+@endif
+
+</script>
+</body>
 
 </html>

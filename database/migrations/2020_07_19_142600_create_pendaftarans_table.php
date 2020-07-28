@@ -19,7 +19,9 @@ class CreatePendaftaransTable extends Migration
             $table->string('nim');
             $table->string('nama_mahasiswa');
             $table->string('email');
-            $table->text('file');;
+            $table->text('file');
+            $table->timestamp('verifikasi_email')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
 
             $table->foreign('id_recruitment')->references('id')->on('recruitments')->onDelete('CASCADE');

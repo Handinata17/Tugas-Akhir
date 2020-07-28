@@ -6,8 +6,6 @@
 
 @section('content')
 
-
-
                 <div class="page-wrapper">
                 <h4 class="page-title">Data Pendaftaran</h4></div>
                 <div class="row">
@@ -24,16 +22,7 @@
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>Nama Recruitment</th>
-                                            {{-- <th>Pembuat</th> --}}
-                                            {{-- <th>Tanggal Mulai</th>
-                                            <th>Tanggal Selesai</th> --}}
-                                            {{-- <th>organisasi</th> --}}
-                                            {{-- <th>Keterangan</th> --}}
-                                            {{-- <th>Tipe</th> --}}
                                             <th>File</th>
-                                            {{-- <th>Perbaikan</th> --}}
-                                            {{-- <th>Status</th> --}}
-                                            {{-- <th>status</th> --}}
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -46,27 +35,71 @@
                                             <td>{{$pendaftaran->nama_mahasiswa}}</td>
                                             <td>{{$pendaftaran->email}}</td>
                                             <td>{{$pendaftaran->recruitment->nama_recruitment}}</td>
-                                            {{-- <td>{{$pendaftaran->pengguna->organisasi}}</td> --}}
-                                            {{-- <td>{{$pendaftaran->pengguna->keterangan}}</td> --}}
-
-
                                             <td>
                                             <a class="btn btn-success btn-sm" href="{{$pendaftaran->file}}">Download</a>
                                             </td>
-                                            {{-- src="{{ $pendaftaran->file }}" size = "2048;"> --}}
-                                            {{-- height="100px" width="100px;" --}}
-                                            {{-- <td>{{$event->proker->tanggal_mulai}}</td>
-                                            <td>{{$event->proker->tanggal_selesai}}</td> --}}
-                                            {{-- <td>{{ $event->proker->tempat}}</td>
-                                            <td>{{ $event->proker->alokasi_dana}}</td> --}}
-                                            {{-- <td>{{$event->tipe}}</td> --}}
-
-                                            {{-- <td> <button class="btn btn-primary" onclick="window.location='{{config("app.url").$pendaftaran->gambar}}'">Download</button> </td> --}}
-
-                                            {{-- <td>{{$event->perbaikan}}</td> --}}
-                                            <td><a href="{{route('edit.pendaftaran', $pendaftaran->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
-                                            <a href="{{route('destroy.pendaftaran', $pendaftaran->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <td>
+                                              @if($pendaftaran->status === null)
+                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#terima{{$pendaftaran->id}}">
+                                                <i class="fa fa-check"></i>
+                                              </button>
+                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#tolak{{$pendaftaran->id}}">
+                                                <i class="fa fa-window-close"></i>
+                                              </button>
+                                              @elseif($pendaftaran->status === 0)
+                                                <span class="text-danger">Ditolak</span>
+                                              @else
+                                                <span class="text-success">Diterima</span>
+                                              @endif
+                                          </td>
                                         </tr>
+                                        <div class="modal fade" id="terima{{$pendaftaran->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header bg-primary">
+                                                <h5 class="modal-title text-white" id="exampleModalLabel">Terima Pendaftar</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <form class="" action="{{route('konfirmasi.diterima', $pendaftaran->id)}}" method="post">
+                                                @csrf
+                                                @method('put')
+                                              <div class="modal-body">
+                                                Konfirmasi Pendaftar dengan nama {{$pendaftaran->nama_mahasiswa}}
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Konfirmasi</button>
+                                              </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+
+                                        <div class="modal fade" id="tolak{{$pendaftaran->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header bg-danger">
+                                                <h5 class="modal-title text-white" id="exampleModalLabel">Tolak Pendaftar</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                  <span aria-hidden="true">&times;</span>
+                                                </button>
+                                              </div>
+                                              <form class="" action="{{route('konfirmasi.ditolak', $pendaftaran->id)}}" method="post">
+                                                @csrf
+                                                @method('put')
+                                              <div class="modal-body">
+                                                Konfirmasi Pendaftar dengan nama {{$pendaftaran->nama_mahasiswa}}
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger">Konfirmasi</button>
+                                              </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
                                     @endforeach
                                     </tbody>
                                 </table>
