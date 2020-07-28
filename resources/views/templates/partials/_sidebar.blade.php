@@ -33,12 +33,12 @@
                   </a>
               </li>
 
-              <li class="leftbar-menu-item">
-                    <a href="{{route('create.eventlainnya')}}" class="menu-link">
+              {{-- <li class="leftbar-menu-item">
+                    <a href="{{route('eventlainnya')}}" class="menu-link">
                         <i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i>
                     Data Event Lain
                   </a>
-              </li>
+              </li> --}}
 
               <li class="leftbar-menu-item">
                     <a href="{{route('pengguna.revisi.event')}}" class="menu-link">
@@ -83,7 +83,7 @@
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{route('create.event')}}"><i class="ti-control-record"></i>Membuat Event</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('event')}}"><i class="ti-control-record"></i>Data Event</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('eventlainnya')}}"><i class="ti-control-record"></i>Event Lain</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('eventlainnya')}}"><i class="ti-control-record"></i>Event Lain</a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="{{route('pengguna.revisi.event')}}"><i class="ti-control-record"></i>Riwayat Revisi</a></li>
 
                     </ul>
@@ -113,7 +113,7 @@
             <li class="leftbar-menu-item"><a href="javascript: void(0);" class="menu-link"><i data-feather="aperture" class="align-self-center vertical-menu-icon icon-dual-vertical"></i> <span>Event</span> <span class="menu-arrow"><i class="mdi mdi-chevron-right"></i></span></a>
                 <ul class="nav-second-level" aria-expanded="false">
                     <li class="nav-item"><a class="nav-link" href="{{route('event')}}"><i class="ti-control-record"></i>Data Event</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('eventlainnya')}}"><i class="ti-control-record"></i>Event Lain</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{route('eventlainnya')}}"><i class="ti-control-record"></i>Event Lain</a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="{{route('pengguna.revisi.event')}}"><i class="ti-control-record"></i>Riwayat Revisi</a></li>
 
                     </ul>

@@ -22,7 +22,7 @@ class CreateEventsTable extends Migration
             // $table->date('tanggal_selesai');
             // $table->text('tempat');
             // $table->text('alokasi_dana');
-            // $table->text('tipe');
+            $table->text('tipe');
             $table->text('proposal');
             $table->text('lpj')->nullable();
             $table->text('perbaikan')->nullable();

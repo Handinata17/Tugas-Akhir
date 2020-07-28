@@ -5,6 +5,7 @@ use App\Pengguna;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use Hash;
 
 class ProfilController extends Controller
 {
@@ -18,82 +19,38 @@ class ProfilController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        $user = Auth::user();
-        return view('pages.pengguna.profil.profil', compact('user'));
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
+    public function updatePassword(Request $request){
         $this->validate(request(), [
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
+            'old_password' => 'required',
             'password' => 'required|min:6|confirmed'
         ]);
 
-        $user->name = request('name');
-        $user->email = request('email');
-        $user->password = bcrypt(request('password'));
+        $user = Auth::user();
+        // dd($request->old_password);
 
-        $user->save();
-
-        return back();
+        if(Hash::check($request->old_password, $user->password)){
+           $user->update(['password' => bcrypt($request->password)]);
+           return back()->with('success','Password berhasil diubah');
+        }else{
+            return back()->with('failed','Password lama tidak cocok');
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function update(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        $this->validate(request(), [
+            'nama' => 'required',
+            'email' => 'required|email|unique:penggunas,email,'.$user->id,
+        ]);
+
+        $user->nama = request('nama');
+        $user->email = request('email');
+
+        $user->update();
+
+        return back()->with('success','');
     }
+
 }

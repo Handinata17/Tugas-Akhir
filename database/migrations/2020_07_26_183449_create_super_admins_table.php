@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+
 
 class CreateSuperAdminsTable extends Migration
 {
@@ -26,11 +25,6 @@ class CreateSuperAdminsTable extends Migration
 
         });
 
-        DB::table('super_admins')->insert([
-            'name'=>'saya',
-            'email'=>'hanandwiwiranata17@gmail.com',
-            'password'=> Hash::make('12345678')
-        ]);
     }
 
     /**

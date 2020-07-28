@@ -27,6 +27,20 @@
                     <!--end col-->
                 </div>
 
+                @if($errors->all())
+                <div class="alert alert-danger" role="alert">
+                    {{-- {{ dd($errors) }} --}}
+                        Membuat Event Gagal! Cek Kembali
+
+                      </div>
+                @endif
+                @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                       Membuat Event Berhasil
+                      </div>
+            @endif
+
+
                     <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
@@ -104,8 +118,13 @@
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
                                         <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
+                                        @if ($errors->has('proposal'))
+                                        <span class="valid-feedback" role="alert">
+                                            <p><b>{{ $erros->first('proposal') }}</b></p>
+                                        </span>
+                                        @endif
                                     </div>
-                                  
+
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
                                         <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>

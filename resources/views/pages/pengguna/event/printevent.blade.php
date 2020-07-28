@@ -56,6 +56,7 @@
             <th>No</th>
             <th>Nama Event</th>
             <th>Organisasi</th>
+            <th>Tamggal Mulai</th>
             <th>Tempat</th>
             <th>Alokasi Dana</th>
     </tr>
@@ -68,6 +69,7 @@
                 <td>{{$loop->iteration}}</td>
                 <td>{{$event->proker->nama_event}}</td>
                 <td>{{$event->pengguna->organisasi}}</td>
+                <td>{{$event->proker->tanggal_mulai}}</td>
                 <td>{{$event->proker->tempat}}</td>
                 <td>{{$event->proker->alokasi_dana}}</td>
         </tr>

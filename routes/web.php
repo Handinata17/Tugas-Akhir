@@ -11,13 +11,12 @@
 |
 */
 Route::get('/','Pengguna\LandingController@index');
-Route::get('/{prodi}','Pengguna\LandingController@prodi');
+// Route::get('/{prodi}','Pengguna\LandingController@prodi');
 Route::get('/recruitment/{id}','Pengguna\LandingController@show');
 Route::post('/pendaftaran/create' ,'Pengguna\PendaftaranController@store')->name('store.pendaftaran');
 Route::get('/proker/{id}','Pengguna\LandingController@show');
 
 
-Auth::routes();
 
 
     Route::get('/create', function () {
@@ -192,10 +191,6 @@ Route::group(['prefix' => 'superadmin'], function(){
     Route::post('/login','SuperAdmin\AuthController@login')->name('superadmin.login.submit');
     Route::get('/logout','SuperAdmin\AuthController@logout')->name('superadmin.logout');
 
-    // Route::get('/login','SuperAdmin\AuthController@getLogin')->name('pengguna.login');
-    // Route::post('/pengguna/login','SuperAdmin\AuthController@login')->name('pengguna.login.submit');
-    // Route::get('/pengguna/logout','SuperAdmin\AuthController@logout')->name('pengguna.logout');
-
     Route::get('/pengguna','SuperAdmin\PenggunaController@index')->name('pengguna');
     Route::get('/pengguna/create','SuperAdmin\PenggunaController@create')->name('create.pengguna');
     Route::post('/pengguna/create' ,'SuperAdmin\PenggunaController@store')->name('store.pengguna');
@@ -210,10 +205,13 @@ Route::group(['prefix' => 'superadmin'], function(){
 
 Route::group(['prefix' => 'pengguna'], function(){
 Route::get('/profil', 'Pengguna\ProfilController@index')->name('index.profil');
-Route::put('/profil/{id}/update','Pengguna\ProfilController@update')->name('update.profil');
+Route::patch('/profil/password','Pengguna\ProfilController@updatePassword')->name('pengguna.update.password');
+Route::patch('/profil','Pengguna\ProfilController@update')->name('pengguna.update');
+
+// Route::put('/profil/{id}/update','Pengguna\ProfilController@update')->name('update.profil');
 });
 
 Route::group(['prefix' => 'superadmin'], function(){
-    Route::get('/profil', 'SuperAdmin\ProfilController@index')->name('superadmin.index.profil');
-    Route::put('/profil/{id}/update','SuperAdmin\ProfilController@update')->name('superadmin.update.profil');
+    // Route::get('/profil', 'SuperAdmin\ProfilController@index')->name('superadmin.index.profil');
+    // Route::put('/profil/{id}/update','SuperAdmin\ProfilController@update')->name('superadmin.update.profil');
     });

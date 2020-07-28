@@ -28,11 +28,11 @@ class AuthController extends Controller
         ];
 
         if (Auth::guard('superadmin')->attempt($credential)){
-            return redirect()->intended(route('pengguna'));
+            return redirect('superadmin/pengguna');
         }
         return redirect()->back()->withInput($request->only('email'));
 
-        
+
     }
 
     public function logout()

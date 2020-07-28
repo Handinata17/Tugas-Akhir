@@ -44,15 +44,22 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+        $rules = [
+            proposal => 'requered|file|mimes:pdf|max:5048'
+        ];
+        $this->validate($request, $rules);
+
+
         // dd($request->all());
         $proposal = $request->file('proposal')->store('proposal');
         $event = new Event();
         $event->id_pengguna = Auth::user()->id;
         $event->id_proker = $request->id_proker;
-        // $event->tanggal_mulai = $request->$tanggal_mulai;
-        // $event->tipe = $request->tipe;
+        // $event->id_proker = $request->$tanggal_mulai;
+        // $event->id_proker = $request->tempat;
+        $event->tipe = $request->tipe;
         $event->proposal = $proposal;
-        $event->perbaikan = $request->perbaikan;
+        // $event->perbaikan = $request->perbaikan;
         $event->save();
 
         // dd($request->all());

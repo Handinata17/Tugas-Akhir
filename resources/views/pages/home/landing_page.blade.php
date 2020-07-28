@@ -229,9 +229,9 @@
 
     });
 
-    function getData(prodi) {
-      return  fetch(url+prodi).then(res => res.json()).then(res => res)
-    }
+    // function getData(prodi) {
+    //   return  fetch(url+prodi).then(res => res.json()).then(res => res)
+    // }
 
 </script>
     <script>

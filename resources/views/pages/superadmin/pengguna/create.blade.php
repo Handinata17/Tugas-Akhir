@@ -43,8 +43,8 @@
                                                 <select class="for'm-control" name="organisasi" id="organisasi">
                                                     <option value="BEM">BEM</option>
                                                     <option value="BPM">BPM</option>
-                                                    <option value="HIMA">HIMA</option>
-                                                    <option value="UKM">UKM</option>
+                                                    {{-- <option value="HIMA">HIMA</option>
+                                                    <option value="UKM">UKM</option> --}}
                                                     <option value="">Lainnya</option>
                                                 </select>
                                             </div>
@@ -117,17 +117,7 @@
         }else if(this.value === ''){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>Direktur 3</option>
-             <option>Kaprodi D4 Teknik Informatika</option>
-             <option>Kaprodi D4 Akuntansi Sektor Publik</option>
-             <option>Kaprodi D3 Perhotelan</option>
-             <option>Kaprodi D3 DKV ( Desain Komunikasi Visual )</option>
-             <option>Kaprodi D3 Teknik Elektro</option>
-             <option>Kaprodi D3 Teknik Mesin</option>
-             <option>Kaprodi D3 Teknik Komputer</option>
-             <option>Kaprodi D3 Akuntansi</option>
-             <option>Kaprodi D3 Kebidanan</option>
-             <option>Kaprodi D3 Farmasi</option>`;
+            option = `<option>Direktur 3</option>`;
             keterangan.innerHTML = option
         }
         else{
@@ -137,3 +127,14 @@
     })
 </script>
 @endsection
+
+{{-- <option>Kaprodi D4 Teknik Informatika</option>
+             <option>Kaprodi D4 Akuntansi Sektor Publik</option>
+             <option>Kaprodi D3 Perhotelan</option>
+             <option>Kaprodi D3 DKV ( Desain Komunikasi Visual )</option>
+             <option>Kaprodi D3 Teknik Elektro</option>
+             <option>Kaprodi D3 Teknik Mesin</option>
+             <option>Kaprodi D3 Teknik Komputer</option>
+             <option>Kaprodi D3 Akuntansi</option>
+             <option>Kaprodi D3 Kebidanan</option>
+             <option>Kaprodi D3 Farmasi</option> --}}
