@@ -59,22 +59,30 @@
 <li><a href="{{route('superadmin.login')}}">Admin</a></li>
 </ul>
 </li>
-
+        <div class="col-md-12 text-center">
+            <div class="mb-5 element-animate">
 </ul>
 </nav>
 </div>
 </div>
+<div class="row aic">
+        <div class="col-md-12 text-center" data-wow-delay="0.2s">
+<h1>
+        <p class="text-info">Organisasi Keluarga Mahasiswa</p>
+        <p class="text-danger">Politeknik Harapan Bersama </p>
+        <p class="text-primary">Tegal</p>
+    </h1>
+</div>
 </div>
 </div>
 </div>
 </div>
 
-
-<div class="hero-area o-hi" id="home">
+<img src="{{ asset ('landing_page/image/gedung1.jpg') }}" id="home">
 <div class="container">
 <div class="row aic">
 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
-<h2>Organisasi Mahasiswa</h2> <h2>Politeknik Harapan Bersama</span></h2>
+{{-- <h2>Organisasi Mahasiswa</h2> <h2>Politeknik Harapan Bersama</span></h2> --}}
 </div>
 <div class="col-lg-5 text-right col-md-12 wow fadeInUp" data-wow-delay="0.4s">
 <!-- <div class="hero-img"> -->
@@ -83,7 +91,7 @@
 <div class="waves wave-2"></div>
 <div class="waves wave-3"></div>
 </div> -->
-<img src="{{ asset ('landing_page/image/phb.png') }}" alt="">
+{{-- <img src="{{ asset ('landing_page/image/phb.png') }}" alt=""> --}}
 {{-- <img src="{{ asset ('landing_page/image/Path-2.png') }}" alt="" class="path-1-img">
 <img src="{{ asset ('landing_page/image/Path-1.png') }}" alt="" class="path-1-img path-2-img">
 <img src="{{ asset ('landing_page/image/Path-3.png') }}" alt="" class="path-1-img path-3-img"> --}}
@@ -92,7 +100,6 @@
 </div>
 </div>
 </div>
-
 
 <div class="features-area pt-100" id="recruitmen">
 <div class="container">
