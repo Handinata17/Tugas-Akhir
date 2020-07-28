@@ -9,6 +9,9 @@ use App\Pengguna;
 use App\Recruitment;
 use Auth;
 use Illuminate\Support\Facades\Storage;
+use Mail;
+use Crypt;
+use App\Mail\SendEmail;
 
 class PendaftaranController extends Controller
 {
@@ -20,13 +23,51 @@ class PendaftaranController extends Controller
     public function index()
     {
         $pendaftarans = Pendaftaran::orderBy('id','DESC')->get();
-
-        // dd($pendaftarans);
-        //   $events = Pengguna::where('organisasi', Auth::user()->organisasi)
-        //   ->with('events')->get();
-
-        //$events = Event::where('id_pengguna', Auth::user()->id)->get();
         return view('pages.pengguna.pendaftaran.index', compact('pendaftarans'));
+    }
+
+    public function konfirmasiTerima($id){
+      $pendaftaran = Pendaftaran::find($id);
+      $pendaftaran->update(['status' => 1]);
+
+      $data = $pendaftaran;
+      $token = null;
+      $status = null;
+
+      Mail::to($pendaftaran->email)->send(new SendEmail($data, $token, $status));
+
+      return back()->with('success', 'Pendaftar berhasil di terima');
+
+    }
+
+    public function konfirmasiTolak($id){
+      $pendaftaran = Pendaftaran::find($id);
+      $pendaftaran->update(['status' => 0]);
+
+      $data = $pendaftaran;
+      $token = null;
+      $status = null;
+
+      Mail::to($pendaftaran->email)->send(new SendEmail($data, $token, $status));
+
+      return back()->with('success', 'Pendaftar berhasil di terima');
+
+    }
+
+
+    public function confirmEmail($token){
+      try {
+        $email = Crypt::decrypt($token);
+        $pendaftaran = Pendaftaran::where('email', $email)->where('verifikasi_email', null)->first();
+        if($pendaftaran){
+          $pendaftaran->update(['verifikasi_email' => now()]);
+          return redirect('/')->with('emailSuccess', '');
+        }else {
+          return redirect('/')->with('emailFailed', '');
+        }
+      } catch (\Exception $e) {
+        return redirect('/');
+      }
     }
 
     /**
@@ -51,6 +92,7 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
+
         $rule = [
             'nama_mahasiswa' => 'required|regex:/^[\pL\s\-]+$/u',
             'email' => 'required|email|unique:pendaftarans',
@@ -73,6 +115,8 @@ class PendaftaranController extends Controller
         ->whereDate('tanggal_selesai','>=',$tanggal)
         ->first();
 
+        // dd($recruitment);
+
         if(!$recruitment){
             return redirect()->back()->with('failed');
         }else{
@@ -83,8 +127,6 @@ class PendaftaranController extends Controller
             Storage::disk('s3')->put($file_path, file_get_contents($file));
             $file = Storage::disk('s3')->url($file_path, $file_name);
 
-            // $gambar = $request->file('gambar')->store('gambar');
-
             $pendaftaran = new Pendaftaran();
             $pendaftaran->nim = $request->nim;
             $pendaftaran->nama_mahasiswa = $request->nama_mahasiswa;
@@ -92,6 +134,12 @@ class PendaftaranController extends Controller
             $pendaftaran->id_recruitment = $request->id_recruitment;
             $pendaftaran->file = $file;
             $pendaftaran->save();
+
+            $data = $pendaftaran;
+            $token = Crypt::encrypt($pendaftaran->email);
+            $status = 'verif';
+
+            Mail::to($pendaftaran->email)->send(new SendEmail($data, $token, $status));
 
             return redirect()->back()->with('success','');
         }
@@ -126,13 +174,7 @@ class PendaftaranController extends Controller
         return view('pages.pengguna.pendaftaran.edit', compact('pendaftaran'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         // dd($request->all());
@@ -158,12 +200,7 @@ class PendaftaranController extends Controller
         return redirect()->route('pendaftaran');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $pendaftaran = Pendaftaran::find($id);

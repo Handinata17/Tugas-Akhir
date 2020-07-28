@@ -31,7 +31,7 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Recruitment</label>
-                                        <input type="text" class="form-control" name="nama_recruitment" placeholder="Masukan Nama Recruitment">
+                                        <input type="text" class="form-control" name="nama_recruitment" placeholder="Masukan Nama Recruitment" required>
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
@@ -53,13 +53,13 @@
                                     <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_mulai" value="2020-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" name="tanggal_mulai" min="{{now()->format('Y-m-d')}}" value="" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_selesai" value="2020-08-19" id="example-date-input">
+                                                <input class="form-control" type="date" name="tanggal_selesai" min="{{now()->format('Y-m-d')}}" value="" required>
                                             </div>
                                         </div>
                                         {{-- <div class="form-group">

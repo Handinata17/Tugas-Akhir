@@ -15,13 +15,14 @@ Route::get('/','Pengguna\LandingController@index');
 Route::get('/recruitment/{id}','Pengguna\LandingController@show');
 Route::post('/pendaftaran/create' ,'Pengguna\PendaftaranController@store')->name('store.pendaftaran');
 Route::get('/proker/{id}','Pengguna\LandingController@show');
+Route::get('konfirmasi/email/{token}', 'Pengguna\PendaftaranController@confirmEmail');
 
 
 
 
-    Route::get('/create', function () {
-        return view('pages.adminbem.dana.create');
-    })->name('create');
+Route::get('/create', function () {
+      return view('pages.adminbem.dana.create');
+})->name('create');
 
 
 
@@ -73,6 +74,8 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::put('/recruitment/{id}/update','Pengguna\RecruitmentController@update')->name('update.recruitment');
     Route::get('/recruitment/{id}', 'Pengguna\RecruitmentController@destroy')->name('destroy.recruitment');
     Route::get('/recruitment/{id}/show', 'Pengguna\RecruitmentController@show')->name('show.recruitment');
+    Route::put('/recruitment/konfirmasi/diterima/{id}','Pengguna\PendaftaranController@konfirmasiTerima')->name('konfirmasi.diterima');
+    Route::put('/recruitment/konfirmasi/ditolak/{id}','Pengguna\PendaftaranController@konfirmasiTolak')->name('konfirmasi.ditolak');
 
     Route::get('/pendaftaran','Pengguna\PendaftaranController@index')->name('pendaftaran');
     Route::post('/pendaftaran/create','Pengguna\PendaftaranController@create')->name('create.pendaftaran');
