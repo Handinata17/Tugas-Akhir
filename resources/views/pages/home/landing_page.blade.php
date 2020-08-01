@@ -68,7 +68,7 @@
 <div class="row">
         <div class="col-md-12 text-center mt-5" data-wow-delay="0.2s">
 <h1>
-        <p class="text-white ml-5">Organisasi Keluarga Mahasiswa</p>
+        <p class="text-white ml-5">Organisasi Mahasiswa</p>
         <p class="text-danger ml-5">Politeknik Harapan Bersama </p>
         <p class="text-primary ml-5">Tegal</p>
     </h1>
