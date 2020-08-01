@@ -22,47 +22,37 @@
 
 
 <div id="mainmenu-area">
-<div class="header-area header-absolute">
-<div class="container">
-<div class="row">
-<div class="col-lg-3 col-md-3 w-50">
-<a href="index.html" class="header-logo">
-<img src="{{ asset ('landing_page/image/ormawa1.png') }}" alt="">
-</a>
-</div>
-<div class="col-lg-9 col-md-9 w-50 t-right">
-<button class="toggle">
-<span></span>
-</button>
-<div class="mainmenu">
-<nav>
-<ul>
-<li><h3><a class="text-white" href="#home">Home</a></h3>
-<!-- <ul>
-<li><a href="index.html" class="active">Home 1</a></li>
-<li><a href="home-2.html">Home 2</a></li>
-<li><a href="home-3.html">Home 3</a></li>
-<li><a href="home-4.html">Home 4</a></li>
-<li><a href="home-5.html">Home 5</a></li>
-<li><a href="home-6.html">Home 6</a></li>
-<li><a href="home-7.html">Home 7</a></li>
-<li><a href="home-8.html">Home 8</a></li>
-<li><a href="home-9.html">Home 9</a></li>
-</ul> -->
-</li>
-<li><h3><a class="text-white" href="#recruitmen">Recruitment</a></h3></li>
+    <div class="header-area header-absolute">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 w-50">
+                    <a href="index.html" class="header-logo">
+                        <img src="{{ asset ('landing_page/image/ormawa1.png') }}" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-9 col-md-9 w-50 t-right">
+                    <button class="toggle slicknav_open">
+                    <span></span>
+                    </button>
+             <div class="mainmenu">
+            <nav>
+            <ul>
+           <li><h3><a class="text-white" href="#home">Home</a></h3></li>
+            <li><h3><a class="text-white" href="#recruitmen">Recruitment</a></h3></li>
 {{-- <li><a class="nav-link" href="#event">Event</a></li> --}}
-<li><h3><a class="text-white" href="#proker">Dana RAB</a></h3></li>
-<li><h3><a class="text-white" href="#">Login</a></h3>
-<ul>
-<li><h3><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></h3></li>
-<li><h3><a href="{{route('superadmin.login')}}">Admin</a></h3></li>
-</ul>
-</li>
-        <div class="col-md-12 text-center">
-            <div class="mb-5 element-animate">
+    <li><h3><a class="text-white" href="#proker">Dana RAB</a></h3></li>
+    <li><h3><a class="text-white" href="#">Login</a></h3>
+        <ul>
+            <li><h3><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></h3></li>
+            <li><h3><a href="{{route('superadmin.login')}}">Admin</a></h3></li>
+        </ul>
+    </li>
+        {{-- <div class="col-md-12 text-center"> --}}
+            {{-- <div class="mb-5 element-animate"> --}}
 </ul>
 </nav>
+</div>
+</div>
 </div>
 </div>
 <div class="row">
@@ -76,29 +66,13 @@
 </div>
 </div>
 </div>
-</div>
 
 <img src="{{ asset ('template/images/bg.jpg') }}" style="height: 600px; width: 100%" id="home">
 <div class="container">
 <div class="row aic">
 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
-{{-- <h2>Organisasi Mahasiswa</h2> <h2>Politeknik Harapan Bersama</span></h2> --}}
 </div>
 <div class="col-lg-5 text-right col-md-12 wow fadeInUp" data-wow-delay="0.4s">
-<!-- <div class="hero-img"> -->
-<!-- <div class="waves-block">
-<div class="waves wave-1"></div>
-<div class="waves wave-2"></div>
-<div class="waves wave-3"></div>
-</div> -->
-{{-- <img src="{{ asset ('landing_page/image/phb.png') }}" alt=""> --}}
-{{-- <img src="{{ asset ('landing_page/image/Path-2.png') }}" alt="" class="path-1-img">
-<img src="{{ asset ('landing_page/image/Path-1.png') }}" alt="" class="path-1-img path-2-img">
-<img src="{{ asset ('landing_page/image/Path-3.png') }}" alt="" class="path-1-img path-3-img"> --}}
-</div>
-</div>
-</div>
-</div>
 </div>
 
 <div class="features-area pt-100" id="recruitmen">
