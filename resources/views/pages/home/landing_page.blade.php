@@ -68,7 +68,7 @@
 <div class="row">
         <div class="col-md-12 text-center mt-5" data-wow-delay="0.2s">
 <h1>
-        <p class="text-white ml-5">Organisasi Mahasiswa</p>
+        <p class="text-white ml-5">Organisasi Keluarga Mahasiswa</p>
         <p class="text-danger ml-5">Politeknik Harapan Bersama </p>
         <p class="text-primary ml-5">Tegal</p>
     </h1>
@@ -78,7 +78,7 @@
 </div>
 </div>
 
-<img src="{{ asset ('template/images/bg.jpg') }}" style="height: 500px; width: 100%" id="home">
+<img src="{{ asset ('template/images/bg.jpg') }}" style="height: 600px; width: 100%" id="home">
 <div class="container">
 <div class="row aic">
 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
