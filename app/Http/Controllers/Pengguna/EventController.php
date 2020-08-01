@@ -19,8 +19,10 @@ class EventController extends Controller
     }
 
     public function print(){
-        $events = Event::orderBy('id','DESC')->get();
-        $pdf =PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('pages.pengguna.event.printevent', compact(['events']));
+        $events = Event::where('id_pengguna','=','1')->get();
+        dd($events);
+        //$events = Event::orderBy('id','DESC')->get();
+       // $pdf =PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('pages.pengguna.event.printevent', compact(['events']));
         return $pdf->stream();
 
     }

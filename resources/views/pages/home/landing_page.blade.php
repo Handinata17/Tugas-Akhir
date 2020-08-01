@@ -27,7 +27,7 @@
 <div class="row">
 <div class="col-lg-3 col-md-3 w-50">
 <a href="index.html" class="header-logo">
-<img src="{{ asset ('landing_page/image/phb2.png') }}" alt="">
+<img src="{{ asset ('landing_page/image/ormawa1.png') }}" alt="">
 </a>
 </div>
 <div class="col-lg-9 col-md-9 w-50 t-right">
@@ -37,7 +37,7 @@
 <div class="mainmenu">
 <nav>
 <ul>
-<li><a href="#home">Home</a>
+<li><h3><a class="text-white" href="#home">Home</a></h3>
 <!-- <ul>
 <li><a href="index.html" class="active">Home 1</a></li>
 <li><a href="home-2.html">Home 2</a></li>
@@ -50,13 +50,13 @@
 <li><a href="home-9.html">Home 9</a></li>
 </ul> -->
 </li>
-<li><a class="nav-link" href="#recruitmen">Recruitment</a></li>
+<li><h3><a class="text-white" href="#recruitmen">Recruitment</a></h3></li>
 {{-- <li><a class="nav-link" href="#event">Event</a></li> --}}
-<li><a class="nav-link" href="#proker">Dana RAB</a></li>
-<li><a href="#">Login</a>
+<li><h3><a class="text-white" href="#proker">Dana RAB</a></h3></li>
+<li><h3><a class="text-white" href="#">Login</a></h3>
 <ul>
-<li><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></li>
-<li><a href="{{route('superadmin.login')}}">Admin</a></li>
+<li><h3><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></h3></li>
+<li><h3><a href="{{route('superadmin.login')}}">Admin</a></h3></li>
 </ul>
 </li>
         <div class="col-md-12 text-center">
@@ -65,12 +65,12 @@
 </nav>
 </div>
 </div>
-<div class="row aic">
-        <div class="col-md-12 text-center" data-wow-delay="0.2s">
+<div class="row">
+        <div class="col-md-12 text-center mt-5" data-wow-delay="0.2s">
 <h1>
-        <p class="text-info">Organisasi Keluarga Mahasiswa</p>
-        <p class="text-danger">Politeknik Harapan Bersama </p>
-        <p class="text-primary">Tegal</p>
+        <p class="text-white ml-5">Organisasi Keluarga Mahasiswa</p>
+        <p class="text-danger ml-5">Politeknik Harapan Bersama </p>
+        <p class="text-primary ml-5">Tegal</p>
     </h1>
 </div>
 </div>
@@ -78,7 +78,7 @@
 </div>
 </div>
 
-<img src="{{ asset ('landing_page/image/gedung1.jpg') }}" id="home">
+<img src="{{ asset ('template/images/bg.jpg') }}" style="height: 500px; width: 100%" id="home">
 <div class="container">
 <div class="row aic">
 <div class="col-lg-7 col-md-12 wow fadeInUp" data-wow-delay="0.2s">
@@ -115,14 +115,15 @@
                                         <div class="page-title-box">
                                             <div class="float-right">
                                             </div>
-                                            <h4 class="page-title">Recruitment</h4></div>
+                                            <h2><p style="text-align:center">OPEN RECRUITMENT</p></h2>
+                                            <h4><p style="text-align:center">Pengurus Badan Perwakilan Mahasiswa dan Badan Eksekutif Mahasiswa</h4></p>
                                         <!--end page-title-box-->
                                     </div>
                                     <!--end col-->
                                 </div>
 
-                                    <div class="row">
-                                    <div class="col-lg-12">
+                                 <div class="row">
+                                    <div class="col-lg-6">
                                         @if(Session::has('failed'))
                                             <div class="alert alert-danger" role="alert">
                                                    Pendaftaran Recruitment sudah tidak tersedia
@@ -213,8 +214,26 @@
                                         </div>
                                         <!--end card-->
                                     </div>
+
                                     <!-- end col -->
                                     <!-- /.modal -->
+                                </div>
+                                <div class="col-lg-6">
+                                        <div class="card">
+                                                <div class="card-body">
+                                                    <p>Persyaratan Pendaftaran Pengurus BPM dan BEM Periode 2020/2021 :</p>
+                                                        <P>1. Mengisi Form Pendaftaran</p>
+                                                        <p>2. Scan Ijazah Terakhir ( Semester 1 ) </p>
+                                                        <p>3. Scan KHS ( Semester 3,5 )</p>
+                                                        <p>3. Scan Nilai UN ( Mahasiswa Semester 1 )</p>
+                                                        <p>4. Scan Sertifikat ( Jika Ada )</p>
+                                                        <p>5. File Pas Photo Berwarna 4X6</p>
+
+
+                                                        <p> Note : Berkas di scan kemudian di jadikan file zip</p>
+
+                                                </div>
+                                            </div>
                                 </div>
                                     <!-- end page content -->
                             </div>
@@ -424,11 +443,11 @@
 <div class="col-lg-6 col-md-6 col-sm-12 tc">
 <p>ORMAWA KMPHB</p>
 </div>
+<br>
 <div class="col-lg-6 col-md-6 col-sm-12 tc">
 <div class="copyright-section">
 <ul>
 <li><a href="">Privecy & Policy</a></li>
-<li><a href="">Trems & Condition </a></li>
 </ul>
 </div>
 </div>
