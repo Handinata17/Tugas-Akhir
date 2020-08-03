@@ -22,6 +22,13 @@
     <div class="container">
         <div class="row vh-100">
             <div class="col-12 align-self-center">
+                    @if ($message = Session::get('warning'))
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span
+                                aria-hidden="true">×</span> </button>
+                        <h3 class="text-success"><i class="fa fa-check-circle"></i> Gagal</h3> {{ $message }}
+                    </div>
+                    @endif
                 <div class="auth-page">
                     <div class="card auth-card shadow-lg">
                         <div class="card-body">

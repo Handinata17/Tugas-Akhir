@@ -168,9 +168,9 @@ Route::get('/dataoprecwadir', function () {
 
 
 
-Route::get('/superadmin', function () {
-    return view('pages.superadmin.dashboard');
-})->middleware('auth:superadmin');
+// Route::get('/superadmin', function () {
+//     return view('pages.superadmin.dashboard');
+// })->middleware('auth:superadmin');
 Route::get('/dataevent', function () {
     return view('pages.superadmin.event.dataevent');
 });

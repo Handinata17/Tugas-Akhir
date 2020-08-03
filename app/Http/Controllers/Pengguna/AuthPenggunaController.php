@@ -32,7 +32,7 @@ class AuthPenggunaController extends Controller
         if (Auth::guard('pengguna')->attempt($credential)){
             return redirect()->route('pengguna.beranda');
         }
-        return redirect()->back()->withInput($request->only('email'));
+        return redirect()->back()->withInput($request->only('email'))->with('warning', 'masukkan email dan password yang benar');
 
     }
 

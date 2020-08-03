@@ -47,8 +47,8 @@
             <li><h3><a href="{{route('superadmin.login')}}">Admin</a></h3></li>
         </ul>
     </li>
-        {{-- <div class="col-md-12 text-center"> --}}
-            {{-- <div class="mb-5 element-animate"> --}}
+        <div class="col-md-12 text-center">
+            <div class="mb-5 element-animate">
 </ul>
 </nav>
 </div>
@@ -197,10 +197,10 @@
                                                 <div class="card-body">
                                                     <p>Persyaratan Pendaftaran Pengurus BPM dan BEM Periode 2020/2021 :</p>
                                                         <P>1. Mengisi Form Pendaftaran</p>
-                                                        <p>2. Scan Ijazah Terakhir ( Semester 1 ) </p>
+                                                        <p>2. Scan Ijazah Terakhir SMA sederajat ( Semester 1 ) </p>
                                                         <p>3. Scan KHS ( Semester 3,5 )</p>
                                                         <p>3. Scan Nilai UN ( Mahasiswa Semester 1 )</p>
-                                                        <p>4. Scan Sertifikat ( Jika Ada )</p>
+                                                        <p>4. Scan Sertifikat Kejuaraan ( Jika Ada )</p>
                                                         <p>5. File Pas Photo Berwarna 4X6</p>
 
 
