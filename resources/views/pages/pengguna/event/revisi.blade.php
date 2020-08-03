@@ -20,7 +20,7 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <form class="form-parsley" method="POST" action="{{route('revisi.event', $event->id)}}" enctype="multipart/form-data">
+                                <form class="form-parsley" method="POST" action="{{route('revisi.submit.event', $event->id)}}">
                                     @method('PUT')
                                     @csrf
                                     <embed src="{{config("app.url").$event->proposal}}" framborder="0" width="100%" height="350px" class="mb-2">

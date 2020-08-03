@@ -24,9 +24,9 @@ Route::get('/create', function () {
       return view('pages.adminbem.dana.create');
 })->name('create');
 
-Route::get('landing', function(){
-    return view('pages.home.landing');
-});
+// Route::get('landing', function(){
+//     return view('pages.home.landing');
+// });
 
 
 

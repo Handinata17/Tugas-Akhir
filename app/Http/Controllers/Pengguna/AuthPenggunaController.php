@@ -21,7 +21,7 @@ class AuthPenggunaController extends Controller
         $this->validate($request, [
             // 'email' => 'required|string|unique:penggunas',
             'email' => 'required|string',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string'
         ]);
 
         $credential = [

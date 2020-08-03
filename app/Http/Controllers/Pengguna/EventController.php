@@ -19,10 +19,18 @@ class EventController extends Controller
     }
 
     public function print(){
-        $events = Event::where('id_pengguna','=','1')->get();
-        dd($events);
+
+        $events = Event::all();
+        if(request()->get('organisasi')){
+            $organisasi = request()->get('organisasi');
+            // dd($organisasi);
+            $events = Event::whereHas('proker',function($query) use($organisasi){
+                $query->where('organisasi', $organisasi);
+            })->get();
+        }
+        // dd($events);
         //$events = Event::orderBy('id','DESC')->get();
-       // $pdf =PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('pages.pengguna.event.printevent', compact(['events']));
+       $pdf =PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('pages.pengguna.event.printevent', compact(['events']));
         return $pdf->stream();
 
     }
@@ -108,9 +116,12 @@ class EventController extends Controller
 
     public function revisiSubmit(Request $request, $id)
     {
-
         $event = Event::findOrFail($id);
-        $event->update(['acc' => 1]);
+        if(Auth::user()->keterangan == 'Direktur 3'){
+            $event->update(['acc_wadir_3' => '2']);
+        }else{
+            $event->update(['acc' => '1']);
+        }
 
         $revisi = new Revisi();
         $revisi->id_event = $id;
@@ -126,7 +137,7 @@ class EventController extends Controller
         if(Auth::user()->keterangan == 'Direktur 3'){
           $event->update(['acc_wadir_3' => '3']);
         }else {
-          $event->update(['acc' => 2]);
+          $event->update(['acc' => '2']);
         }
         return redirect()->route('event');
     }

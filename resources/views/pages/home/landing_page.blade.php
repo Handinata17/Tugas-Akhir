@@ -421,7 +421,7 @@
 <div class="col-lg-6 col-md-6 col-sm-12 tc">
 <div class="copyright-section">
 <ul>
-<li><a href="">Privecy & Policy</a></li>
+{{-- <li><a href="">Privecy & Policy</a></li> --}}
 </ul>
 </div>
 </div>
