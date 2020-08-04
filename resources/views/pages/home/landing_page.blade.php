@@ -103,11 +103,11 @@
                                                    Pendaftaran Recruitment sudah tidak tersedia
                                                   </div>
                                         @endif
-                                        @if($errors->all())
+                                        {{-- @if($errors->all())
                                         <div class="alert alert-danger" role="alert">
                                                 Pendaftaran Recruitment gagal! cek kembali
                                             </div>
-                                        @endif
+                                        @endif --}}
                                         @if(Session::has('success'))
                                         <div class="alert alert-success" role="alert">
                                                Pendaftaran Recruitment berhasil
