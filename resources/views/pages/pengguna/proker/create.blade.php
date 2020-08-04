@@ -40,8 +40,8 @@
                                                 <select class="for'm-control" name="organisasi" id="organisasi">
                                                     <option value="BEM">BEM</option>
                                                     <option value="BPM">BPM</option>
-                                                    <option value="HIMA">HIMA</option>
-                                                    <option value="UKM">UKM</option>
+                                                    {{-- <option value="HIMA">HIMA</option>
+                                                    <option value="UKM">UKM</option> --}}
                                                 </select>
                                             </div>
                                         </div>

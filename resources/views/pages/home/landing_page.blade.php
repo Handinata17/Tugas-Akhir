@@ -106,14 +106,13 @@
                                         @if($errors->all())
                                         <div class="alert alert-danger" role="alert">
                                                 Pendaftaran Recruitment gagal! cek kembali
-
-                                              </div>
+                                            </div>
                                         @endif
                                         @if(Session::has('success'))
                                         <div class="alert alert-success" role="alert">
                                                Pendaftaran Recruitment berhasil
                                               </div>
-                                              @endif
+                                        @endif
                                         <div class="card">
                                             <div class="card-body">
                                                 <h4 class="mt-0 header-title">Join Recruitment</h4>
