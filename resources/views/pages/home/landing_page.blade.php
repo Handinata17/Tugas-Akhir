@@ -105,7 +105,6 @@
                                         @endif
                                         @if($errors->all())
                                         <div class="alert alert-danger" role="alert">
-                                          {{ dd($errors) }}
                                                 Pendaftaran Recruitment gagal! cek kembali
 
                                               </div>
