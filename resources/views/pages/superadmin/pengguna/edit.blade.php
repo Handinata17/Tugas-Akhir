@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" value="{{$pengguna->email}}" name="email" placeholder="Masukan Email">
+                                        <input type="email" class="form-control" value="{{$pengguna->email}}" name="email" placeholder="Masukan Email">
                                     </div>
                                     <div class="form-group">
                                             <label>Organisasi</label>

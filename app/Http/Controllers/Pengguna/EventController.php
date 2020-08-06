@@ -12,6 +12,7 @@ use Auth;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Validator;
 
+
 class EventController extends Controller
 {
     public function __construct(){

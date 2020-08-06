@@ -48,67 +48,37 @@
                                 <h4 class="mt-0 header-title">Membuat Event</h4>
                                 <p class="text-muted mb-3">Isi form yang telah di sediakan</p>
                                 <form class="form-parsley" method="POST" action="{{route('store.event')}}" enctype="multipart/form-data">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="">Proker</label>
-                                    <select name="id_proker" class="form-control proker" id="proker">
-                                        @foreach($prokers as $proker)
-                                            <option value="{{ $proker->id }}">{{$proker->nama_event}}</option>
-                                        @endforeach
-                                    </select>
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="">Proker</label>
+                                        <select name="id_proker" class="form-control proker" value="{{old('proker')}}" id="proker" required>
+                                            @foreach($prokers as $proker)
+                                                <option value="{{ $proker->id }}">{{$proker->nama_event}}</option>
+                                            @endforeach
+                                        </select>
 
-                                    <div class="card" style="display :none" id="data_proker">
-                                        <div class="card-body">
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm">
-                                                        <p id="organisasi">Organisasi : </p>
-                                                        <p id="keterangan">Keterangan : </p>
-                                                        <p id="tanggal_mulai">Tanggal Mulai : </p>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <p id="tanggal_selesai">Tanggal Selesai : </p>
-                                                        <p id="tempat">Tempat : </p>
-                                                        <p id="alokasi_dana">Alokasi Dana : </p>
+                                        <div class="card" style="display :none" id="data_proker">
+                                            <div class="card-body">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-sm">
+                                                            <p id="organisasi">Organisasi : </p>
+                                                            <p id="keterangan">Keterangan : </p>
+                                                            <p id="tanggal_mulai">Tanggal Mulai : </p>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <p id="tanggal_selesai">Tanggal Selesai : </p>
+                                                            <p id="tempat">Tempat : </p>
+                                                            <p id="alokasi_dana">Alokasi Dana : </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                    {{-- <div class="form-group">
-                                        <label>Nama Event</label>
-                                        <input type="text" class="form-control" name="nama_event" placeholder="Type something">
-                                    </div> --}}
-                                    <!--end form-group-->
-                                    {{-- <div class="form-group">
-                                            <label>Tanggal Mulai</label>
-                                            <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_mulai" value="2011-08-19" id="example-date-input">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tanggal Selesai</label>
-                                            <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_selesai" value="2011-08-19" id="example-date-input">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tempat</label>
-                                            <div class="col-sm-15">
-                                                <select class="form-control" name="tempat">
-                                                    <option>Kampus</option>
-                                                    <option>Luar Kampus</option>
-                                                </select>
-                                    </div>
-                                        </div>
-                                        <div class="form-group">
-                                        <label>Alokasi Dana</label>
-                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Type something">
-                                    </div> --}}
-                                        <div class="form-group">
+                                    <div class="form-group">
                                                 <label>Tipe</label>
-                                                <select name="tipe" class="form-control">
+                                                <select name="tipe" value="{{old('tipe')}}" class="form-control">
                                                     <option value="mahasiswa">Mahasiswa</option>
                                                     <option value="anggota ormawa">Anggota Ormawa</option>
                                                     <option value="umum">Umum</option>
@@ -117,7 +87,7 @@
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" name="proposal" value="{{old('proposal')}}" accept=".pdf" placeholder="Enter alphanumeric value">
                                         @if ($errors->has('proposal'))
                                         <span class="valid-feedback" role="alert">
                                             <p><b>{{ $errors->first('proposal') }}</b></p>

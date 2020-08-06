@@ -1,5 +1,9 @@
 @extends('templates.home')
 
+@section('head')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@endsection
+
 @section('sidebar')
     @include('templates.partials._sidebar')
 @endsection
@@ -32,13 +36,18 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Recruitment</label>
-                                        <input type="text" class="form-control" value="{{$recruitment->nama_recruitment}}" name="nama_recruitment" placeholder="Type something">
+                                    <input type="text" class="form-control {{ $errors->has('nama_recruitment') ? 'is-invalid' : '' }}" name="nama_recruitment" value="{{ $recruitment->nama_recruitment }}" required>
+                                    @if ($errors->has('nama_recruitment'))
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                      <strong>{{ $errors->first('nama_recruitment') }}</strong>
+                                    </span>
+                                    @endif
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
                                             <label>Organisasi</label>
                                             <div class="col-sm-4">
-                                                <select class="for'm-control" name="organisasi" id="organisasi">
+                                                <select class="for'm-control" name="organisasi" value="{{ $recruitment->organisasi }}" id="organisasi">
                                                     <option value="BEM">BEM</option>
                                                     <option value="BPM">BPM</option>
                                                     <option value="HIMA">HIMA</option>
@@ -48,58 +57,24 @@
                                         <div class="form-group" id="display-keterangan" style="display: none">
                                             <label>Keterangan</label>
                                             <div class="col-sm-12">
-                                                <select class="for'm-control" name="keterangan" id="keterangan"></select>
+                                                <select class="for'm-control" name="keterangan" value="{{ $recruitment->keterangan }}" id="keterangan"></select>
                                             </div>
                                         </div>
-                                    <div class="form-group">
+                                        <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$recruitment->tanggal_mulai}}" name="tanggal_mulai" value="2020-08-19" id="example-date-input">
+                                            <input class="form-control" type="text" name="tanggal_mulai" value="{{ $recruitment->tanggal_mulai}}"
+                                                id="datepicker1" readonly style="cursor: pointer; background: white">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" value="{{$recruitment->tanggal_selesai}}" name="tanggal_selesai" value="2020-08-19" id="example-date-input">
+                                                <input class="form-control" type="text" name="tanggal_selesai" value="{{ $recruitment->tanggal_selesai}}"
+                                                id="datepicker2" readonly style="cursor: pointer; background: white">
                                             </div>
                                         </div>
-                                        {{-- <div class="form-group">
-                                            <label>Tempat</label>
-                                            <div class="col-sm-15">
-                                                <select class="form-control"  name="tempat">
-                                                    <option value="{{$proker->tempat}}"
-                                                     @if($event->tempat === 'Kmpus')
-                                                     selected
-                                                     @endif
-                                                        >Kampus</option>
-                                                    <option value="{{$proker->tempat}}"
-                                                    @if($event->tempat === 'Kmpus')
-                                                     selected
-                                                     @endif
-                                                        >Luar Kampus</option>
-                                                </select>
-                                            </div>
-                                        </div> --}}
-                                        {{-- <div class="form-group">
-                                        <label>Alokasi Dana</label>
-                                        <input type="text" class="form-control" value="{{$proker->alokasi_dana}}" name="alokasi_dana" placeholder="Type something">
-                                    </div> --}}
-                                    <!--end form-group-->
-                                    {{-- <div class="form-group">
-                                        <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" value="{{$event->proposal}}" name="proposal" accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
-                                    </div> --}}
-                                    <!-- <div class="form-group">
-                                        <label>Uploud Lpj</label>
-                                        <input data-parsley-type="alphanum" type="file" class="form-control" required placeholder="Enter alphanumeric value">
-                                    </div> -->
-                                    <!--end form-group-->
-                                    <!-- <div class="form-group"> -->
-                                        <!-- <label>Perbaikan</label> -->
-                                        <!-- <textarea required class="form-control" name="perbaikan" rows="5"></textarea> -->
-                                    <!-- </div> -->
-                                    <!--end form-group-->
-                                    <div class="form-group mb-0">
+                                        <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
                                         <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>
                                     </div>
@@ -145,4 +120,26 @@
     })
 </script>
 
+@endsection
+
+@section('script')
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker1, #datepicker2" ).datepicker({
+                dateFormat: 'yy-mm-dd',
+                startDate: new Date(),
+                minDate: new Date()
+            });
+        } );
+
+        // $( function() {
+        //     $( "#datepicker" ).datepicker({
+        //         dateFormat: 'yy-mm-dd',
+        //         startDate: new Date(),
+        //         minDate: new Date()
+        //     });
+        // } );
+    </script>
 @endsection

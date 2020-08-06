@@ -41,7 +41,8 @@
                                             <td>{{$proker->tanggal_mulai}}</td>
                                             <td>{{$proker->tanggal_selesai}}</td>
                                             <td>{{$proker->tempat}}</td>
-                                            <td>{{ $proker->alokasi_dana }}</td>
+                                            {{-- <td>Rp. {{ $proker->alokasi_dana }},00</td> --}}
+                                            <td>Rp. {{ number_format($proker->alokasi_dana, 0, ',','.')}}</td>
                                             <td><a href="{{route('edit.proker', $proker->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
                                             <a href="{{route('destroy.proker', $proker->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>

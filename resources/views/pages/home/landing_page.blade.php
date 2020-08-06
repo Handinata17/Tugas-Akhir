@@ -122,11 +122,16 @@
 
                                                 <div class="form-group">
                                                         <label>NIM</label>
-                                                    <input type="text" id="nim" class="form-control" name="nim" type="text" class="form-control" value="{{old('nim')}}" placeholder="Masukan Nim">
+                                                    <input type="number" id="nim" class="form-control" name="nim" type="text" value="{{old('nim')}}" placeholder="Masukan Nim">
                                                     </div>
-                                                <div class="form-group">
+                                                    <div class="form-group">
                                                         <label>Nama Mahasiswa</label>
-                                                        <input type="text" class="form-control" name="nama_mahasiswa" type="text" class="form-control" placeholder="Masukan Nama">
+                                                    <input type="text" class="form-control {{ $errors->has('nama_mahasiswa') ? 'is-invalid' : '' }}" name="nama_mahasiswa" value="{{old('nama_mahasiswa')}}" required>
+                                                    @if ($errors->has('nama_mahasiswa'))
+                                                    <span class="invalid-feedback text-danger" role="alert">
+                                                      <strong>{{ $errors->first('nama_mahasiswa') }}</strong>
+                                                    </span>
+                                                    @endif
                                                     </div>
                                                 <div class="form-group">
                                                         <label>Email</label>

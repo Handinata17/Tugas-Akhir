@@ -64,11 +64,11 @@
                                             <td>{{$event->pengguna->organisasi}}</td>
                                             <td>{{$event->proker->tanggal_mulai}}</td>
                                             {{-- <td>{{$event->proker->tempat}}</td> --}}
-                                            <td>{{$event->proker->alokasi_dana}}</td>
-                                            {{-- <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td> --}}
+                                            {{-- <td>{{$event->proker->alokasi_dana}}</td> --}}
+                                            <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td>
                                             <td>{{$event->tipe}}</td>
                                             <td>@if($event->acc_wadir_3 == 3)
-                                            <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
+                                            <a class="btn btn-success btn-sm" href="{{$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
                                             @else
                                             <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
                                             @endif
@@ -112,12 +112,12 @@
                                             <td>{{$event->pengguna->organisasi}}</td>
                                             <td>{{$event->proker->tanggal_mulai}}</td>
                                             {{-- <td>{{ $event->proker->tempat}}</td> --}}
-                                            <td>{{$event->proker->alokasi_dana}}</td>
-                                            {{-- <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td> --}}
+                                            {{-- <td>{{$event->proker->alokasi_dana}}</td> --}}
+                                            <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td>
                                             <td>{{$event->tipe}}</td>
                                             <td>
                                             @if($event->acc_wadir_3 == 3)
-                                            <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
+                                            <a class="btn btn-success btn-sm" href="{{$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
                                             @else
                                             <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
                                             @endif
@@ -162,15 +162,15 @@
                                             <td>{{$event->pengguna->organisasi}}</td>
                                             <td>{{$event->proker->tanggal_mulai}}</td>
                                             {{-- <td>{{ $event->proker->tempat}}</td> --}}
-                                            <td>{{$event->proker->alokasi_dana}}</td>
-                                            {{-- <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td> --}}
+                                            {{-- <td>{{$event->proker->alokasi_dana}}</td> --}}
+                                            <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td>
                                             <td>{{$event->tipe}}</td>
                                             <td>
                                                 {{-- {{ dd($event->acc_wadir_3) }} --}}
                                             @if($event->acc_wadir_3 == 3)
-                                            <a class="btn btn-success btn-sm" href="{{config("app.url").$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
+                                            <a class="btn btn-success btn-sm" href="{{$event->proposal}}" download="{{$event->proker->nama_event}}" >Download</a>
                                             @else
-                                            <button class="btn btn-primary btn-sm"  data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
+                                            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#lihat{{$event->id}}" >Lihat </button>
                                             @endif
                                             </td>
                                             <td>

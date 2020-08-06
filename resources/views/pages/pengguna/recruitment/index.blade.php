@@ -40,8 +40,6 @@
                                             <td>{{$recruitment->keterangan}}</td>
                                             <td>{{$recruitment->tanggal_mulai}}</td>
                                             <td>{{$recruitment->tanggal_selesai}}</td>
-                                            {{-- <td>{{$proker->tempat}}</td> --}}
-                                            {{-- <td>{{$proker->alokasi_dana}}</td> --}}
                                             <td><a href="{{route('edit.recruitment', $recruitment->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
                                             <a href="{{route('destroy.recruitment', $recruitment->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>

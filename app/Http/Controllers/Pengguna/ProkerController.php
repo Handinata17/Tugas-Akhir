@@ -41,7 +41,19 @@ class ProkerController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        $rule = [
+            'nama_event' => 'required|regex:/^[\pL\s\-]+$/u',
+            'alokasi_dana' => 'required|numeric|min:0|not_in:0',
+          ];
+          $message = [
+            'required' => 'tidak boleh kosong.',
+            'nama_event.regex' => 'Masukan nama event dengan benar',
+            'alokasi_dana.numeric' => 'Masukan alokasi dana dengan benar',
+            'alokasi_dana.min' => 'Masukan alokasi dana dengan benar',
+          ];
+
+          $this->validate($request, $rule, $message);
+
         $proker = new Proker();
         $proker->id_pengguna = Auth::user()->id;
         $proker->nama_event = $request->nama_event;

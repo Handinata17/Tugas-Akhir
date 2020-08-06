@@ -1,5 +1,9 @@
 @extends('templates.home')
 
+@section('head')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@endsection
+
 @section('sidebar')
     @include('templates.partials._sidebar')
 @endsection
@@ -31,7 +35,12 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Recruitment</label>
-                                        <input type="text" class="form-control" name="nama_recruitment" placeholder="Masukan Nama Recruitment" required>
+                                    <input type="text" class="form-control {{ $errors->has('nama_recruitment') ? 'is-invalid' : '' }}" name="nama_recruitment" value="{{old('nama_recruitment')}}" required>
+                                    @if ($errors->has('nama_recruitment'))
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                      <strong>{{ $errors->first('nama_recruitment') }}</strong>
+                                    </span>
+                                    @endif
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
@@ -50,16 +59,18 @@
                                                 <select class="for'm-control" name="keterangan" id="keterangan"></select>
                                             </div>
                                         </div>
-                                    <div class="form-group">
+                                        <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_mulai" min="{{now()->format('Y-m-d')}}" value="" required>
+                                            <input class="form-control" type="text" name="tanggal_mulai" value="{{old('tanggal_mulai')}}"
+                                                id="datepicker1" readonly style="cursor: pointer; background: white">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_selesai" min="{{now()->format('Y-m-d')}}" value="" required>
+                                                <input class="form-control" type="text" name="tanggal_selesai" value="{{old('tanggal_selesai')}}"
+                                                id="datepicker2" readonly style="cursor: pointer; background: white">
                                             </div>
                                         </div>
                                         {{-- <div class="form-group">
@@ -137,4 +148,26 @@
     })
 </script>
 
+@endsection
+
+@section('script')
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker1, #datepicker2" ).datepicker({
+                dateFormat: 'yy-mm-dd',
+                startDate: new Date(),
+                minDate: new Date()
+            });
+        } );
+
+        // $( function() {
+        //     $( "#datepicker" ).datepicker({
+        //         dateFormat: 'yy-mm-dd',
+        //         startDate: new Date(),
+        //         minDate: new Date()
+        //     });
+        // } );
+    </script>
 @endsection

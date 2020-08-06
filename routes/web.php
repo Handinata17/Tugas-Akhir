@@ -67,6 +67,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::post('/proker/create' ,'Pengguna\ProkerController@store')->name('store.proker');
     Route::get('/proker/{id}/edit','Pengguna\ProkerController@edit')->name('edit.proker');
     Route::put('/proker/{id}/update','Pengguna\ProkerController@update')->name('update.proker');
+    Route::get('reset','Pengguna\ProkerController@reset')->name('cancel.proker');
     Route::get('/proker/{id}', 'Pengguna\ProkerController@destroy')->name('destroy.proker');
     Route::get('/proker/{id}/show', 'Pengguna\ProkerController@show')->name('show.proker');
 
@@ -195,6 +196,7 @@ Route::group(['prefix' => 'pengguna'], function(){
 Route::group(['prefix' => 'superadmin'], function(){
     Route::get('/login','SuperAdmin\AuthController@getLogin')->name('superadmin.login');
     Route::post('/login','SuperAdmin\AuthController@login')->name('superadmin.login.submit');
+    Route::get('reset','SuperAdmin\AuthController@reset')->name('superadmin.login.cancel');
     Route::get('/logout','SuperAdmin\AuthController@logout')->name('superadmin.logout');
 
     Route::get('/pengguna','SuperAdmin\PenggunaController@index')->name('pengguna');

@@ -16,9 +16,6 @@
                         <div class="page-title-box">
                             <div class="float-right">
                                 <ol class="breadcrumb">
-                                    <!-- <li class="breadcrumb-item"><a href="javascript:void(0);">Metrica</a></li> -->
-                                    <!-- <li class="breadcrumb-item"><a href="javascript:void(0);">UI Kit</a></li> -->
-                                    <!-- <li class="breadcrumb-item active">Validation</li> -->
                                 </ol>
                             </div>
                             <h4 class="page-title">Event</h4></div>
@@ -40,7 +37,7 @@
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal"   accept=".pdf" placeholder="Enter alphanumeric value">
+                                        <input type="file" class="form-control" name="proposal"  value="{{ $event->proposal }}" accept=".pdf" placeholder="Enter alphanumeric value">
                                     </div>
 
                                     <div class="form-group mb-0">
