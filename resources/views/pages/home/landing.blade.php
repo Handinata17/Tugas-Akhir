@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <title>saastec Html Template</title>
+        <title>ORMAWA</title>
 
         <link rel="stylesheet" href="{{ asset ('landing_page/css/animate.css') }}">
         <link rel="stylesheet" href="{{ asset ('landing_page/css/bootstrap.min.css') }}">
@@ -19,15 +19,15 @@
         <link rel="stylesheet" href="{{ asset ('landing_page/css/responsive.css') }}">
     </head>
     <body>
-        <div class="preloader"></div>
+        <!-- <div class="preloader"></div> -->
 
         <div id="mainmenu-area">
             <div class="header-area header-absolute">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 w-50">
-                            <a href="index.html" class="header-logo">
-                                <img src="assets/image/logo.png" alt="" />
+                            <a href="{{url('/')}}" class="header-logo">
+                                <img src="{{ asset ('landing_page/image/ormawa1.png') }}" alt="">
                             </a>
                         </div>
                         <div class="col-lg-9 col-md-9 w-50 t-right">
@@ -38,32 +38,17 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="#home">Home +</a>
-                                            <ul>
-                                                <li><a href="index.html" class="active">Home 1</a></li>
-                                                <li><a href="home-2.html">Home 2</a></li>
-                                                <li><a href="home-3.html">Home 3</a></li>
-                                                <li><a href="home-4.html">Home 4</a></li>
-                                                <li><a href="home-5.html">Home 5</a></li>
-                                                <li><a href="home-6.html">Home 6</a></li>
-                                                <li><a href="home-7.html">Home 7</a></li>
-                                                <li><a href="home-8.html">Home 8</a></li>
-                                                <li><a href="home-9.html">Home 9</a></li>
-                                            </ul>
+                                            <a href="#home">Home</a>
                                         </li>
-                                        <li><a class="nav-link" href="#">Service</a></li>
-                                        <li><a class="nav-link" href="#features">Features</a></li>
+                                        <li><a class="nav-link" href="#recruitmen">Recruitment</a></li>
+                                        <li><a class="nav-link" href="#dana">Dana RAB</a></li>
                                         <li>
-                                            <a href="#">Pages +</a>
+                                            <a href="#">Login</a>
                                             <ul>
-                                                <li><a href="blog.html" class="active">Blog</a></li>
-                                                <li><a href="single-blog.html">Single Blog</a></li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="contact.html">Contact us</a></li>
-                                                <li><a href="single-project.html">Project Details</a></li>
+                                                <li><a href="blog.html" class="active">Pengguna</a></li>
+                                                <li><a href="single-blog.html">Admin</a></li>
                                             </ul>
                                         </li>
-                                        <li><a class="nav-link" href="#testimonial">Testimonial</a></li>
                                     </ul>
                                 </nav>
                             </div>
