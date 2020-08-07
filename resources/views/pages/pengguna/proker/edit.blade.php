@@ -36,7 +36,7 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Event</label>
-                                    <input type="text" class="form-control {{ $errors->has('nama_event') ? 'is-invalid' : '' }}" name="nama_event" value="{{ $proker->nama_event }}" required>
+                                    <input type="text" class="form-control {{ $errors->has('nama_event') ? 'is-invalid' : '' }}" name="nama_event" value="{{ old('nama_event', $proker->nama_event) }}" required>
                                     @if ($errors->has('nama_event'))
                                     <span class="invalid-feedback text-danger" role="alert">
                                       <strong>{{ $errors->first('nama_event') }}</strong>
@@ -58,7 +58,7 @@
                                         <div class="form-group" id="display-keterangan" style="display: none">
                                             <label>Keterangan</label>
                                             <div class="col-sm-12">
-                                                <select class="for'm-control" name="keterangan" value="{{ $proker->keterangan }}" id="keterangan"></select>
+                                                <select class="for'm-control{{ $errors->has('nama_event') ? 'is-invalid' : '' }}" name="keterangan" value="{{old('keterangan', $proker->keterangan) }}" id="keterangan"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -76,16 +76,16 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label>Tempat</label>
+                                            <label>Tempat {{$proker->tempat}}</label>
                                             <div class="col-sm-15">
-                                                <select class="form-control"  name="tempat" value="{{ $proker->tempat }}">
-                                                    <option value="{{$proker->tempat}}"
-                                                     @if($proker->tempat === 'Kmpus')
+                                                <select class="form-control" name="tempat">
+                                                    <option value="Kampus"
+                                                     @if($proker->tempat === 'Kampus')
                                                      selected
                                                      @endif
                                                         >Kampus</option>
-                                                    <option value="{{$proker->tempat}}"
-                                                    @if($proker->tempat === 'Kmpus')
+                                                    <option value="Luar Kampus"
+                                                    @if($proker->tempat === 'Luar Kampus')
                                                      selected
                                                      @endif
                                                         >Luar Kampus</option>
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Alokasi Dana</label>
-                                            <input type="number" value="{{ $proker->alokasi_dana }}" class="form-control {{ $errors->has('alokasi_dana') ? 'is-invalid' : '' }}" name="alokasi_dana" placeholder="Masukan Dana RAB" required>
+                                            <input type="number" value="{{old('alokasi_dana', $proker->alokasi_dana)  }}" class="form-control {{ $errors->has('alokasi_dana') ? 'is-invalid' : '' }}" name="alokasi_dana" placeholder="Masukan Dana RAB" required>
                                             @if ($errors->has('alokasi_dana'))
                                             <span class="invalid-feedback text-danger" role="alert">
                                               <strong>{{ $errors->first('alokasi_dana') }}</strong>
@@ -105,7 +105,7 @@
 
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
-                                        <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>
+                                        <button onclick="window.location='{{route('proker')}}'" type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>
                                     </div>
                                     <!--end form-group-->
                                 </form>
