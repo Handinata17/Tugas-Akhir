@@ -20,6 +20,11 @@
                     </div>
                     <!--end col-->
                 </div>
+                @if($errors->all())
+                <div class="alert alert-danger" role="alert">
+                  Gagal mengubah pengguna! Silahkan cek kembali
+                </div>
+                @endif
 
                  <div class="row">
                     <div class="col-lg-12">
@@ -32,11 +37,21 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input type="text" class="form-control" value="{{$pengguna->nama}}" name="nama" placeholder="Masukan Nama">
+                                        <input type="text" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" value="{{old('nama', $pengguna->nama)}}" name="nama" placeholder="Masukan Nama">
+                                        @if ($errors->has('nama'))
+                                       <span class="invalid-feedback text-danger" role="alert">
+                                         <strong>{{ $errors->first('nama') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" value="{{$pengguna->email}}" name="email" placeholder="Masukan Email">
+                                        <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" value="{{old('email', $pengguna->email)}}" name="email" placeholder="Masukan Email">
+                                        @if ($errors->has('email'))
+                                       <span class="invalid-feedback text-danger" role="alert">
+                                         <strong>{{ $errors->first('email') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                     <div class="form-group">
                                             <label>Organisasi</label>

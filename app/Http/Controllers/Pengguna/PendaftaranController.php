@@ -127,6 +127,14 @@ class PendaftaranController extends Controller
             Storage::disk('s3')->put($file_path, file_get_contents($file));
             $file = Storage::disk('s3')->url($file_path, $file_name);
 
+            // $request->validate([
+            //     $pendaftaran = new Pendaftaran();
+            //     'nim' => 'required|nim:8|max:10',
+            //     'nama_mahasiswa' => 'requered',
+            //     'email' => 'requered',
+
+
+            // ])
             $pendaftaran = new Pendaftaran();
             $pendaftaran->nim = $request->nim;
             $pendaftaran->nama_mahasiswa = $request->nama_mahasiswa;

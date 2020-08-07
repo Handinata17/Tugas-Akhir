@@ -21,7 +21,7 @@ class AuthPenggunaController extends Controller
         $this->validate($request, [
             // 'email' => 'required|string|unique:penggunas',
             'email' => 'required|string',
-            'password' => 'required|string|min:6'
+            'password' => 'required|string'
         ]);
 
         $credential = [
@@ -32,7 +32,7 @@ class AuthPenggunaController extends Controller
         if (Auth::guard('pengguna')->attempt($credential)){
             return redirect()->route('pengguna.beranda');
         }
-        return redirect()->back()->withInput($request->only('email'));
+        return redirect()->back()->withInput($request->only('email'))->with('warning', 'masukkan email dan password yang benar');
 
     }
 

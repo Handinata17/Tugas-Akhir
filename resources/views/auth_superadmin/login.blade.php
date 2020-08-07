@@ -41,7 +41,7 @@
                                         <label for="username">Email</label>
                                         <div class="input-group mb-3"><span class="auth-form-icon"><i class="dripicons-user"></i> </span>
                                             <input class="form-control @error('email') is-invalid @enderror"
-                                            type="text" placeholder="Enter username" name="email" required>
+                                            type="email" placeholder="Enter username" name="email" required>
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

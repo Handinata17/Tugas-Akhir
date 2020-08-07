@@ -22,6 +22,13 @@
     <div class="container">
         <div class="row vh-100">
             <div class="col-12 align-self-center">
+                    @if ($message = Session::get('warning'))
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span
+                                aria-hidden="true">×</span> </button>
+                        <h3 class="text-success"><i class="fa fa-check-circle"></i>Password atau Email Salah</h3> {{ $message }}
+                    </div>
+                    @endif
                 <div class="auth-page">
                     <div class="card auth-card shadow-lg">
                         <div class="card-body">
@@ -41,7 +48,7 @@
                                         <label for="username">Email</label>
                                         <div class="input-group mb-3"><span class="auth-form-icon"><i class="dripicons-user"></i> </span>
                                             <input class="form-control @error('email') is-invalid @enderror"
-                                            type="text" placeholder="Enter username" name="email" required>
+                                            type="email" placeholder="Enter username" name="email" required>
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

@@ -1,5 +1,9 @@
 @extends('templates.home')
 
+@section('head')
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+@endsection
+
 @section('sidebar')
     @include('templates.partials._sidebar')
 @endsection
@@ -26,12 +30,17 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Input Proker</h4>
-                                <p class="text-muted mb-3">Isi form yang telah di sediakan, untuk uploud proposal LPJ bisa di kosongkan terlebih dahulu</p>
+                                <p class="text-muted mb-3">Isi form yang telah di sediakan</p>
                                 <form class="form-parsley" method="POST" action="{{route('store.proker')}}" enctype="multipart/form-data">
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama Event</label>
-                                        <input type="text" class="form-control" name="nama_event" required>
+                                    <input type="text" class="form-control {{ $errors->has('nama_event') ? 'is-invalid' : '' }}" name="nama_event" value="{{old('nama_event')}}" required>
+                                    @if ($errors->has('nama_event'))
+                                    <span class="invalid-feedback text-danger" role="alert">
+                                      <strong>{{ $errors->first('nama_event') }}</strong>
+                                    </span>
+                                    @endif
                                     </div>
                                     <!--end form-group-->
                                     <div class="form-group">
@@ -40,8 +49,8 @@
                                                 <select class="for'm-control" name="organisasi" id="organisasi">
                                                     <option value="BEM">BEM</option>
                                                     <option value="BPM">BPM</option>
-                                                    <option value="HIMA">HIMA</option>
-                                                    <option value="UKM">UKM</option>
+                                                    {{-- <option value="HIMA">HIMA</option>
+                                                    <option value="UKM">UKM</option> --}}
                                                 </select>
                                             </div>
                                         </div>
@@ -51,16 +60,18 @@
                                                 <select class="for'm-control" name="keterangan" id="keterangan"></select>
                                             </div>
                                         </div>
-                                    <div class="form-group">
+                                        <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_mulai" value="2020-08-19" id="example-date-input">
+                                            <input class="form-control" type="text" name="tanggal_mulai" value="{{old('tanggal_mulai')}}"
+                                                id="datepicker1" readonly style="cursor: pointer; background: white">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal Selesai</label>
                                             <div class="col-sm-15">
-                                                <input class="form-control" type="date" name="tanggal_selesai" value="2020-08-19" id="example-date-input">
+                                                <input class="form-control" type="text" name="tanggal_selesai" value="{{old('tanggal_selesai')}}"
+                                                id="datepicker2" readonly style="cursor: pointer; background: white">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -74,26 +85,19 @@
                                         </div>
                                         <div class="form-group">
                                         <label>Alokasi Dana</label>
-                                        <input type="text" class="form-control" name="alokasi_dana" placeholder="Masukan Dana RAB" required>
+                                        <input type="number" value="{{old('alokasi_dana')}}" class="form-control {{ $errors->has('alokasi_dana') ? 'is-invalid' : '' }}" name="alokasi_dana" placeholder="Masukan Dana RAB" required>
+                                        @if ($errors->has('alokasi_dana'))
+                                        <span class="invalid-feedback text-danger" role="alert">
+                                          <strong>{{ $errors->first('alokasi_dana') }}</strong>
+                                        </span>
+                                        @endif
+
                                     </div>
-                                    <!--end form-group-->
-                                    <!-- <div class="form-group">
-                                        <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal"   accept=".doc,.docx,.pdf" placeholder="Enter alphanumeric value">
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                        <label>Uploud Lpj</label>
-                                        <input data-parsley-type="alphanum" type="file" class="form-control" required placeholder="Enter alphanumeric value">
-                                    </div> -->
-                                    <!--end form-group-->
-                                    <!-- <div class="form-group"> -->
-                                        <!-- <label>Perbaikan</label> -->
-                                        <!-- <textarea required class="form-control" name="perbaikan" rows="5"></textarea> -->
-                                    <!-- </div> -->
-                                    <!--end form-group-->
+
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
                                         <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>
+                                        {{-- <button class="btn btn-gradient-danger waves-effect m-l-5" a href="{{ route('proker') }}">Cancel</button></a> --}}
                                     </div>
                                     <!--end form-group-->
                                 </form>
@@ -147,4 +151,26 @@
     })
 </script>
 
+@endsection
+
+@section('script')
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#datepicker1, #datepicker2" ).datepicker({
+                dateFormat: 'yy-mm-dd',
+                startDate: new Date(),
+                minDate: new Date()
+            });
+        } );
+
+        // $( function() {
+        //     $( "#datepicker" ).datepicker({
+        //         dateFormat: 'yy-mm-dd',
+        //         startDate: new Date(),
+        //         minDate: new Date()
+        //     });
+        // } );
+    </script>
 @endsection

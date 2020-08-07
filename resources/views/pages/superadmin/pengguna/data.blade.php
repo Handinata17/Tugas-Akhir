@@ -17,6 +17,11 @@
                     </div>
                     <!--end col-->
                 </div>
+                @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                  {{Session::get('success')}}
+                </div>
+                @endif
 
                 <div class="row">
                     <div class="col-12">

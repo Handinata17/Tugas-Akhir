@@ -42,16 +42,23 @@ class RecruitmentController extends Controller
      */
     public function store(Request $request)
     {
+        $rule = [
+            'nama_recruitment' => 'required|regex:/^[\pL\s\-]+$/u'
+          ];
+          $message = [
+            'required' => 'tidak boleh kosong.',
+            'nama_recruitment.regex' => 'Masukan nama recruitment dengan benar'
+          ];
+
+          $this->validate($request, $rule, $message);
         // dd($request->all());
         $recruitment = new Recruitment();
         $recruitment->id_pengguna = Auth::user()->id;
         $recruitment->nama_recruitment = $request->nama_recruitment;
         $recruitment->organisasi = $request->organisasi;
-        $recruitment->keterangan = $request->keterangan;
+        // $recruitment->keterangan = $request->keterangan;
         $recruitment->tanggal_mulai = $request->tanggal_mulai;
         $recruitment->tanggal_selesai = $request->tanggal_selesai;
-        // $proker->tempat = $request->tempat;
-        // $proker->alokasi_dana = $request->alokasi_dana;
         $recruitment->save();
 
         // dd($request->all());
@@ -97,7 +104,7 @@ class RecruitmentController extends Controller
         $recruitment->id_pengguna = Auth::user()->id;
         $recruitment->nama_recruitment = $request->nama_recruitment;
         $recruitment->organisasi = $request->organisasi;
-        $recruitment->keterangan = $request->keterangan;
+        // $recruitment->keterangan = $request->keterangan;
         $recruitment->tanggal_mulai = $request->tanggal_mulai;
         $recruitment->tanggal_selesai = $request->tanggal_selesai;
         // $proker->tempat = $request->tempat;

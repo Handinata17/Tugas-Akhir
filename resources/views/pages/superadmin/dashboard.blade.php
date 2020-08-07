@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <p>hahahah</p>
+    <p>Halaman Utama</p>
 @endsection

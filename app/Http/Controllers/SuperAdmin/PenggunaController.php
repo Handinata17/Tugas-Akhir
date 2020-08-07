@@ -22,6 +22,21 @@ class PenggunaController extends Controller
     }
 
     public function store(Request $request){
+    $rule = [
+        'nama' => 'required|regex:/^[\pL\s\-]+$/u|min:3',
+        'email' => 'required|email|unique:penggunas',
+      ];
+
+   $message = [
+     'required' => 'tidak boleh kosong.',
+     'email' => 'Masukan email dengan benar.',
+     'nama.regex' => 'Masukan nama dengan benar',
+     'nama.min' => 'Masukan nama dengan benar',
+     'email.unique' => 'Email sudah terdaftar'
+   ];
+
+   $this->validate($request, $rule, $message);
+
         Pengguna::create([
             'nama' => $request->nama,
             'email' => $request->email,
@@ -31,7 +46,7 @@ class PenggunaController extends Controller
             'password' => bcrypt(12345678),
         ]);
 
-        return redirect()->route('pengguna');
+        return redirect()->route('pengguna')->with('success','Pengguna berhasil ditambahkan');
     }
 
     public function edit($id)
@@ -45,6 +60,21 @@ class PenggunaController extends Controller
 
     public function update(Request $request, $id){
         $pengguna = Pengguna::find($id);
+        $rule = [
+            'nama' => 'required|regex:/^[\pL\s\-]+$/u|min:3',
+            'email' => 'required|email|unique:penggunas,email,'.$pengguna->id,
+          ];
+
+       $message = [
+         'required' => 'tidak boleh kosong.',
+         'email' => 'Masukan email dengan benar.',
+         'nama.regex' => 'Masukan nama dengan benar',
+         'nama.min' => 'Masukan nama dengan benar',
+         'email.unique' => 'Email sudah terdaftar di pengguna lain'
+       ];
+
+       $this->validate($request, $rule, $message);
+
         $pengguna->update([
             'nama' => $request->nama,
             'email' => $request->email,
@@ -52,7 +82,7 @@ class PenggunaController extends Controller
             'jabatan' => $request->jabatan,
         ]);
 
-        return redirect()->route('pengguna');
+        return redirect()->route('pengguna')->with('success','Pengguna berhasil ubah');
     }
 
     public function destroy($id)
