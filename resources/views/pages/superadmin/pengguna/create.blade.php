@@ -20,6 +20,11 @@
                     </div>
                     <!--end col-->
                 </div>
+                @if($errors->all())
+                <div class="alert alert-danger" role="alert">
+                  Gagal menambahkan pengguna! Silahkan cek kembali
+                </div>
+                @endif
 
                  <div class="row">
                     <div class="col-lg-12">
@@ -31,11 +36,21 @@
                                 @csrf
                                     <div class="form-group">
                                         <label>Nama</label>
-                                        <input type="text" class="form-control" name="nama" placeholder="Masukan Nama">
+                                        <input type="text" value="{{old('nama')}}" class="form-control{{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" placeholder="Masukan Nama">
+                                        @if ($errors->has('nama'))
+                                       <span class="invalid-feedback text-danger" role="alert">
+                                         <strong>{{ $errors->first('nama') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" name="email" placeholder="Masukan Email">
+                                        <input type="text" value="{{old('email')}}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" placeholder="Masukan Email">
+                                        @if ($errors->has('email'))
+                                       <span class="invalid-feedback text-danger" role="alert">
+                                         <strong>{{ $errors->first('email') }}</strong>
+                                       </span>
+                                       @endif
                                     </div>
                                     <div class="form-group">
                                             <label>Organisasi</label>
@@ -82,11 +97,11 @@
                         <!--end card-->
                     </div>
                     <!-- end col -->
-                    <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
-                    <!--end footer-->
-                </div>
-                    <!-- end col -->
-            </div>
+          <footer class="footer text-center text-sm-left">ORMAWA KMPHB <span class="text-muted d-none d-sm-inline-block float-right">Politeknik Harapan Bersama</footer>
+          <!--end footer-->
+      </div>
+          <!-- end col -->
+  </div>
 
 <script>
     const keterangan = document.querySelector('#keterangan');

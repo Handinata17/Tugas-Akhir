@@ -42,12 +42,13 @@ class ProkerController extends Controller
     public function store(Request $request)
     {
         $rule = [
-            'nama_event' => 'required|regex:/^[\pL\s\-]+$/u',
+            'nama_event' => 'required|regex:/^[\pL\s\-]+$/u|min: 5',
             'alokasi_dana' => 'required|numeric|min:0|not_in:0',
           ];
           $message = [
             'required' => 'tidak boleh kosong.',
             'nama_event.regex' => 'Masukan nama event dengan benar',
+            'nama_event.min' => 'Nama Event minimal 5 karakter',
             'alokasi_dana.numeric' => 'Masukan alokasi dana dengan benar',
             'alokasi_dana.min' => 'Masukan alokasi dana dengan benar',
           ];
@@ -103,8 +104,22 @@ class ProkerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
-        $proker = new Proker();
+      // dd($request->tempat);
+      $rule = [
+          'nama_event' => 'required|regex:/^[\pL\s\-]+$/u|min:5',
+          'alokasi_dana' => 'required|numeric|min:0|not_in:0',
+        ];
+        $message = [
+          'required' => 'tidak boleh kosong.',
+          'nama_event.regex' => 'Masukan nama event dengan benar',
+          'nama_event.min' => 'Nama Event minimal 5 karakter',
+          'alokasi_dana.numeric' => 'Masukan alokasi dana dengan benar',
+          'alokasi_dana.min' => 'Masukan alokasi dana dengan benar',
+        ];
+
+        $this->validate($request, $rule, $message);
+
+        $proker = Proker::find($id);
         $proker->id_pengguna = Auth::user()->id;
         $proker->nama_event = $request->nama_event;
         $proker->organisasi = $request->organisasi;
@@ -113,7 +128,7 @@ class ProkerController extends Controller
         $proker->tanggal_selesai = $request->tanggal_selesai;
         $proker->tempat = $request->tempat;
         $proker->alokasi_dana = $request->alokasi_dana;
-        $proker->save();
+        $proker->update();
 
         // dd($request->all());
 
