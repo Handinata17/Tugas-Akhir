@@ -40,6 +40,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::patch('/event/{id}/edit','Pengguna\EventController@update')->name('update.event');
     Route::get('/event/{id}/revisi','Pengguna\EventController@revisi')->name('revisi.event');
     Route::put('/event/{id}/revisi','Pengguna\EventController@revisiSubmit')->name('revisi.submit.event');
+    Route::get('reset','Pengguna\EventController@reset')->name('cancel.event');
 
     Route::get('/event/{id}/acc','Pengguna\EventController@acc')->name('acc.event');
     Route::get('/event/{id}/acc_wadir_3','Pengguna\EventController@acc_wadir_3')->name('acc_wadir_3.event');
@@ -55,12 +56,14 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/eventlainnya/{id}/acc_kaprodi','Pengguna\EventLainnyaController@acc_kaprodi')->name('acc_kaprodi.eventlainnya');
     Route::get('/eventlainnya/{id}/acc_wadir_3','Pengguna\EventLainnyaController@acc_wadir_3')->name('acc_wadir_3.eventlainnya');
     Route::get('/eventlainnya/{id}', 'Pengguna\EventLainnyaController@destroy')->name('destroy.eventlainnya');
+    Route::get('reset','Pengguna\EventLainnyaController@reset')->name('cancel.eventlainnya');
 
     Route::get('/revisi','Pengguna\RevisiController@index')->name('pengguna.revisi.event');
     Route::get('/revisi/{id}','Pengguna\RevisiController@show')->name('pengguna.revisi.event.show');
     // Route::get('/revisi/lainnya','Pengguna\RevisiController@index')->name('pengguna.revisi.eventlainnya');
     // Route::get('/revisi{id}', 'Pengguna\RevisiController@destroy')->name('destroy.revisi');
     Route::put('/proker/{id}/update','Pengguna\ProkerController@update')->name('update.proker');
+    Route::get('reset','Pengguna\RevisiController@reset')->name('cancel.event');
 
     Route::get('/proker','Pengguna\ProkerController@index')->name('proker');
     Route::get('/proker/create','Pengguna\ProkerController@create')->name('create.proker');
@@ -80,6 +83,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::get('/recruitment/{id}/show', 'Pengguna\RecruitmentController@show')->name('show.recruitment');
     Route::put('/recruitment/konfirmasi/diterima/{id}','Pengguna\PendaftaranController@konfirmasiTerima')->name('konfirmasi.diterima');
     Route::put('/recruitment/konfirmasi/ditolak/{id}','Pengguna\PendaftaranController@konfirmasiTolak')->name('konfirmasi.ditolak');
+    Route::get('reset','Pengguna\RecruitmentController@reset')->name('cancel.recruitment');
 
     Route::get('/pendaftaran','Pengguna\PendaftaranController@index')->name('pendaftaran');
     Route::post('/pendaftaran/create','Pengguna\PendaftaranController@create')->name('create.pendaftaran');
@@ -87,6 +91,7 @@ Route::group(['prefix' => 'pengguna'], function(){
     Route::put('/pendafratan/{id}/update','Pengguna\PendaftaranController@update')->name('update.pendaftaran');
     Route::get('/pendaftaran/{id}', 'Pengguna\PendaftaranController@destroy')->name('destroy.pendaftaran');
     Route::get('/pendaftaran/{id}/show', 'Pengguna\PendaftaranController@show')->name('show.pendaftaran');
+    Route::get('reset','Pengguna\PendaftaranController@reset')->name('cancel.pendaftaran');
 });
 
 Route::get('/formoprecbpm', function () {
@@ -199,12 +204,14 @@ Route::group(['prefix' => 'superadmin'], function(){
     Route::get('reset','SuperAdmin\AuthController@reset')->name('superadmin.login.cancel');
     Route::get('/logout','SuperAdmin\AuthController@logout')->name('superadmin.logout');
 
+    Route::get('/beranda','Pengguna\BerandaController@index')->name('superadmin.beranda');
     Route::get('/pengguna','SuperAdmin\PenggunaController@index')->name('pengguna');
     Route::get('/pengguna/create','SuperAdmin\PenggunaController@create')->name('create.pengguna');
     Route::post('/pengguna/create' ,'SuperAdmin\PenggunaController@store')->name('store.pengguna');
     Route::get('/pengguna/{id}/edit','SuperAdmin\PenggunaController@edit')->name('edit.pengguna');
     Route::put('/pengguna/{id}/update','SuperAdmin\PenggunaController@update')->name('update.pengguna');
     Route::get('/pengguna/{id}','SuperAdmin\PenggunaController@destroy')->name('destroy.pengguna');
+    Route::get('reset','SuperAdmin\PenggunaController@reset')->name('superadmin.pengguna.cancel');
 
     // Route::get('/organisasi', 'SuperAdmin\OrganisasiController@index')->name('organisasi');
     // Route::post('/organisasi', 'SuperAdmin\OrganisasiController@store')->name('simpan.organisasi');

@@ -23,6 +23,7 @@
                                             <th>Email</th>
                                             <th>Nama Recruitment</th>
                                             <th>File</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -52,6 +53,7 @@
                                                 <span class="text-success">Diterima</span>
                                               @endif
                                           </td>
+                                          
                                         </tr>
                                         <div class="modal fade" id="terima{{$pendaftaran->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog" role="document">
@@ -76,7 +78,6 @@
                                             </div>
                                           </div>
                                         </div>
-
                                         <div class="modal fade" id="tolak{{$pendaftaran->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog" role="document">
                                             <div class="modal-content">

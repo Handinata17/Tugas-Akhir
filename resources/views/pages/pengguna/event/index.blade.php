@@ -37,6 +37,9 @@
                                                 </div>
                                             </div>
                                     <button type="submit" class="btn btn-success">Prints</button>
+                                    <div class="float-right">
+                                        <a href="{{route('store.event')}}" class="btn btn-gradient-primary">Tambah</a>
+                                        </div>
                                     </form>
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>

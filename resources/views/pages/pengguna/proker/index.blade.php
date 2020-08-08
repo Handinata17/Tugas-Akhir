@@ -15,6 +15,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="mt-0 header-title">Data List</h4>
+                                <div class="float-right">
+                                <a href="{{route('store.proker')}}" class="btn btn-gradient-primary">Tambah</a>
+                                </div>
                                 <p class="text-muted mb-4 font-13">Data Proker</p>
                                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                     <thead>

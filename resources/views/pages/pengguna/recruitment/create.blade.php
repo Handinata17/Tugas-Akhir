@@ -103,7 +103,8 @@
                                     <!--end form-group-->
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
-                                        <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>
+                                        {{-- <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button> --}}
+                                        <a class="btn btn-gradient-danger btn-close waves-effect m-l-5" href="{{ route('recruitment') }}">Cancel</a>
                                     </div>
                                     <!--end form-group-->
                                 </form>
