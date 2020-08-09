@@ -23,7 +23,7 @@
                                 <form class="form-parsley" method="POST" action="{{route('revisi.submit.event', $event->id)}}">
                                     @method('PUT')
                                     @csrf
-                                    <embed src="{{config("app.url").$event->proposal}}" framborder="0" width="100%" height="350px" class="mb-2">
+                                    <embed src="{{asset($event->proposal)}}" framborder="0" width="100%" height="350px" class="mb-2">
                                     <div class="form-group">
                                         <label>Perbaikan</label>
                                         	<textarea id="elm1" name="revisi"></textarea>
