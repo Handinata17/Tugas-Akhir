@@ -8,8 +8,8 @@ use App\Event;
 use App\Pengguna;
 use App\Proker;
 use App\Revisi;
-use Auth;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 

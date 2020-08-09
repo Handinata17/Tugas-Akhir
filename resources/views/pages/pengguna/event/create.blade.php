@@ -51,11 +51,12 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="">Proker</label>
-                                        <select name="id_proker" class="form-control proker" value="{{old('proker')}}" id="proker" required>
+                                        <select name="id_proker" class="form-control proker" id="proker" required>
                                             @foreach($prokers as $proker)
-                                              @if(!$proker->event)
+                                            <option value="{{ $proker->id }}">{{$proker->nama_event}}</option>
+                                              {{-- @if(!$proker->event)
                                                 <option value="{{ $proker->id }}">{{$proker->nama_event}}</option>
-                                              @endif
+                                              @endif --}}
                                             @endforeach
                                         </select>
 
