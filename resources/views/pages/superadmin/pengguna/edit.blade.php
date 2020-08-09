@@ -56,12 +56,12 @@
                                     <div class="form-group">
                                             <label>Organisasi</label>
                                             <div class="col-sm-4">
-                                                <select class="for'm-control" name="organisasi" id="organisasi">
+                                                <select class="form-control" name="organisasi" id="organisasi">
                                                     <option value="BEM">BEM</option>
                                                     <option value="BPM">BPM</option>
-                                                    <option value="HIMA">HIMA</option>
-                                                    <option value="UKM">UKM</option>
-                                                    <option value="">Lainnya</option>
+                                                    <!-- <option value="HIMA">HIMA</option>
+                                                    <option value="UKM">UKM</option> -->
+                                                    <option value="" @if($pengguna->keterangan === 'Direktur 3') selected @endif>Lainnya</option>
                                                 </select>
                                             </div>
                                         </div>

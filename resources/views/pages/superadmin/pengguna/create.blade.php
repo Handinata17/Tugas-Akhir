@@ -55,11 +55,9 @@
                                     <div class="form-group">
                                             <label>Organisasi</label>
                                             <div class="col-sm-4">
-                                                <select class="for'm-control" name="organisasi" id="organisasi">
+                                                <select class="form-control" name="organisasi" id="organisasi">
                                                     <option value="BEM">BEM</option>
                                                     <option value="BPM">BPM</option>
-                                                    {{-- <option value="HIMA">HIMA</option>
-                                                    <option value="UKM">UKM</option> --}}
                                                     <option value="">Lainnya</option>
                                                 </select>
                                             </div>
@@ -67,7 +65,7 @@
                                         <div class="form-group" id="display-keterangan" style="display: none">
                                             <label>Keterangan</label>
                                             <div class="col-sm-12">
-                                                <select class="for'm-control" name="keterangan" id="keterangan"></select>
+                                                <select class="form-control" name="keterangan" id="keterangan"></select>
                                             </div>
                                         </div>
                                     <div class="form-group">
