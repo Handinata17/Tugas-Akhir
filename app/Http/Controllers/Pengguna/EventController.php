@@ -46,8 +46,9 @@ class EventController extends Controller
     }
 
     public function create(){
-        $pengguna = Auth::user();
-        $prokers = Proker::where('organisasi',$pengguna->organisasi)->where('keterangan',$pengguna->keterangan)->whereHas('event')
+        $pengguna = Auth::guard('pengguna')->user();
+        $prokers = Proker::where('organisasi',$pengguna->organisasi)
+        ->where('keterangan',$pengguna->keterangan)
         ->where('status', false)->get();
 
         return view('pages.pengguna.event.create', compact('prokers'));
