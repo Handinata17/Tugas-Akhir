@@ -21,6 +21,7 @@ class CreatePenggunasTable extends Migration
             $table->string('organisasi','50')->nullable();
             $table->string('keterangan','50')->nullable();
             $table->string('jabatan','50');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

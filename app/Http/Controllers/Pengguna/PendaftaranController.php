@@ -96,15 +96,16 @@ class PendaftaranController extends Controller
         $rule = [
             'nama_mahasiswa' => 'required|regex:/^[\pL\s\-]+$/u',
             'email' => 'required|email|unique:pendaftarans',
-            'nim' => 'required|unique:pendaftarans',
+            'nim' => 'required|numeric|unique:pendaftarans|digits:8',
             'file' => 'required|file|max:2048',
           ];
           $message = [
-            'required' => 'tidak boleh kosong.',
+            'required' => ':attribute tidak boleh kosong.',
             'email' => 'Masukan email dengan benar.',
-            'nama.regex' => 'Masukan nanma dengan benar',
+            'nama_mahasiswa.regex' => 'nama hanya mengandung huruf',
             'unique.email' => 'Email sudah terdaftar',
-            'unique.nim' => 'Nim sudah terdaftar'
+            'unique.nim' => 'Nim sudah terdaftar',
+            'digits' => ':attribute harus 8 karakter'
           ];
 
           $this->validate($request, $rule, $message);

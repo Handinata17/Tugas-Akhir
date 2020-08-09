@@ -31,6 +31,14 @@ Route::get('/create', function () {
 
 
 Route::group(['prefix' => 'pengguna'], function(){
+
+    Route::get('/password/reset', 'Pengguna\ForgotPasswordController@showLinkRequestForm')->name('pengguna.password.request');
+    Route::post('/password/email', 'Pengguna\ForgotPasswordController@sendResetLinkEmail')->name('pengguna.password.email');
+    Route::get('/password/reset/email', 'Pengguna\ResetPasswordController@showResetForm')->name('pengguna.password.reset');
+    Route::post('/password/reset', 'Pengguna\ResetPasswordController@reset')->name('pengguna.password.reset.submit');
+
+
+
     Route::get('/beranda','Pengguna\BerandaController@index')->name('pengguna.beranda');
     Route::get('/event','Pengguna\EventController@index')->name('event');
     Route::get('/event/report','Pengguna\EventController@print')->name('print.event');

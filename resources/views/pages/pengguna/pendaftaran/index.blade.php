@@ -41,10 +41,10 @@
                                             </td>
                                             <td>
                                               @if($pendaftaran->status === null)
-                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#terima{{$pendaftaran->id}}">
+                                              <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#terima{{$pendaftaran->id}}">
                                                 <i class="fa fa-check"></i>
                                               </button>
-                                              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#tolak{{$pendaftaran->id}}">
+                                              <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#tolak{{$pendaftaran->id}}">
                                                 <i class="fa fa-window-close"></i>
                                               </button>
                                               @elseif($pendaftaran->status === 0)
@@ -52,6 +52,12 @@
                                               @else
                                                 <span class="text-success">Diterima</span>
                                               @endif
+                                          </td>
+
+                                          <td>
+                                            <a href="{{ route('destroy.pendaftaran', $pendaftaran->id) }}" class="btn btn-danger btn-sm" 
+                                            onclick="return confirm('apakah anda yakin ingin menghapus data ini?')"
+                                            ><i class="fa fa-trash"></i></a> 
                                           </td>
                                           
                                         </tr>

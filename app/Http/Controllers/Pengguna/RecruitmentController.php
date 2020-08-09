@@ -7,16 +7,18 @@ use App\Http\Controllers\Controller;
 use App\Recruitment;
 use App\Pengguna;
 use App\Landing;
-use Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class RecruitmentController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('auth:pengguna');
     }
     public function index()
     {
-        $recruitments = Recruitment::orderBy('id','DESC')->get();
+        $recruitments = Recruitment::orderBy('id', 'DESC')->get();
         //   $events = Pengguna::where('organisasi', Auth::user()->organisasi)
         //   ->with('events')->get();
 
@@ -43,25 +45,25 @@ class RecruitmentController extends Controller
     public function store(Request $request)
     {
         $rule = [
-            'nama_recruitment' => 'required|regex:/^[\pL\s\-]+$/u'
-          ];
-          $message = [
+            'nama_recruitment' => 'required|regex:/^[\pL\s\-]+$/u',
+            'tanggal' => 'required'
+        ];
+        $message = [
             'required' => 'tidak boleh kosong.',
             'nama_recruitment.regex' => 'Masukan nama recruitment dengan benar'
-          ];
+        ];
+        $this->validate($request, $rule, $message);
 
-          $this->validate($request, $rule, $message);
-        // dd($request->all());
+        $tanggal_mulai = substr($request->tanggal, 0, 10);
+        $tanggal_selesai = substr($request->tanggal, 13);
+
         $recruitment = new Recruitment();
         $recruitment->id_pengguna = Auth::user()->id;
         $recruitment->nama_recruitment = $request->nama_recruitment;
         $recruitment->organisasi = $request->organisasi;
-        // $recruitment->keterangan = $request->keterangan;
-        $recruitment->tanggal_mulai = $request->tanggal_mulai;
-        $recruitment->tanggal_selesai = $request->tanggal_selesai;
+        $recruitment->tanggal_mulai = Carbon::parse($tanggal_mulai)->format('Y-m-d');
+        $recruitment->tanggal_selesai = Carbon::parse($tanggal_selesai)->format('Y-m-d');
         $recruitment->save();
-
-        // dd($request->all());
 
         return redirect()->route('recruitment');
     }
@@ -87,7 +89,14 @@ class RecruitmentController extends Controller
     public function edit($id)
     {
         $recruitment = Recruitment::find($id);
-        return view('pages.pengguna.recruitment.edit', compact('recruitment'));
+        $tanggal = $this->formatToDateRange($recruitment->tanggal_mulai).' - '
+        .$this->formatToDateRange($recruitment->tanggal_selesai);
+        return view('pages.pengguna.recruitment.edit', compact(['recruitment', 'tanggal']));
+    }
+
+    private function formatToDateRange($tanggal)
+    {
+        return Carbon::parse($tanggal)->format('m/d/Y');
     }
 
     /**
@@ -99,14 +108,17 @@ class RecruitmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+    
+        $tanggal_mulai = substr($request->tanggal, 0, 10);
+        $tanggal_selesai = substr($request->tanggal, 13);
+
         $recruitment = Recruitment::find($id);
         $recruitment->id_pengguna = Auth::user()->id;
         $recruitment->nama_recruitment = $request->nama_recruitment;
         $recruitment->organisasi = $request->organisasi;
         // $recruitment->keterangan = $request->keterangan;
-        $recruitment->tanggal_mulai = $request->tanggal_mulai;
-        $recruitment->tanggal_selesai = $request->tanggal_selesai;
+        $recruitment->tanggal_mulai = Carbon::parse($tanggal_mulai)->format('Y-m-d');
+        $recruitment->tanggal_selesai = Carbon::parse($tanggal_selesai)->format('Y-m-d');
         // $proker->tempat = $request->tempat;
         // $proker->alokasi_dana = $request->alokasi_dana;
         $recruitment->update();

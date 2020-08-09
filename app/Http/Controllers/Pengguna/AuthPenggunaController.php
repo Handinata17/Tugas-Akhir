@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Pengguna;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Pengguna;
 use Auth;
 
 class AuthPenggunaController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('guest:pengguna')->except(['logout']);
     }
 
-    public function getLogin(){
+    public function getLogin()
+    {
         return view('auth_pengguna.login');
     }
 
@@ -29,16 +32,20 @@ class AuthPenggunaController extends Controller
             'password' => $request->password,
         ];
 
-        if (Auth::guard('pengguna')->attempt($credential)){
+        if (Auth::guard('pengguna')->attempt($credential)) {
             return redirect()->route('pengguna.beranda');
         }
         return redirect()->back()->withInput($request->only('email'))->with('warning', 'masukkan email dan password yang benar');
-
     }
 
     public function logout()
-        {
-            Auth::guard('pengguna')->logout();
-            return redirect()->route('pengguna.login');
-        }
+    {
+        Auth::guard('pengguna')->logout();
+        return redirect()->route('pengguna.login');
+    }
+
+    
+
+
+
 }
