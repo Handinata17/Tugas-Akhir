@@ -51,7 +51,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label>Organisasi</label>
-                            <select class="form-control" name="organisasi" 
+                            <select class="form-control" name="organisasi"
                                     id="organisasi">
                                     <option value="BEM"{{ $recruitment->organisasi == "BEM" ? 'selected' : '' }}>BEM</option>
                                     <option value="BPM" {{ $recruitment->organisasi == "BPM" ? 'selected' : '' }}>BPM</option>
@@ -67,7 +67,7 @@
 
                     <div class="form-group">
                         <label for="">Tanggal Recruitment</label>
-                        <input type="text" class="form-control" name="tanggal" id="daterange" readonly 
+                        <input type="text" class="form-control" name="tanggal" id="daterange" readonly
                         value="{{ $tanggal }}"
                             style="background: white; cursor: pointer;" />
                     </div>
@@ -92,7 +92,8 @@
 
                     <div class="form-group mb-0">
                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>
-                        <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button>
+                        {{-- <button type="reset" class="btn btn-gradient-danger waves-effect m-l-5">Cancel</button> --}}
+                        <a class="btn btn-gradient-danger btn-close waves-effect m-l-5" href="{{ route('recruitment') }}">Cancel</a>
                     </div>
                     <!--end form-group-->
                 </form>
@@ -120,7 +121,7 @@
     const hima = [ 'D4 Teknik Informatika','D4 Akuntansi Sektor Publik' ,'D3 Perhotelan'
                     ,'D3 DKV ( Desain Komunikasi Visual )','D3 Teknik Elektro','D3 Teknik Mesin'
                     ,'D3 Teknik Komputer','D3 Akuntansi','D3 Kebidanan','D3 Farmasi'];
-                    
+
 
     if(organisasi.value == 'HIMA'){
         displayKet.style.display = '';

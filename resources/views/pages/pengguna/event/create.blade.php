@@ -90,13 +90,17 @@
                                     <!--end form-group-->
                                     <div class="form-group">
                                         <label>Uploud Proposal</label>
-                                        <input type="file" class="form-control" name="proposal" value="{{old('proposal')}}" accept=".pdf" placeholder="Enter alphanumeric value">
+                                        <input
+                                        class="form-control {{ $errors->has('proposal') ? ' is-invalid' : '' }}"
+                                        name="proposal" accept=".pdf" type="file"
+                                        placeholder="Enter alphanumeric value">
                                         @if ($errors->has('proposal'))
-                                        <span class="valid-feedback" role="alert">
-                                            <p><b>{{ $errors->first('proposal') }}</b></p>
+                                        <span class="invalid-feedback text-danger"
+                                        role="alert">
+                                        <strong>{{ $errors->first('proposal') }}</strong>
                                         </span>
                                         @endif
-                                    </div>
+                                        </div>
 
                                     <div class="form-group mb-0">
                                         <button type="submit" class="btn btn-gradient-primary waves-effect waves-light">Submit</button>

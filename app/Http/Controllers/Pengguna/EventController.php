@@ -58,14 +58,18 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(),
+        $rule = [
             'proposal' => 'required|file|mimes:pdf|max:5048'
         ]);
+        $message = [
+            'required' => ':attribute tidak boleh kosong.'
+        ];
+        $this->validate($request, $rule, $message);
 
         if($validator->fails()){
             return redirect()->back()->withErrors($validator);
         }
-
 
         // dd($request->all());
         $proposal = $request->file('proposal')->store('proposal');
@@ -78,6 +82,10 @@ class EventController extends Controller
         $event->proposal = $proposal;
         // $event->perbaikan = $request->perbaikan;
         $event->save();
+
+        $proker = Proker::find($request->id_proker);
+
+        $proker->update(['status' => 1]);
 
         // dd($request->all());
 

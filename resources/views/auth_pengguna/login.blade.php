@@ -93,9 +93,9 @@
                                 <!--end form-->
                             </div>
                             <!--end /div-->
-                            <div class="m-3 text-center text-muted">
+                            {{-- <div class="m-3 text-center text-muted">
                                 <p class="">Lupa Password ? <a href="{{route('pengguna.password.request')}}" class="text-primary ml-2">Forgot Password</a></p>
-                            </div>
+                            </div> --}}
                         {{-- </div>  --}}
                         <!--end card-body-->
                     </div>

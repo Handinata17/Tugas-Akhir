@@ -55,11 +55,10 @@
                                           </td>
 
                                           <td>
-                                            <a href="{{ route('destroy.pendaftaran', $pendaftaran->id) }}" class="btn btn-danger btn-sm" 
-                                            onclick="return confirm('apakah anda yakin ingin menghapus data ini?')"
-                                            ><i class="fa fa-trash"></i></a> 
+                                            <a href="{{route('destroy.pendaftaran', $pendaftaran->id)}}"><i class="far fa-trash-alt text-danger"
+                                            onclick="return confirm('apakah anda yakin ingin menghapus data ini?')"></i></a>
                                           </td>
-                                          
+
                                         </tr>
                                         <div class="modal fade" id="terima{{$pendaftaran->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog" role="document">

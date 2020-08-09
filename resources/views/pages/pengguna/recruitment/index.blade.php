@@ -43,8 +43,10 @@
                                             <td>{{$recruitment->keterangan ? $recruitment->keterangan : '-'}}</td>
                                             <td>{{ date('d-m-Y', strtotime($recruitment->tanggal_mulai) )}}</td>
                                             <td>{{ date('d-m-Y', strtotime($recruitment->tanggal_selesai) )}}</td>
-                                            <td><a href="{{route('edit.recruitment', $recruitment->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
-                                            <a href="{{route('destroy.recruitment', $recruitment->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
+                                            <td><a href="{{route('edit.recruitment', $recruitment->id)}}"><i class="far fa-edit text-info mr-1"
+                                                onclick="return confirm('apakah anda yakin ingin mengedit data ini?')"></i></a>
+                                            <a href="{{route('destroy.recruitment', $recruitment->id)}}"><i class="far fa-trash-alt text-danger"
+                                                onclick="return confirm('apakah anda yakin ingin menghapus data ini?')"></i></a></td>
                                         </tr>
                                         @endif
                                     @endforeach

@@ -23,7 +23,9 @@
 
     <script>
         $(function() {
-          $('#daterange').daterangepicker();
+          $('#daterange').daterangepicker({
+              minDate: new Date(),
+          });
         });
     </script>
 
