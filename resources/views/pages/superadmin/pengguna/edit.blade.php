@@ -128,12 +128,12 @@
       keterangan.required = true;
       option = `<option>Direktur 3</option>`;
       keterangan.innerHTML = option;
-      console.log(ketua);
-      // ketua.disabled = true;
-      // bendahara.disabled = true;
-      // sekretaris.disabled = true;
-      // anggota.disabled = true;
-      // wakil.selected = true;
+      //console.log(ketua);
+      ketua.disabled = true;
+      bendahara.disabled = true;
+      sekretaris.disabled = true;
+      anggota.disabled = true;
+      wakil.selected = true;
     }
 
     organisasi.addEventListener('change', function(){
