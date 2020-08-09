@@ -32,19 +32,19 @@
                                     @foreach($revisis as $revisi)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$revisi->event->proker->nama_event}}</td>
-                                            <td>{{$revisi->event->proker->organisasi}}</td>
-                                            <td>{{$revisi->event->proker->keterangan}}</td>
-                                            <td>Telah di revisi sebanyak {{$revisi->total}} kali</td>
+                                            <td>{{$revisi->proker->nama_event}}</td>
+                                            <td>{{$revisi->proker->organisasi}}</td>
+                                            <td>{{$revisi->proker->keterangan}}</td>
+                                            <td>Telah di revisi sebanyak {{count($revisi->revisi)}} kali</td>
                                             <td>
-                                              @if($revisi->event->acc_wadir_3 == '3')
+                                              @if($revisi->acc_wadir_3 == '3')
                                               <span class="badge badge-success">Close</span>
                                               @else
                                               <span class="badge badge-success">Open</span>
                                               @endif
                                             </td>
                                             <td>
-                                              <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $revisi->id_event)}}'">Lihat Revisi</button>
+                                              <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $revisi->id)}}'">Lihat Revisi</button>
                                             </td>
                                         </tr>
                                         </tr>

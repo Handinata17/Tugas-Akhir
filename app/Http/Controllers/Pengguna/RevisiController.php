@@ -18,7 +18,8 @@ class RevisiController extends Controller
     }
     public function index()
     {
-        $revisis = Revisi::orderBy('id','DESC')->select('id_event', DB::raw('count(*) as total'))->groupBy('id_event')->get();
+        // $revisis = Revisi::orderBy('id','DESC')->select('id_event', DB::raw('count(*) as total'))->groupBy('id_event')->get();
+        $revisis = Event::with('revisi')->has('revisi')->orderBy('id', 'DESC')->get();
         // dd($revisis);
         return view('pages.pengguna.revisi.index', compact('revisis'));
     }
