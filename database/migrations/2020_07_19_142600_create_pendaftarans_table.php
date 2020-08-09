@@ -16,9 +16,9 @@ class CreatePendaftaransTable extends Migration
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_recruitment')->unsigned();
-            $table->string('nim');
-            $table->string('nama_mahasiswa');
-            $table->string('email');
+            $table->string('nim','8');
+            $table->string('nama_mahasiswa','50');
+            $table->string('email','50');
             $table->text('file');
             $table->timestamp('verifikasi_email')->nullable();
             $table->boolean('status')->nullable();

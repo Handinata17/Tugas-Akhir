@@ -16,12 +16,12 @@ class CreateProkersTable extends Migration
         Schema::create('prokers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_pengguna')->unsigned();
-            $table->string('nama_event');
-            $table->string('organisasi');
-            $table->string('keterangan')->nullable();
+            $table->string('nama_event','50');
+            $table->string('organisasi','50');
+            $table->string('keterangan','50')->nullable();
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
-            $table->text('tempat');
+            $table->string('tempat','50');
             $table->text('alokasi_dana');
             $table->boolean('status')->default(false);
             $table->timestamps();

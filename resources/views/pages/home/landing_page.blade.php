@@ -54,7 +54,7 @@
                                                 <h3><a href="{{route('pengguna.login')}}" class="active">Pengguna</a></h3>
                                             </li>
                                             <li>
-                                                <h3><a href="{{route('superadmin.login')}}">Admin</a></h3>
+                                                <h3><a href="{{route('superadmin.login')}}" class="active">Admin</a></h3>
                                             </li>
                                         </ul>
                                     </li>
@@ -118,13 +118,13 @@
                                                             </div>
                                                             @endif
 
-																														@if($errors->all())
+															@if($errors->all())
                                                             <div class="alert alert-danger" role="alert">
                                                                 Pendaftaran Recruitment gagal! cek kembali
                                                             </div>
                                                             @endif
 
-																														@if(Session::has('success'))
+															@if(Session::has('success'))
                                                             <div class="alert alert-success" role="alert">
                                                                 Pendaftaran Recruitment berhasil
                                                             </div>

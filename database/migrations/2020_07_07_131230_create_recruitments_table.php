@@ -16,9 +16,9 @@ class CreateRecruitmentsTable extends Migration
         Schema::create('recruitments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_pengguna')->unsigned();
-            $table->string('nama_recruitment');
-            $table->string('organisasi');
-            $table->string('keterangan')->nullable();
+            $table->string('nama_recruitment','50');
+            $table->string('organisasi','50');
+            $table->string('keterangan','50')->nullable();
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
             $table->boolean('status')->default(false);

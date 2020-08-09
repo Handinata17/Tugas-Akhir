@@ -14,9 +14,9 @@ class CreateRevisisTable extends Migration
     public function up()
     {
         Schema::create('revisis', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->integer('id_event')->unsigned()->nullable();
-            $table->integer('id_eventlain')->unsigned()->nullable();
+            // $table->integer('id_eventlain')->unsigned()->nullable();
             $table->integer('id_pengguna')->unsigned();
             $table->text('revisi');
             $table->timestamps();
