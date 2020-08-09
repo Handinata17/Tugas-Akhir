@@ -8,7 +8,6 @@
                      <span class="ml-1 nav-user-name hidden-sm">{{Auth::user()->nama}}<i class="mdi mdi-chevron-down"></i></span></a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href=""><i class="dripicons-user text-muted mr-2"></i> Profile</a> <a class="dropdown-item" href="#">
-                            {{-- <i class="dripicons-gear text-muted mr-2"></i> Settings</a> --}}
                         <div class="dropdown-divider">
                             </div>
                             <a class="dropdown-item" href="{{route('superadmin.logout')}}"><i class="dripicons-exit text-muted mr-2"></i> Logout</a>

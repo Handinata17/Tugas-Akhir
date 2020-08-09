@@ -47,9 +47,7 @@
                                             <th>No</th>
                                             <th>Nama Event</th>
                                             <th>Organisasi</th>
-                                            <th>Tanggal<div>
-                                                Mulai</th></div>
-                                            {{-- <th>Tempat</th> --}}
+                                            <th>Tanggal Mulai</th>
                                             <th>Alokasi Dana</th>
                                             <th>Tipe</th>
                                             <th>Proposal</th>
@@ -66,8 +64,6 @@
                                             <td>{{$event->proker->nama_event}}</td>
                                             <td>{{$event->pengguna->organisasi}}</td>
                                             <td>{{$event->proker->tanggal_mulai}}</td>
-                                            {{-- <td>{{$event->proker->tempat}}</td> --}}
-                                            {{-- <td>{{$event->proker->alokasi_dana}}</td> --}}
                                             <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td>
                                             <td>{{$event->tipe}}</td>
                                             <td>@if($event->acc_wadir_3 == 3)
@@ -77,12 +73,12 @@
                                             @endif
                                             </td>
                                               <td>
-                                                @if($event->acc == 1 || $event->acc_wadir_3 == 2 && count($event->revisi) > 0)
-                                                <button class="btn btn-danger btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
+                                                @if($event->proker->organisasi === 'BPM' && $event->acc < 2)
+                                                <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
                                                 @elseif($event->acc == 2 && count($event->revisi) > 0)
                                                 <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
-                                                @elseif($event->pengguna->organisasi === 'BPM' && $event->acc < 2)
-                                                <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
+                                                @elseif($event->acc == 1 || $event->acc_wadir_3 == 2 && count($event->revisi) > 0)
+                                                <button class="btn btn-danger btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
                                                 @endif
                                             </td>
                                             <td>
@@ -114,8 +110,6 @@
                                             <td>{{$event->proker->nama_event}}</td>
                                             <td>{{$event->pengguna->organisasi}}</td>
                                             <td>{{$event->proker->tanggal_mulai}}</td>
-                                            {{-- <td>{{ $event->proker->tempat}}</td> --}}
-                                            {{-- <td>{{$event->proker->alokasi_dana}}</td> --}}
                                             <td>Rp. {{ number_format($event->proker->alokasi_dana, 0, ',','.')}}</td>
                                             <td>{{$event->tipe}}</td>
                                             <td>
@@ -126,8 +120,9 @@
                                             @endif
                                             </td>
                                             <td>
-
-                                              @if($event->acc == 1 || $event->acc == null && $event->pengguna->organisasi !== 'BPM' )
+                                              @if($event->proker->organisasi === 'BPM' && $event->acc < 2)
+                                              <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
+                                              @elseif($event->acc == 1 || $event->acc == null && $event->proker->organisasi === 'BPM' )
                                               <button class="btn btn-warning btn-sm" onclick="window.location='{{route("revisi.event", $event->id)}}'">Revisi</button>
                                               @elseif($event->acc == 2 && count($event->revisi) > 0)
                                               <button class="btn btn-success btn-sm" onclick="window.location='{{route("pengguna.revisi.event.show", $event->id)}}'">Lihat Revisi</button>
@@ -151,9 +146,9 @@
                                               @endif
                                             </td>
                                             <td>
-                                              @if($event->acc == 1 || $event->acc == null && $event->pengguna->organisasi !== 'BPM' )
+                                              @if($event->proker->organisasi === 'BEM' && $event->acc < 2)
                                               <a href="{{route('acc.event', $event->id)}}" class="btn btn-sm btn-success">Acc</a>
-                                              @elseif($event->acc_wadir_3 !== '3' && $event->pengguna->organisasi === 'BPM')
+                                              @elseif($event->acc_wadir_3 !== '3' && $event->proker->organisasi === 'BPM')
                                               <button type="button" class="btn btn-warning" onclick="window.location='{{route("edit.event", $event->id)}}'">Edit</button>
                                               @endif
                                             </td>

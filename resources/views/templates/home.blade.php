@@ -20,7 +20,7 @@
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->organisasi}}</p>
                     <p class="text-muted text-uppercase mb-0 font-12">{{Auth::user()->keterangan}}</p>
                 @else
-                <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->name}}</h5>
+                <h5 class="mt-0 mb-1 font-weight-semiboldk">{{Auth::user()->nama}}</h5>
                 @endif
               </div>
             </div>
