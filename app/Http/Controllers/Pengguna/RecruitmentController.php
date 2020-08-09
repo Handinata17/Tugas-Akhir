@@ -61,6 +61,7 @@ class RecruitmentController extends Controller
         $recruitment->id_pengguna = Auth::user()->id;
         $recruitment->nama_recruitment = $request->nama_recruitment;
         $recruitment->organisasi = $request->organisasi;
+        $recruitment->keterangan = $request->keterangan;
         $recruitment->tanggal_mulai = Carbon::parse($tanggal_mulai)->format('Y-m-d');
         $recruitment->tanggal_selesai = Carbon::parse($tanggal_selesai)->format('Y-m-d');
         $recruitment->save();
@@ -108,7 +109,7 @@ class RecruitmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-    
+
         $tanggal_mulai = substr($request->tanggal, 0, 10);
         $tanggal_selesai = substr($request->tanggal, 13);
 
@@ -116,7 +117,7 @@ class RecruitmentController extends Controller
         $recruitment->id_pengguna = Auth::user()->id;
         $recruitment->nama_recruitment = $request->nama_recruitment;
         $recruitment->organisasi = $request->organisasi;
-        // $recruitment->keterangan = $request->keterangan;
+        $recruitment->keterangan = $request->keterangan;
         $recruitment->tanggal_mulai = Carbon::parse($tanggal_mulai)->format('Y-m-d');
         $recruitment->tanggal_selesai = Carbon::parse($tanggal_selesai)->format('Y-m-d');
         // $proker->tempat = $request->tempat;
