@@ -68,18 +68,18 @@
                                         <div class="form-group" id="display-keterangan" style="display: none">
                                             <label>Keterangan</label>
                                             <div class="col-sm-12">
-                                                <select class="for'm-control" name="keterangan" id="keterangan"></select>
+                                                <select class="form-control" name="keterangan" id="keterangan"></select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Jabatan</label>
                                             <div class="col-sm-12">
                                                 <select class="form-control" name="jabatan">
-                                                    <option value="Ketua">Ketua</option>
-                                                    <option value="Wakil">Wakil</option>
-                                                    <option value="Sekretaris">Sekretaris</option>
-                                                    <option value="Bendahara">Bendahara</option>
-                                                    <option value="Anggota">Anggota</option>
+                                                  <option value="Ketua" id="ketua">Ketua</option>
+                                                  <option value="Wakil" id="wakil">Wakil</option>
+                                                  <option value="Sekretaris" id="sekretaris">Sekretaris</option>
+                                                  <option value="Bendahara" id="bendahara">Bendahara</option>
+                                                  <option value="Anggota" id="anggota">Anggota</option>
                                                 </select>
                                             </div>
                                     </div>
@@ -109,6 +109,11 @@
 <script>
     const keterangan = document.querySelector('#keterangan');
     const organisasi = document.querySelector('#organisasi');
+    const ketua = document.querySelector('#ketua');
+    const wakil = document.querySelector('#wakil');
+    const sekretaris = document.querySelector('#sekretaris');
+    const bendahara = document.querySelector('#bendahara');
+    const anggota = document.querySelector('#anggota');
     const displayKet = document.querySelector('#display-keterangan');
 
     const hima = [ 'D4 Teknik Informatika','D4 Akuntansi Sektor Publik' ,'D3 Perhotelan'
@@ -118,39 +123,64 @@
         'Popala','Paduan suara','Karate','Silat','Formasi','Robotika','Musik','Tenis meja','Jqh almizan','Politeknik english club',
         'SMIT'];
 
+    if(organisasi.value === ''){
+      displayKet.style.display = '';
+      keterangan.required = true;
+      option = `<option>Direktur 3</option>`;
+      keterangan.innerHTML = option;
+      console.log(ketua);
+      // ketua.disabled = true;
+      // bendahara.disabled = true;
+      // sekretaris.disabled = true;
+      // anggota.disabled = true;
+      // wakil.selected = true;
+    }
+
     organisasi.addEventListener('change', function(){
         let option;
         if(this.value === 'HIMA'){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>PIlih HIMA</option>`;
+            option = `<option value="">PIlih HIMA</option>`;
             hima.map(h => option += `<option value="${h}">${h}</option>` );
-            keterangan.innerHTML = option
+            keterangan.innerHTML = option;
+            ketua.disabled = false;
+            bendahara.disabled = false;
+            sekretaris.disabled = false;
+            anggota.disabled = false;
+            ketua.selected = true;
+            keterangan.value = ''
         }else if(this.value === 'UKM'){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>PIlih UKM</option>`;
+            option = `<option value="">PIlih UKM</option>`;
             ukm.map(u => option += `<option value="${u}">${u}</option>` );
-            keterangan.innerHTML = option
+            keterangan.innerHTML = option;
+            ketua.disabled = false;
+            bendahara.disabled = false;
+            sekretaris.disabled = false;
+            anggota.disabled = false;
+            ketua.selected = true;
+            keterangan.value = ''
         }else if(this.value === ''){
             displayKet.style.display = '';
             keterangan.required = true;
-            option = `<option>Direktur 3</option>
-             <option>Kaprodi D4 Teknik Informatika</option>
-             <option>Kaprodi D4 Akuntansi Sektor Publik</option>
-             <option>Kaprodi D3 Perhotelan</option>
-             <option>Kaprodi D3 DKV ( Desain Komunikasi Visual )</option>
-             <option>Kaprodi D3 Teknik Elektro</option>
-             <option>Kaprodi D3 Teknik Mesin</option>
-             <option>Kaprodi D3 Teknik Komputer</option>
-             <option>Kaprodi D3 Akuntansi</option>
-             <option>Kaprodi D3 Kebidanan</option>
-             <option>Kaprodi D3 Farmasi</option>`;
-            keterangan.innerHTML = option
-        }
-        else{
+            option = `<option>Direktur 3</option>`;
+            keterangan.innerHTML = option;
+            ketua.disabled = true;
+            bendahara.disabled = true;
+            sekretaris.disabled = true;
+            anggota.disabled = true;
+            wakil.selected = true;
+        }else{
             displayKet.style.display = 'none';
+            keterangan.value = ''
             keterangan.required = false;
+            ketua.disabled = false;
+            bendahara.disabled = false;
+            sekretaris.disabled = false;
+            anggota.disabled = false;
+            ketua.selected = true;
         }
     })
 </script>
