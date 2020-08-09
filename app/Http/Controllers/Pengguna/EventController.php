@@ -8,8 +8,8 @@ use App\Event;
 use App\Pengguna;
 use App\Proker;
 use App\Revisi;
-use Auth;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -46,8 +46,11 @@ class EventController extends Controller
     }
 
     public function create(){
-        $pengguna = Auth::user();
-        $prokers = Proker::where('organisasi',$pengguna->organisasi)->where('keterangan',$pengguna->keterangan)->where('status', 0)->get();
+
+        $pengguna = Auth::guard('pengguna')->user();
+        $prokers = Proker::where('organisasi',$pengguna->organisasi)
+        ->where('keterangan',$pengguna->keterangan)
+        ->where('status', 0)->get();
 
         return view('pages.pengguna.event.create', compact('prokers'));
     }
