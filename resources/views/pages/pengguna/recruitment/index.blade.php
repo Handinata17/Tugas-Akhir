@@ -40,9 +40,9 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$recruitment->nama_recruitment}}</td>
                                             <td>{{$recruitment->organisasi}}</td>
-                                            <td>{{$recruitment->keterangan}}</td>
-                                            <td>{{$recruitment->tanggal_mulai}}</td>
-                                            <td>{{$recruitment->tanggal_selesai}}</td>
+                                            <td>{{$recruitment->keterangan ? $recruitment->keterangan : '-'}}</td>
+                                            <td>{{ date('d-m-Y', strtotime($recruitment->tanggal_mulai) )}}</td>
+                                            <td>{{ date('d-m-Y', strtotime($recruitment->tanggal_selesai) )}}</td>
                                             <td><a href="{{route('edit.recruitment', $recruitment->id)}}"><i class="far fa-edit text-info mr-1"></i></a>
                                             <a href="{{route('destroy.recruitment', $recruitment->id)}}"><i class="far fa-trash-alt text-danger"></i></a></td>
                                         </tr>

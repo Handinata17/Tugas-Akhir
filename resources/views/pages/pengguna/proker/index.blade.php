@@ -25,7 +25,6 @@
                                             <th>No</th>
                                             <th>Nama Event</th>
                                             <th>Organisasi</th>
-                                            <th>Keterangan</th>
                                             <th>Tanggal Mulai</th>
                                             <th>Tanggal Selesai</th>
                                             <th>Tempat</th>
@@ -40,9 +39,8 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$proker->nama_event}}</td>
                                             <td>{{$proker->organisasi}}</td>
-                                            <td>{{$proker->keterangan}}</td>
-                                            <td>{{$proker->tanggal_mulai}}</td>
-                                            <td>{{$proker->tanggal_selesai}}</td>
+                                            <td>{{ date('d-m-Y', strtotime($proker->tanggal_mulai) )}}</td>
+                                            <td>{{ date('d-m-Y', strtotime($proker->tanggal_selesai) )}}</td>
                                             <td>{{$proker->tempat}}</td>
                                             {{-- <td>Rp. {{ $proker->alokasi_dana }},00</td> --}}
                                             <td>Rp. {{ number_format($proker->alokasi_dana, 0, ',','.')}}</td>

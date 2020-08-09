@@ -30,7 +30,7 @@ class AuthController extends Controller
         if (Auth::guard('superadmin')->attempt($credential)){
             return redirect('superadmin/pengguna');
         }
-        return redirect()->back()->withInput($request->only('email'));
+        return redirect()->back()->withInput($request->only('email'))->with('warning', 'masukkan email dan password yang benar!');
 
 
     }

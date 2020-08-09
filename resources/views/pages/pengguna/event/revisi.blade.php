@@ -52,7 +52,7 @@
                                   </button>
                                 </div>
                                 <div class="modal-body">
-                                 <embed src="{{config("app.url").$event->proposal}}" framborder="0" width="100%" height="450px">
+                                 <embed src="{{config("app.url").'public/'.$event->proposal}}" framborder="0" width="100%" height="450px">
                                  {{-- <embed src="{{asset($event->proposal)}}" framborder="0" width="100%" height="450px"> --}}
                                 </div>
 
